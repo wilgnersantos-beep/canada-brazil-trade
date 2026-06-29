@@ -1,0 +1,113 @@
+name: update-trade-data
+
+# ---------------------------------------------------------------------------
+# Pipeline mensal, 100% na nuvem (GitHub Actions). Nao depende do seu computador.
+#
+# O que ele faz, em ordem, num unico job sequencial:
+#   1. Recupera o parquet acumulado (guardado como asset de uma Release)
+#   2. Baixa da Statistics Canada apenas os meses que ainda nao tem (incremental)
+#   3. Mescla os dados novos no parquet (merge, nunca overwrite)
+#   4. Devolve o parquet atualizado para a Release (persistencia entre execucoes)
+#   5. Gera os CSVs que o dashboard le (site/data_csv/*.csv)
+#   6. Commita os CSVs
+#   7. Publica a pasta site/ no GitHub Pages
+#
+# Persistencia SEM HuggingFace: o parquet vive como asset da Release "data-store".
+# Isso usa apenas o GITHUB_TOKEN automatico -> nenhum secret extra, nenhuma conta extra.
+# ---------------------------------------------------------------------------
+
+on:
+  schedule:
+    # StatCan publica entre os dias 6 e 9. Tentamos dos dias 10 ao 13 como rede
+    # de seguranca. O job e idempotente: se nao ha mes novo, ele fecha sem fazer
+    # nada (no-op), entao rodar em varios dias nao gera commits duplicados.
+    # Atencao: o cron do GitHub e sempre em UTC. 12:00 UTC ~ 07h em Ontario.
+    - cron: "0 12 10-13 * *"
+  workflow_dispatch:        # botao "Run workflow" para testar manualmente quando quiser
+
+# Evita duas execucoes simultaneas mexendo no parquet ao mesmo tempo.
+concurrency:
+  group: trade-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: write           # commitar os CSVs e gravar a Release
+  pages: write              # publicar no GitHub Pages
+  id-token: write           # exigido pelo deploy-pages
+
+env:
+  # Enquanto a extracao real da StatCan nao estiver colada em pipeline/extract.py,
+  # deixe DEMO=1: o pipeline roda com dados sinteticos e voce ja ve TUDO verde
+  # (incluindo o Pages). Quando colar a logica real, troque para DEMO=0.
+  DEMO: "1"
+  RELEASE_TAG: "data-store"
+  PARQUET_PATH: "data/canada_trade_full.parquet"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      # ---- 1. Recupera o parquet acumulado da Release (se existir) -------------
+      - name: Recuperar parquet anterior
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data
+          gh release download "$RELEASE_TAG" \
+            --pattern "$(basename "$PARQUET_PATH")" \
+            --dir data \
+            || echo "Sem parquet anterior (primeira execucao). Comecando do zero."
+
+      # ---- 2. Baixa da StatCan apenas os meses faltantes -----------------------
+      - name: Extrair (incremental)
+        run: python pipeline/extract.py
+
+      # ---- 3. Mescla no parquet (merge, nao overwrite) -------------------------
+      - name: Transformar / mesclar
+        run: python pipeline/transform.py
+
+      # ---- 4. Devolve o parquet atualizado para a Release ----------------------
+      - name: Persistir parquet na Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Cria a release uma unica vez (silencioso se ja existir).
+          gh release create "$RELEASE_TAG" \
+            --title "Parquet acumulado (nao apagar)" \
+            --notes "Armazenamento do dataset completo entre execucoes. Gerenciado pelo workflow." \
+            || true
+          gh release upload "$RELEASE_TAG" "$PARQUET_PATH" --clobber
+
+      # ---- 5. Gera os CSVs que o dashboard le ----------------------------------
+      - name: Agregar -> CSVs
+        run: python analytics/aggregate.py
+
+      # ---- 6. Commita os CSVs atualizados --------------------------------------
+      - name: Commitar CSVs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add site/data_csv
+          git commit -m "data: atualizacao mensal automatica" || echo "Sem mudancas para commitar."
+          git push
+
+      # ---- 7. Publica site/ no GitHub Pages ------------------------------------
+      - name: Empacotar site para Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Publicar no GitHub Pages
+        uses: actions/deploy-pages@v4
