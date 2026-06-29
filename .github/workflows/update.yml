@@ -93,16 +93,19 @@ jobs:
             || true
           gh release upload "$RELEASE_TAG" "$PARQUET_PATH" --clobber
 
-      # ---- 5. Gera os CSVs que o dashboard le ----------------------------------
+      # ---- 5. Gera os CSVs e JSONs que o dashboard le -------------------------
       - name: Agregar -> CSVs
         run: python analytics/aggregate.py
 
-      # ---- 6. Commita os CSVs atualizados --------------------------------------
-      - name: Commitar CSVs
+      - name: Gerar JSONs do dashboard
+        run: python analytics/build_dashboard_data.py
+
+      # ---- 6. Commita CSVs e JSONs atualizados --------------------------------
+      - name: Commitar CSVs e JSONs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add site/data_csv
+          git add site/data_csv site/data
           git commit -m "data: atualizacao mensal automatica" || echo "Sem mudancas para commitar."
           git push
 
