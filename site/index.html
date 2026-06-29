@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Canada–Brazil Trade · página de teste</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --ink:#0f1c2e; --muted:#5b6b7f; --line:#e3e8ef;
+    --leaf:#1f7a4d; --leaf-soft:#e7f3ec;   /* verde Brasil */
+    --maple:#c1331f; --maple-soft:#fbe9e6; /* vermelho Canada */
+    --bg:#ffffff; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.5}
+  .wrap{max-width:880px;margin:0 auto;padding:28px 20px 56px}
+  .badge{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;
+         text-transform:uppercase;color:var(--maple);background:var(--maple-soft);
+         border:1px solid #f3cfc9;border-radius:999px;padding:4px 11px}
+  h1{font-size:26px;margin:14px 0 4px;letter-spacing:-.01em}
+  .sub{color:var(--muted);margin:0 0 22px;font-size:15px}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 22px}
+  .kpi{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
+  .kpi .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+  .kpi .val{font-size:20px;font-weight:700;margin-top:4px}
+  .card{border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--card)}
+  .note{margin-top:22px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+  .note code{background:#f3f5f8;padding:1px 6px;border-radius:5px}
+  @media (max-width:560px){.kpis{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="badge">Página de teste · substituir pelo dashboard real</span>
+  <h1>Comércio bilateral Canadá – Brasil</h1>
+  <p class="sub">Esta página existe só para validar a publicação automática no GitHub Pages.
+  Os números abaixo vêm de <code>./data_csv/monthly.csv</code>, gerado pelo pipeline.</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="label">Exportações (último mês)</div><div class="val" id="k-exp">—</div></div>
+    <div class="kpi"><div class="label">Importações (último mês)</div><div class="val" id="k-imp">—</div></div>
+    <div class="kpi"><div class="label">Saldo (último mês)</div><div class="val" id="k-bal">—</div></div>
+  </div>
+
+  <div class="card"><canvas id="chart" height="150"></canvas></div>
+
+  <p class="note">Quando estiver tudo verde, troque o conteúdo de <code>site/</code> pelo seu
+  dashboard real (o <code>index.html</code> + <code>data_csv/</code> do <code>canada-trade-kpi-lab</code>).
+  Mantenha os caminhos dos CSVs relativos (<code>./data_csv/...</code>).</p>
+</div>
+
+<script>
+const fmt = v => "CAD " + (v/1e6).toLocaleString("pt-BR",{maximumFractionDigits:0}) + " mi";
+
+fetch("./data_csv/monthly.csv")
+  .then(r => r.text())
+  .then(txt => {
+    const [head, ...lines] = txt.trim().split(/\r?\n/);
+    const cols = head.split(",");
+    const rows = lines.map(l => {
+      const c = l.split(",");
+      return Object.fromEntries(cols.map((k,i)=>[k, i===0 ? c[i] : Number(c[i])]));
+    });
+    const last = rows[rows.length-1];
+    document.getElementById("k-exp").textContent = fmt(last.exports_cad);
+    document.getElementById("k-imp").textContent = fmt(last.imports_cad);
+    document.getElementById("k-bal").textContent = fmt(last.balance_cad);
+
+    new Chart(document.getElementById("chart"), {
+      type: "line",
+      data: {
+        labels: rows.map(r => r.month),
+        datasets: [
+          { label:"Exportações", data: rows.map(r=>r.exports_cad),
+            borderColor:"#c1331f", backgroundColor:"#fbe9e6", tension:.3, fill:true },
+          { label:"Importações", data: rows.map(r=>r.imports_cad),
+            borderColor:"#1f7a4d", backgroundColor:"#e7f3ec", tension:.3, fill:true }
+        ]
+      },
+      options: {
+        responsive:true,
+        plugins:{ legend:{ position:"bottom" } },
+        scales:{ y:{ ticks:{ callback:v => (v/1e6)+" mi" } } }
+      }
+    });
+  })
+  .catch(e => {
+    document.querySelector(".card").innerHTML =
+      "<p style='color:#c1331f;margin:0'>Não consegui carregar data_csv/monthly.csv. " +
+      "Confira se o arquivo está na pasta site/data_csv/.</p>";
+  });
+</script>
+</body>
+</html>
