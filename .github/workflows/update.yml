@@ -39,7 +39,7 @@ env:
   # Enquanto a extracao real da StatCan nao estiver colada em pipeline/extract.py,
   # deixe DEMO=1: o pipeline roda com dados sinteticos e voce ja ve TUDO verde
   # (incluindo o Pages). Quando colar a logica real, troque para DEMO=0.
-  DEMO: "1"
+  DEMO: "0"
   RELEASE_TAG: "data-store"
   PARQUET_PATH: "data/canada_trade_full.parquet"
 
