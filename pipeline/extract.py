@@ -56,11 +56,21 @@ SPECIAL_HS2 = {"98", "99"}
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def meses_ja_no_parquet() -> set[str]:
-    """Retorna o conjunto de meses (YYYY-MM) ja presentes no parquet acumulado."""
+    """Retorna meses (YYYY-MM) presentes no parquet.
+    Se o parquet for do schema antigo (DEMO: coluna 'month'), descarta-o
+    para que a carga completa seja refeita com o schema CIMT.
+    """
     if not PARQUET_PATH.exists():
         return set()
-    df = pd.read_parquet(PARQUET_PATH, columns=["date"])
-    return set(df["date"].astype(str).unique())
+    import pyarrow.parquet as pq
+    cols = pq.read_schema(PARQUET_PATH).names
+    if "date" in cols:
+        df = pd.read_parquet(PARQUET_PATH, columns=["date"])
+        return set(df["date"].astype(str).unique())
+    # Schema antigo ou desconhecido — descarta para recriar com schema CIMT
+    LOG.warning("Parquet com schema incompativel (colunas: %s) — descartando.", cols)
+    PARQUET_PATH.unlink()
+    return set()
 
 
 def anos_a_baixar(meses_existentes: set[str]) -> list[int]:
