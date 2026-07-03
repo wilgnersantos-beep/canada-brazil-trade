@@ -1914,7 +1914,7 @@ z"/>
       <!-- Detail table -->
       <div style="overflow-x:auto">
         <table>
-          <thead><tr><th>HS2</th><th>Product Category</th><th>Annual Imports</th><th>% of Province</th></tr></thead>
+          <thead><tr><th>HS2</th><th>Product Category</th><th>Imports</th><th>% of Province</th></tr></thead>
           <tbody id="prov-detail-tbody"></tbody>
         </table>
       </div>
@@ -2927,8 +2927,14 @@ async function _loadProvGeo(){
 let _openProvCode=null;
 function rp(){
   const {type,from,to}=getRange();
-  D.provinces=aggProvinces(from,to,type);
-  D.provinces_commodities=aggProvinceCommodities(from,to,type);
+  const allProv=aggProvinces(from,to,type);
+  /* ZZ = re-exports with no province of origin (StatCan does not attribute a
+     province). Not geographic: kept aside for the reconciliation line, and
+     excluded from the map / ranking / table. Real provinces = domestic exports,
+     which validate against StatCan 12-10-0175. */
+  D.provinces=allProv.filter(p=>p.code!=='ZZ');
+  D.provinces_unspecified=allProv.find(p=>p.code==='ZZ')||{code:'ZZ',imports:0,exports:0,total:0};
+  D.provinces_commodities=aggProvinceCommodities(from,to,type).filter(c=>c.code!=='ZZ');
 
   renderProvOverview();
   renderProvMap();
@@ -3084,7 +3090,7 @@ function openProvPanel(code){
   const topShare=prov.imports>0&&topCom?(topCom.imports/prov.imports*100).toFixed(1)+'%':'—';
 
   document.getElementById('prov-kpis').innerHTML=[
-    {l:'Annual Import Demand',v:fmt(prov.imports),sub:'Customs-clearance basis · '+periodLabel},
+    {l:'Import Demand',v:fmt(prov.imports),sub:'Customs-clearance basis · '+periodLabel},
     {l:'Domestic Exports',v:fmt(prov.exports),sub:'Province of origin · '+periodLabel},
     {l:'Share of Canada',v:totalAll?(prov.imports/totalAll*100).toFixed(1)+'%':'—',sub:'of total Canadian imports'},
     {l:'Top Category',v:topCom?'HS'+topCom.hs2+' '+topCom.commodity.split(' ').slice(0,3).join(' '):'—',sub:topCom?fmt(topCom.imports)+' · '+topShare+' of provincial imports':''},
@@ -3106,7 +3112,7 @@ function openProvPanel(code){
     data:{
       labels:impSorted.map(c=>'HS'+c.hs2+' '+c.commodity),
       datasets:[{
-        label:'Annual Imports',
+        label:'Imports',
         data:impSorted.map(c=>toB(c.imports)),
         backgroundColor:impSorted.map((_,i)=>i===0?'#1a5c2e':'#f5a623'),
         borderRadius:4
@@ -3203,7 +3209,7 @@ function renderProvOverview(){
   }
 
   /* Summary table */
-  document.getElementById('prov-all-tbody').innerHTML=sorted.map((p,i)=>{
+  let rowsHtml=sorted.map((p,i)=>{
     const meta=PROVINCE_META[p.code]||{};
     const share=totalAll?(p.total/totalAll*100).toFixed(1)+'%':'—';
     return`<tr style="cursor:pointer" onclick="openProvPanel('${p.code}')">
@@ -3219,6 +3225,21 @@ function renderProvOverview(){
       </td>
     </tr>`;
   }).join('');
+
+  /* Re-export reconciliation row: exports with no province of origin. Shown so
+     Σ(provinces domestic exports) + this = national total exports. Not on the
+     map/ranking (no geography). */
+  const u=D.provinces_unspecified||{exports:0};
+  if(u.exports>0){
+    rowsHtml+=`<tr style="background:var(--surf2,#f7f8f7);color:var(--muted)" title="Re-exports of foreign goods in transit — StatCan does not attribute a province of origin.">
+      <td>—</td>
+      <td><em>Unspecified — re-exports</em><span style="color:var(--muted);font-size:11px;margin-left:6px">no province of origin</span></td>
+      <td>—</td>
+      <td><strong>${fmt(u.exports)}</strong></td>
+      <td><span style="font-size:11px">reconciles to national total</span></td>
+    </tr>`;
+  }
+  document.getElementById('prov-all-tbody').innerHTML=rowsHtml;
 }
 
 function dc(id){if(charts[id]){charts[id].destroy();delete charts[id];}}
