@@ -52,6 +52,10 @@ LOG = logging.getLogger(__name__)
 PARQUET_PATH = Path(os.environ.get("PARQUET_PATH", "data/canada_trade_full.parquet"))
 RAW_DIR = Path("data_raw")
 DEMO = os.environ.get("DEMO", "1") == "1"
+# Forca reprocessamento de TODOS os anos (backfill completo), ignorando o
+# incremental. Util para reconstruir a exportacao-por-provincia em bases
+# geradas por pipelines antigos que so tinham exportacao sem provincia.
+REPROCESS_ALL = os.environ.get("REPROCESS_ALL", "0") == "1"
 
 # Ano inicial da serie historica.
 # 2019: primeiro ano com lookup de pais completo (ODPF_6_CtyDesc.TXT ausente em 2014-2018).
@@ -84,23 +88,64 @@ def meses_ja_no_parquet() -> set[str]:
     return set()
 
 
-def anos_a_baixar(meses_existentes: set[str]) -> list[int]:
+def anos_export_sem_provincia() -> set[int]:
+    """
+    Anos cujas EXPORTACOES no parquet nao tem NENHUMA provincia preenchida — i.e.
+    o backfill de exportacao-por-provincia (Dom_Exp) nunca rodou para eles.
+
+    Necessario porque a exportacao-por-provincia foi adicionada depois da carga
+    inicial: um pipeline incremental pula anos ja completos (todos os meses de
+    IMPORTACAO presentes) e, sem esta deteccao, nunca preencheria a provincia das
+    exportacoes desses anos — deixando-as no bucket "sem provincia" para sempre.
+    """
+    if not PARQUET_PATH.exists():
+        return set()
+    import pyarrow.parquet as pq
+    cols = pq.read_schema(PARQUET_PATH).names
+    if not {"date", "trade_type", "province"}.issubset(cols):
+        return set()
+    df = pd.read_parquet(PARQUET_PATH, columns=["date", "trade_type", "province"])
+    exp = df[df["trade_type"] == "Export"].copy()
+    if exp.empty:
+        return set()
+    exp["year"] = exp["date"].str[:4].astype(int)
+    tem_prov = (
+        exp["province"].notna()
+        & (exp["province"].astype(str).str.strip() != "")
+        & (exp["province"].astype(str) != "None")
+    )
+    cobertura = exp.assign(_p=tem_prov).groupby("year")["_p"].any()
+    faltantes = {int(y) for y, tem in cobertura.items() if not tem}
+    if faltantes:
+        LOG.info("[extract] Anos com exportacao SEM provincia (backfill necessario): %s",
+                 sorted(faltantes))
+    return faltantes
+
+
+def anos_a_baixar(meses_existentes: set[str], anos_forcados: set[int] | None = None) -> list[int]:
     """
     Determina quais anos precisam ser (re)baixados.
-    - Anos passados: so se algum mes estiver faltando.
+    - REPROCESS_ALL=1: todos os anos (backfill completo).
+    - Anos passados: se algum mes estiver faltando, OU se estiverem em
+      `anos_forcados` (ex.: exportacao sem provincia — ver anos_export_sem_provincia).
     - Ano corrente: sempre (novos meses chegam ao longo do ano).
     """
     hoje = date.today()
     ano_atual = hoje.year
-    anos = []
-    for ano in range(START_YEAR, ano_atual + 1):
+    todos = list(range(START_YEAR, ano_atual + 1))
+    if REPROCESS_ALL:
+        LOG.info("[extract] REPROCESS_ALL=1 — reprocessando todos os anos: %s", todos)
+        return todos
+
+    anos: set[int] = set(anos_forcados or set())
+    for ano in todos:
         if ano < ano_atual:
             esperados = {f"{ano}-{m:02d}" for m in range(1, 13)}
             if not esperados.issubset(meses_existentes):
-                anos.append(ano)
+                anos.add(ano)
         else:
-            anos.append(ano_atual)  # sempre re-baixa o ano corrente
-    return anos
+            anos.add(ano_atual)  # sempre re-baixa o ano corrente
+    return sorted(anos)
 
 
 def _download(url: str, dest: Path) -> Path:
@@ -367,7 +412,8 @@ def baixar_demo(meses_existentes: set[str]) -> None:
 
 def baixar_real(meses_existentes: set[str]) -> None:
     """Baixa os ZIPs da StatCan (CIMT) e processa os anos faltantes."""
-    anos = anos_a_baixar(meses_existentes)
+    # Backfill: reprocessa tambem anos cuja exportacao esta sem provincia.
+    anos = anos_a_baixar(meses_existentes, anos_export_sem_provincia())
     if not anos:
         LOG.info("[extract] Todos os meses estao presentes. Nada a baixar.")
         return
