@@ -1877,11 +1877,11 @@ z"/>
     <!-- Interactive Canada Map -->
     <div class="chart-grid">
       <div class="chart-card full-width">
-        <h3>Import Demand Map — All 10 Provinces &amp; 3 Territories</h3>
-        <div class="csub">Click any province to explore its import market · Darker fill = higher annual import volume · Source: Statistics Canada CIMTS</div>
+        <h3>Trade Demand Map — All 10 Provinces &amp; 3 Territories</h3>
+        <div class="csub">Click any province to explore its trade profile · Darker fill = higher combined import + export volume · Source: Statistics Canada CIMTS</div>
         <div id="prov-map-wrap"><div style="display:flex;align-items:center;justify-content:center;height:480px"><div class="spinner"></div></div></div>
         <div class="map-legend" style="margin-top:10px">
-          <div class="map-legend-item"><div class="map-legend-swatch" style="background:#1a5c2e"></div>Largest import market</div>
+          <div class="map-legend-item"><div class="map-legend-swatch" style="background:#1a5c2e"></div>Largest trade market</div>
           <div class="map-legend-item"><div class="map-legend-swatch" style="background:#6aab7f"></div>Large market</div>
           <div class="map-legend-item"><div class="map-legend-swatch" style="background:#b5d9bf"></div>Mid-size market</div>
           <div class="map-legend-item"><div class="map-legend-swatch" style="background:#e6f2ea"></div>Smaller market</div>
@@ -1923,20 +1923,20 @@ z"/>
     <!-- All provinces ranking -->
     <div class="chart-grid">
       <div class="chart-card full-width">
-        <h3>Provincial Import Market Ranking</h3>
-        <div class="csub" id="prov-overview-sub">Click a bar to drill into top product categories · CAD$ billions · last 12 months</div>
+        <h3>Provincial Trade Ranking</h3>
+        <div class="csub" id="prov-overview-sub">Click a bar to drill into top import categories · CAD$ billions</div>
         <div style="position:relative;min-height:360px"><canvas id="prov-bar"></canvas></div>
       </div>
     </div>
 
     <div class="table-card">
-      <h3>All Provinces &amp; Territories — Import Market Summary</h3>
+      <h3>All Provinces &amp; Territories — Trade Summary</h3>
       <table>
-        <thead><tr id="prov-all-thead"><th>#</th><th>Province / Territory</th><th>Annual Imports</th><th>Share of Canada</th></tr></thead>
+        <thead><tr id="prov-all-thead"><th>#</th><th>Province / Territory</th><th>Imports</th><th>Exports</th><th>Share of Canada</th></tr></thead>
         <tbody id="prov-all-tbody"></tbody>
       </table>
     </div>
-    <div class="src-note" id="prov-src-note">Imports by customs-clearance province · Statistics Canada CIMTS · last 12 months · Values in CAD$</div>
+    <div class="src-note" id="prov-src-note">Imports by customs-clearance province · exports by domestic province of origin (re-exports not attributable to a province) · Statistics Canada CIMTS · Values in CAD$</div>
   </div>
 
 </main>
@@ -2073,7 +2073,7 @@ const HS_CODE_FROM_NAME = {
 };
 
 /* parsed datasets */
-let D = { monthly:[], countries:[], countries_monthly:[], hs2_summary:[], hs2_monthly:[], provinces:[], provinces_commodities:[] };
+let D = { monthly:[], countries:[], countries_monthly:[], hs2_summary:[], hs2_monthly:[], provinces:[], provinces_commodities:[], provinces_monthly:[], provinces_commodities_monthly:[] };
 let defaultFrom='', defaultTo='';
 let charts={};
 
@@ -2328,14 +2328,14 @@ async function load(){
     ));
     const [monthly,countries,cm,commodities,hsm,meta]=results;
 
-    /* province data — non-fatal if missing */
+    /* province data (monthly series — aggregated client-side under the global De/Ate filter) — non-fatal if missing */
     try{
-      const [provs,provCom]=await Promise.all([
-        fetch('data/provinces.json?t='+Date.now()).then(r=>r.json()),
-        fetch('data/provinces_commodities.json?t='+Date.now()).then(r=>r.json()),
+      const [provM,provComM]=await Promise.all([
+        fetch('data/provinces_monthly.json?t='+Date.now()).then(r=>r.json()),
+        fetch('data/provinces_commodities_monthly.json?t='+Date.now()).then(r=>r.json()),
       ]);
-      D.provinces=provs;
-      D.provinces_commodities=provCom;
+      D.provinces_monthly=provM;
+      D.provinces_commodities_monthly=provComM;
     }catch(e){console.warn('Province data not available:',e.message);}
 
     /* monthly: format matches directly */
@@ -2405,6 +2405,34 @@ function filterCM(fr,to){
 }
 function filterHS2M(fr,to){
   return D.hs2_monthly.filter(r=>(!fr||r.date>=fr)&&(!to||r.date<=to));
+}
+function filterProvM(fr,to){
+  return D.provinces_monthly.filter(r=>(!fr||r.date>=fr)&&(!to||r.date<=to));
+}
+function filterProvComM(fr,to){
+  return D.provinces_commodities_monthly.filter(r=>(!fr||r.date>=fr)&&(!to||r.date<=to));
+}
+/* Aggregates the monthly province series into per-province totals for the
+   selected date range + trade type — mirrors how every other tab derives its
+   totals from a *_monthly series via the global filter (see af()/ra()). */
+function aggProvinces(from,to,type){
+  const by={};
+  filterProvM(from,to).forEach(r=>{
+    if(!by[r.code])by[r.code]={code:r.code,name:r.name,imports:0,exports:0};
+    if(type!=='Import')by[r.code].exports+=r.exports;
+    if(type!=='Export')by[r.code].imports+=r.imports;
+  });
+  return Object.values(by).map(p=>({...p,total:p.imports+p.exports}));
+}
+function aggProvinceCommodities(from,to,type){
+  const by={};
+  filterProvComM(from,to).forEach(r=>{
+    const k=r.code+'|'+r.hs2;
+    if(!by[k])by[k]={code:r.code,hs2:r.hs2,commodity:r.commodity,imports:0,exports:0};
+    if(type!=='Import')by[k].exports+=r.exports;
+    if(type!=='Export')by[k].imports+=r.imports;
+  });
+  return Object.values(by).map(c=>({...c,total:c.imports+c.exports}));
 }
 
 function af(){
@@ -2896,17 +2924,33 @@ async function _loadProvGeo(){
   }catch(e){console.error('Province GeoJSON:',e);return null;}
 }
 
+let _openProvCode=null;
 function rp(){
+  const {type,from,to}=getRange();
+  D.provinces=aggProvinces(from,to,type);
+  D.provinces_commodities=aggProvinceCommodities(from,to,type);
+
   renderProvOverview();
-  const _p0=D.provinces[0]||{};
-  const _per=_p0.period_start&&_p0.period_end?_p0.period_start+' → '+_p0.period_end:'last 12 months';
-  document.getElementById('fi-province').textContent='Import Demand by Province · All 10 provinces + 3 territories · '+_per+' · Statistics Canada CIMTS';
+  renderProvMap();
+
+  const parts=[];
+  if(type!=='All')parts.push(type+'s only');
+  if(from||to)parts.push((from||'start')+' → '+(to||'latest'));
+  const per=parts.length?parts.join(' · '):'All data';
+  const fiEl=document.getElementById('fi-province');
+  if(fiEl)fiEl.textContent='Trade by Province · All 10 provinces + 3 territories · '+per+' · Statistics Canada CIMTS';
+
+  /* keep the open detail panel (if any) in sync with the new filter */
+  if(_openProvCode&&document.getElementById('prov-panel').classList.contains('visible')){
+    openProvPanel(_openProvCode);
+  }
 }
 
 async function renderProvMap(){
   const wrap=document.getElementById('prov-map-wrap');
   if(!wrap)return;
-  if(wrap.querySelector('svg'))return; // already rendered
+  // always rebuild (not just on first call) so the map recolors when the
+  // global De/Ate filter changes — see rp().
   wrap.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:480px"><div class="spinner"></div></div>';
 
   const geo=await _loadProvGeo();
@@ -2921,7 +2965,9 @@ async function renderProvMap(){
   const totalByCode={};
   D.provinces.forEach(p=>{totalByCode[p.code]=p.total;});
   const vals=Object.values(totalByCode).filter(v=>v>0);
-  const logScale=d3.scaleLog().domain([Math.min(...vals),Math.max(...vals)]).range([0.05,1]).clamp(true);
+  const logScale=vals.length
+    ?d3.scaleLog().domain([Math.min(...vals),Math.max(...vals)]).range([0.05,1]).clamp(true)
+    :()=>0.3;
 
   const colorFn=t=>d3.interpolate('#d9eee1','#1a5c2e')(t);
 
@@ -3018,19 +3064,20 @@ async function renderProvMap(){
 }
 
 function openProvPanel(code){
+  _openProvCode=code;
   const meta=PROVINCE_META[code]||{name:code,icon:'🍁'};
-  const prov=D.provinces.find(p=>p.code===code)||{imports:0,total:0};
+  const prov=D.provinces.find(p=>p.code===code)||{imports:0,exports:0,total:0};
   const comms=D.provinces_commodities.filter(c=>c.code===code);
   const totalAll=D.provinces.reduce((s,p)=>s+p.imports,0);
 
-  const periodLabel=prov.period_start&&prov.period_end
-    ? prov.period_start+' → '+prov.period_end : 'last 12 months';
+  const {from,to}=getRange();
+  const periodLabel=(from||'start')+' → '+(to||'latest');
 
   document.getElementById('prov-icon').textContent=meta.icon;
   document.getElementById('prov-name').textContent=meta.name+' ('+code+')';
   document.getElementById('prov-subtitle').textContent=
     (meta.capital?'Capital: '+meta.capital+' · ':'')
-    +'Imports by customs-clearance province · '+periodLabel;
+    +'Imports (customs-clearance) & domestic exports (province of origin) · '+periodLabel;
 
   /* Top category */
   const topCom=[...comms].sort((a,b)=>b.imports-a.imports)[0];
@@ -3038,6 +3085,7 @@ function openProvPanel(code){
 
   document.getElementById('prov-kpis').innerHTML=[
     {l:'Annual Import Demand',v:fmt(prov.imports),sub:'Customs-clearance basis · '+periodLabel},
+    {l:'Domestic Exports',v:fmt(prov.exports),sub:'Province of origin · '+periodLabel},
     {l:'Share of Canada',v:totalAll?(prov.imports/totalAll*100).toFixed(1)+'%':'—',sub:'of total Canadian imports'},
     {l:'Top Category',v:topCom?'HS'+topCom.hs2+' '+topCom.commodity.split(' ').slice(0,3).join(' '):'—',sub:topCom?fmt(topCom.imports)+' · '+topShare+' of provincial imports':''},
   ].map(k=>`<div class="cp-kpi">
@@ -3101,24 +3149,24 @@ function openProvPanel(code){
 function closeProvPanel(){
   document.getElementById('prov-panel').classList.remove('visible');
   dc('prov-imp-chart');
+  _openProvCode=null;
 }
 
 function renderProvOverview(){
   if(!D.provinces.length)return;
-  const sorted=[...D.provinces].sort((a,b)=>b.imports-a.imports);
-  const totalAll=sorted.reduce((s,p)=>s+p.imports,0);
+  const sorted=[...D.provinces].sort((a,b)=>b.total-a.total);
+  const totalAll=sorted.reduce((s,p)=>s+p.total,0);
 
-  const p0=sorted[0]||{};
-  const periodLabel=p0.period_start&&p0.period_end
-    ? p0.period_start+' → '+p0.period_end : 'last 12 months';
+  const {from,to}=getRange();
+  const periodLabel=(from||'start')+' → '+(to||'latest');
 
   const subEl=document.getElementById('prov-overview-sub');
   if(subEl)subEl.textContent='Click a bar to explore top import categories · CAD$ billions · '+periodLabel+' · Statistics Canada CIMTS';
 
   const srcEl=document.getElementById('prov-src-note');
-  if(srcEl)srcEl.textContent='Imports by customs-clearance province · '+periodLabel+' · Statistics Canada CIMTS · Values in CAD$';
+  if(srcEl)srcEl.textContent='Imports by customs-clearance province · exports by domestic province of origin (re-exports not attributable to a province) · '+periodLabel+' · Statistics Canada CIMTS · Values in CAD$';
 
-  /* Bar chart */
+  /* Bar chart — stacked imports + exports, like the Countries/Overview tabs */
   dc('prov-bar');
   const barEl=document.getElementById('prov-bar');
   if(barEl){
@@ -3128,23 +3176,26 @@ function renderProvOverview(){
       type:'bar',
       data:{
         labels:sorted.map(p=>{const m=PROVINCE_META[p.code]||{};return(m.icon||'')+' '+p.name+' ('+p.code+')';}),
-        datasets:[{
-          label:'Annual Imports',
-          data:sorted.map(p=>toB(p.imports)),
-          backgroundColor:sorted.map((_,i)=>i<2?'#1a5c2e':i<5?'#2e7d46':'#f5a623'),
-          borderRadius:4
-        }]
+        datasets:[
+          {label:'Exports',data:sorted.map(p=>toB(p.exports)),backgroundColor:'#1a5c2e',stack:'s',borderRadius:3},
+          {label:'Imports',data:sorted.map(p=>toB(p.imports)),backgroundColor:'#f5a623',stack:'s',borderRadius:3},
+        ]
       },
       options:{
         indexAxis:'y',responsive:true,maintainAspectRatio:false,
         plugins:{
-          legend:{display:false},
-          tooltip:{callbacks:{label:ctx=>'$'+ctx.parsed.x.toFixed(1)+'B ('+
-            (totalAll>0?(ctx.parsed.x/(totalAll/1e9)*100).toFixed(1):0)+'% of Canada)'}}
+          legend:{position:'bottom',labels:{font:{size:11},boxWidth:10,padding:14}},
+          tooltip:{callbacks:{
+            label:ctx=>ctx.dataset.label+': $'+ctx.parsed.x.toFixed(1)+'B',
+            footer:items=>{
+              const t=items.reduce((s,i)=>s+i.parsed.x,0);
+              return'Total: $'+t.toFixed(1)+'B ('+(totalAll>0?(t*1e9/totalAll*100).toFixed(1):0)+'% of Canada)';
+            }
+          }}
         },
         scales:{
-          x:{ticks:{callback:v=>'$'+v+'B',font:{size:10}},grid:{color:'#f0f3f0'}},
-          y:{ticks:{font:{size:11}}}
+          x:{stacked:true,ticks:{callback:v=>'$'+v+'B',font:{size:10}},grid:{color:'#f0f3f0'}},
+          y:{stacked:true,ticks:{font:{size:11}}}
         },
         onClick:(evt,items)=>{if(items.length){const idx=items[0].index;openProvPanel(sorted[idx].code);}}
       }
@@ -3154,14 +3205,15 @@ function renderProvOverview(){
   /* Summary table */
   document.getElementById('prov-all-tbody').innerHTML=sorted.map((p,i)=>{
     const meta=PROVINCE_META[p.code]||{};
-    const share=totalAll?(p.imports/totalAll*100).toFixed(1)+'%':'—';
+    const share=totalAll?(p.total/totalAll*100).toFixed(1)+'%':'—';
     return`<tr style="cursor:pointer" onclick="openProvPanel('${p.code}')">
       <td style="color:var(--muted)">${i+1}</td>
       <td><strong>${meta.icon||''} ${p.name}</strong><span style="color:var(--muted);font-size:11px;margin-left:6px">${p.code}</span></td>
       <td><strong>${fmt(p.imports)}</strong></td>
+      <td><strong>${fmt(p.exports)}</strong></td>
       <td>
         <div style="display:flex;align-items:center;gap:6px">
-          <div style="background:#f5a623;height:6px;border-radius:3px;width:${totalAll?(p.imports/totalAll*80).toFixed(0):0}px"></div>
+          <div style="background:#f5a623;height:6px;border-radius:3px;width:${totalAll?(p.total/totalAll*80).toFixed(0):0}px"></div>
           <span>${share}</span>
         </div>
       </td>
