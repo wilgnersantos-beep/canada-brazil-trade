@@ -1,968 +1,1162 @@
-code,hs2,imports,commodity,exports,total
-ON,87,96011442172,Vehicles,0,96011442172
-ON,84,66389605953,Machinery & mechanical appliances,0,66389605953
-ON,85,47885730253,Electrical equipment,0,47885730253
-ON,71,41544198968,Precious metals & stones,0,41544198968
-ON,30,19606310282,Pharmaceuticals,0,19606310282
-QC,84,19034121488,Machinery & mechanical appliances,0,19034121488
-ON,39,16737910760,Plastics,0,16737910760
-ON,90,14778074750,Optical & medical instruments,0,14778074750
-BC,84,13138174318,Machinery & mechanical appliances,0,13138174318
-ON,99,12785009053,Confidential / low-value (CA),0,12785009053
-NB,27,12535674919,Mineral fuels & oils,0,12535674919
-QC,27,10763582775,Mineral fuels & oils,0,10763582775
-ON,27,10576358592,Mineral fuels & oils,0,10576358592
-QC,85,9872757563,Electrical equipment,0,9872757563
-MB,84,8047473369,Machinery & mechanical appliances,0,8047473369
-BC,87,7949480109,Vehicles,0,7949480109
-ON,73,7533614004,Articles of iron & steel,0,7533614004
-BC,85,6904186524,Electrical equipment,0,6904186524
-ON,94,6834972862,Furniture,0,6834972862
-ON,29,6763914514,Organic chemicals,0,6763914514
-AB,84,6615920001,Machinery & mechanical appliances,0,6615920001
-ON,72,6236517752,Iron & steel,0,6236517752
-QC,30,6172063663,Pharmaceuticals,0,6172063663
-NS,87,5822642993,Vehicles,0,5822642993
-ON,48,5653140155,Paper & paperboard,0,5653140155
-SK,84,5388344594,Machinery & mechanical appliances,0,5388344594
-ON,33,5360812908,Cosmetics & perfumes,0,5360812908
-QC,88,5335940538,Aircraft & spacecraft,0,5335940538
-ON,38,4826348736,Misc chemical products,0,4826348736
-ON,08,4685865104,Fruit & nuts,0,4685865104
-ON,40,4621402536,Rubber,0,4621402536
-AB,27,4596093051,Mineral fuels & oils,0,4596093051
-QC,87,4525295347,Vehicles,0,4525295347
-ON,95,4509868993,Toys & sports equipment,0,4509868993
-ON,88,4421156442,Aircraft & spacecraft,0,4421156442
-ON,61,4408206706,Knitted apparel,0,4408206706
-ON,76,4310738930,Aluminium,0,4310738930
-ON,21,4251540076,Misc food preparations,0,4251540076
-ON,19,4233027769,Prepared cereals,0,4233027769
-MB,27,4079128758,Mineral fuels & oils,0,4079128758
-ON,22,3745194042,Beverages & spirits,0,3745194042
-QC,74,3609098028,Copper,0,3609098028
-ON,34,3520655035,Soap & cleaning products,0,3520655035
-ON,62,3507425412,Woven apparel,0,3507425412
-ON,02,3499895641,Meat & offal,0,3499895641
-MB,87,3457182284,Vehicles,0,3457182284
-QC,28,3406734743,Inorganic chemicals,0,3406734743
-QC,90,3238150650,Optical & medical instruments,0,3238150650
-BC,27,3215565176,Mineral fuels & oils,0,3215565176
-AB,85,3168709342,Electrical equipment,0,3168709342
-ON,74,3117950542,Copper,0,3117950542
-ON,18,3044404244,Cocoa & cocoa products,0,3044404244
-QC,39,2973869530,Plastics,0,2973869530
-ON,07,2953389716,Vegetables,0,2953389716
-QC,71,2825632079,Precious metals & stones,0,2825632079
-ON,32,2718141120,Tanning & dye extracts,0,2718141120
-ON,83,2702259518,Miscellaneous metal articles,0,2702259518
-SK,87,2595265297,Vehicles,0,2595265297
-BC,39,2552973272,Plastics,0,2552973272
-SK,27,2492842404,Mineral fuels & oils,0,2492842404
-MB,85,2383753337,Electrical equipment,0,2383753337
-ON,20,2350927599,Prepared vegetables,0,2350927599
-BC,73,2347056810,Articles of iron & steel,0,2347056810
-ON,70,2317816810,Glass,0,2317816810
-ON,26,2317379998,"Ores, slag & ash",0,2317379998
-QC,40,2281766461,Rubber,0,2281766461
-BC,61,2273413647,Knitted apparel,0,2273413647
-NL,84,2273402822,Machinery & mechanical appliances,0,2273402822
-BC,94,2244355500,Furniture,0,2244355500
-ON,28,2206435247,Inorganic chemicals,0,2206435247
-ON,64,2195905580,Footwear,0,2195905580
-QC,94,2174624759,Furniture,0,2174624759
-BC,90,2134757149,Optical & medical instruments,0,2134757149
-BC,08,2133000676,Fruit & nuts,0,2133000676
-ON,82,2103592722,Tools & cutlery,0,2103592722
-ON,09,2095050393,"Coffee, tea & spices",0,2095050393
-ON,23,2074904940,Food industry residues,0,2074904940
-QC,18,2074173445,Cocoa & cocoa products,0,2074173445
-QC,22,2016780253,Beverages & spirits,0,2016780253
-QC,73,1966831061,Articles of iron & steel,0,1966831061
-ON,49,1904074289,Printed books & media,0,1904074289
-QC,26,1799388284,"Ores, slag & ash",0,1799388284
-ON,96,1785956207,Miscellaneous manufactures,0,1785956207
-ON,44,1720291890,Wood & wood articles,0,1720291890
-AB,87,1702329247,Vehicles,0,1702329247
-AB,39,1667425869,Plastics,0,1667425869
-QC,99,1663489072,Confidential / low-value (CA),0,1663489072
-QC,61,1645242262,Knitted apparel,0,1645242262
-BC,62,1637535275,Woven apparel,0,1637535275
-BC,95,1626920694,Toys & sports equipment,0,1626920694
-QC,76,1568011580,Aluminium,0,1568011580
-ON,42,1562684844,Leather goods,0,1562684844
-AB,73,1558743423,Articles of iron & steel,0,1558743423
-QC,72,1507463884,Iron & steel,0,1507463884
-BC,26,1482821827,"Ores, slag & ash",0,1482821827
-QC,09,1455023814,"Coffee, tea & spices",0,1455023814
-MB,39,1421700905,Plastics,0,1421700905
-AB,90,1421227372,Optical & medical instruments,0,1421227372
-AB,22,1418700038,Beverages & spirits,0,1418700038
-NL,15,1413063433,Animal/veg fats & oils,0,1413063433
-BC,88,1402288950,Aircraft & spacecraft,0,1402288950
-NS,84,1400412007,Machinery & mechanical appliances,0,1400412007
-ON,16,1377284152,Prepared meat & fish,0,1377284152
-QC,48,1375054061,Paper & paperboard,0,1375054061
-MB,38,1361336741,Misc chemical products,0,1361336741
-ON,35,1360874444,Protein substances,0,1360874444
-ON,68,1359754542,Stone & cement articles,0,1359754542
-BC,72,1356206223,Iron & steel,0,1356206223
-ON,17,1311736203,Sugars,0,1311736203
-QC,62,1282204827,Woven apparel,0,1282204827
-BC,48,1260192007,Paper & paperboard,0,1260192007
-ON,03,1238876942,Fish & seafood,0,1238876942
-MB,31,1235634234,Fertilizers,0,1235634234
-QC,08,1151130795,Fruit & nuts,0,1151130795
-BC,76,1140347110,Aluminium,0,1140347110
-BC,44,1126625547,Wood & wood articles,0,1126625547
-ON,15,1125541623,Animal/veg fats & oils,0,1125541623
-NL,27,1104101942,Mineral fuels & oils,0,1104101942
-ON,63,1090255108,Other made-up textiles,0,1090255108
-BC,07,1081502436,Vegetables,0,1081502436
-QC,29,1066833250,Organic chemicals,0,1066833250
-BC,28,1061241005,Inorganic chemicals,0,1061241005
-SK,85,1014496028,Electrical equipment,0,1014496028
-ON,12,1009681222,Oil seeds,0,1009681222
-BC,03,1004295380,Fish & seafood,0,1004295380
-NS,27,979982096,Mineral fuels & oils,0,979982096
-ON,04,962233387,Dairy products,0,962233387
-ON,31,952427408,Fertilizers,0,952427408
-AB,01,946995725,Live animals,0,946995725
-MB,73,931498502,Articles of iron & steel,0,931498502
-ON,86,929178375,Railway equipment,0,929178375
-BC,22,924307346,Beverages & spirits,0,924307346
-ON,69,913703059,Ceramic products,0,913703059
-QC,33,898769566,Cosmetics & perfumes,0,898769566
-ON,91,888087245,Clocks & watches,0,888087245
-SK,38,877702654,Misc chemical products,0,877702654
-BC,40,865201418,Rubber,0,865201418
-QC,38,851348187,Misc chemical products,0,851348187
-AB,94,844427381,Furniture,0,844427381
-BC,64,836205762,Footwear,0,836205762
-AB,88,828912262,Aircraft & spacecraft,0,828912262
-QC,44,821258775,Wood & wood articles,0,821258775
-BC,19,816980617,Prepared cereals,0,816980617
-AB,08,796642325,Fruit & nuts,0,796642325
-MB,90,781407307,Optical & medical instruments,0,781407307
-AB,40,778913078,Rubber,0,778913078
-NB,84,774407691,Machinery & mechanical appliances,0,774407691
-BC,09,759580089,"Coffee, tea & spices",0,759580089
-BC,20,756315375,Prepared vegetables,0,756315375
-AB,29,745324425,Organic chemicals,0,745324425
-QC,20,744146382,Prepared vegetables,0,744146382
-ON,10,721142724,Cereals,0,721142724
-QC,02,702855255,Meat & offal,0,702855255
-QC,17,685268080,Sugars,0,685268080
-AB,38,684132735,Misc chemical products,0,684132735
-ON,24,679883294,Tobacco,0,679883294
-BC,21,674324448,Misc food preparations,0,674324448
-QC,95,668508268,Toys & sports equipment,0,668508268
-ON,56,662075215,Wadding & felt,0,662075215
-QC,31,659693790,Fertilizers,0,659693790
-QC,83,656587441,Miscellaneous metal articles,0,656587441
-SK,31,645939613,Fertilizers,0,645939613
-BC,38,645749898,Misc chemical products,0,645749898
-ON,81,620927986,Other base metals,0,620927986
-QC,03,606380333,Fish & seafood,0,606380333
-QC,64,598102462,Footwear,0,598102462
-SK,39,593816888,Plastics,0,593816888
-MB,48,585210655,Paper & paperboard,0,585210655
-AB,07,577183136,Vegetables,0,577183136
-QC,19,559200937,Prepared cereals,0,559200937
-ON,25,549320930,"Salt, sulphur, stone, cement",0,549320930
-MB,86,538894660,Railway equipment,0,538894660
-MB,29,534586728,Organic chemicals,0,534586728
-SK,73,521786398,Articles of iron & steel,0,521786398
-ON,89,519396387,Ships & boats,0,519396387
-NS,85,508600830,Electrical equipment,0,508600830
-ON,57,508283070,Carpets,0,508283070
-BC,42,497252350,Leather goods,0,497252350
-QC,75,489886384,Nickel,0,489886384
-QC,04,486999942,Dairy products,0,486999942
-BC,68,478368472,Stone & cement articles,0,478368472
-BC,63,477339615,Other made-up textiles,0,477339615
-AB,31,476574918,Fertilizers,0,476574918
-MB,94,476296452,Furniture,0,476296452
-BC,02,475638834,Meat & offal,0,475638834
-BC,99,474203155,Confidential / low-value (CA),0,474203155
-BC,16,470822197,Prepared meat & fish,0,470822197
-QC,42,468810439,Leather goods,0,468810439
-QC,70,468095492,Glass,0,468095492
-ON,59,466364248,Coated textiles,0,466364248
-BC,71,465064835,Precious metals & stones,0,465064835
-NB,03,464823990,Fish & seafood,0,464823990
-QC,15,460097515,Animal/veg fats & oils,0,460097515
-BC,70,450014598,Glass,0,450014598
-BC,96,442248425,Miscellaneous manufactures,0,442248425
-NB,87,440519726,Vehicles,0,440519726
-ON,06,434073600,Live trees & plants,0,434073600
-BC,89,417022396,Ships & boats,0,417022396
-AB,95,408676509,Toys & sports equipment,0,408676509
-NS,99,406560943,Confidential / low-value (CA),0,406560943
-BC,83,397204930,Miscellaneous metal articles,0,397204930
-ON,11,396524965,Milling products,0,396524965
-BC,29,394282204,Organic chemicals,0,394282204
-MB,40,390268385,Rubber,0,390268385
-AB,71,384727247,Precious metals & stones,0,384727247
-QC,63,380551738,Other made-up textiles,0,380551738
-ON,75,373305004,Nickel,0,373305004
-ON,01,372889858,Live animals,0,372889858
-QC,21,370228097,Misc food preparations,0,370228097
-BC,82,369760577,Tools & cutlery,0,369760577
-ON,93,364224410,Arms & ammunition,0,364224410
-QC,86,361457510,Railway equipment,0,361457510
-ON,65,357537227,Headgear,0,357537227
-QC,68,341283379,Stone & cement articles,0,341283379
-QC,82,341189283,Tools & cutlery,0,341189283
-QC,32,330068895,Tanning & dye extracts,0,330068895
-AB,23,326099688,Food industry residues,0,326099688
-BC,33,324340935,Cosmetics & perfumes,0,324340935
-QC,69,322292925,Ceramic products,0,322292925
-QC,81,318484469,Other base metals,0,318484469
-SK,40,318149714,Rubber,0,318149714
-MB,34,317416793,Soap & cleaning products,0,317416793
-AB,34,315525153,Soap & cleaning products,0,315525153
-NS,88,312293522,Aircraft & spacecraft,0,312293522
-BC,10,311975908,Cereals,0,311975908
-AB,99,310280393,Confidential / low-value (CA),0,310280393
-MB,23,309653239,Food industry residues,0,309653239
-QC,07,308937337,Vegetables,0,308937337
-ON,98,308898534,Special transactions (CA),0,308898534
-NS,03,308388109,Fish & seafood,0,308388109
-ON,47,303740554,Wood pulp,0,303740554
-BC,15,295553345,Animal/veg fats & oils,0,295553345
-NS,73,292636674,Articles of iron & steel,0,292636674
-AB,48,285569404,Paper & paperboard,0,285569404
-AB,86,280830349,Railway equipment,0,280830349
-BC,32,280539752,Tanning & dye extracts,0,280539752
-AB,68,274629546,Stone & cement articles,0,274629546
-BC,23,269537648,Food industry residues,0,269537648
-AB,76,265465255,Aluminium,0,265465255
-QC,47,265463726,Wood pulp,0,265463726
-BC,69,263466378,Ceramic products,0,263466378
-QC,49,263268800,Printed books & media,0,263268800
-QC,34,262989345,Soap & cleaning products,0,262989345
-BC,12,262537157,Oil seeds,0,262537157
-NS,40,259297895,Rubber,0,259297895
-BC,34,257003270,Soap & cleaning products,0,257003270
-QC,25,255769603,"Salt, sulphur, stone, cement",0,255769603
-BC,49,254692492,Printed books & media,0,254692492
-BC,74,249418196,Copper,0,249418196
-AB,19,248935277,Prepared cereals,0,248935277
-AB,28,247788976,Inorganic chemicals,0,247788976
-MB,88,247515440,Aircraft & spacecraft,0,247515440
-AB,21,245908863,Misc food preparations,0,245908863
-BC,17,241173014,Sugars,0,241173014
-QC,16,234450544,Prepared meat & fish,0,234450544
-MB,44,233085487,Wood & wood articles,0,233085487
-QC,23,230804409,Food industry residues,0,230804409
-MB,25,226299520,"Salt, sulphur, stone, cement",0,226299520
-ON,54,225869787,Man-made filaments,0,225869787
-NL,88,224079096,Aircraft & spacecraft,0,224079096
-BC,30,223998671,Pharmaceuticals,0,223998671
-MB,95,223908255,Toys & sports equipment,0,223908255
-NB,39,223536248,Plastics,0,223536248
-AB,33,217139330,Cosmetics & perfumes,0,217139330
-BC,35,214439473,Protein substances,0,214439473
-SK,29,213348586,Organic chemicals,0,213348586
-ON,13,212148688,Resins & gums,0,212148688
-MB,99,211757590,Confidential / low-value (CA),0,211757590
-QC,12,208513414,Oil seeds,0,208513414
-BC,25,208184532,"Salt, sulphur, stone, cement",0,208184532
-SK,01,204650528,Live animals,0,204650528
-QC,35,204012036,Protein substances,0,204012036
-MB,32,203038952,Tanning & dye extracts,0,203038952
-BC,04,202674205,Dairy products,0,202674205
-NU,27,202360447,Mineral fuels & oils,0,202360447
-AB,44,201533576,Wood & wood articles,0,201533576
-AB,20,201029701,Prepared vegetables,0,201029701
-AB,72,200657691,Iron & steel,0,200657691
-SK,23,199999192,Food industry residues,0,199999192
-NB,85,198817439,Electrical equipment,0,198817439
-BC,18,196162552,Cocoa & cocoa products,0,196162552
-MB,12,195884734,Oil seeds,0,195884734
-NS,22,190626607,Beverages & spirits,0,190626607
-SK,34,189715435,Soap & cleaning products,0,189715435
-AB,82,188987265,Tools & cutlery,0,188987265
-ON,55,187524814,Man-made staple fibres,0,187524814
-MB,28,184132779,Inorganic chemicals,0,184132779
-MB,83,183477129,Miscellaneous metal articles,0,183477129
-SK,10,183252783,Cereals,0,183252783
-MB,72,182080005,Iron & steel,0,182080005
-ON,97,181809608,Works of art,0,181809608
-SK,90,181065860,Optical & medical instruments,0,181065860
-NS,61,181045391,Knitted apparel,0,181045391
-MB,76,178969315,Aluminium,0,178969315
-QC,54,178071489,Man-made filaments,0,178071489
-AB,62,175679872,Woven apparel,0,175679872
-AB,10,175339725,Cereals,0,175339725
-QC,93,174201984,Arms & ammunition,0,174201984
-QC,96,169971358,Miscellaneous manufactures,0,169971358
-ON,92,168224888,Musical instruments,0,168224888
-BC,06,167406390,Live trees & plants,0,167406390
-AB,83,167067628,Miscellaneous metal articles,0,167067628
-NS,33,165958104,Cosmetics & perfumes,0,165958104
-MB,19,162495699,Prepared cereals,0,162495699
-QC,56,162037925,Wadding & felt,0,162037925
-ON,05,161351291,Other animal products,0,161351291
-MB,33,159784351,Cosmetics & perfumes,0,159784351
-AB,30,159216123,Pharmaceuticals,0,159216123
-MB,68,156567725,Stone & cement articles,0,156567725
-QC,36,155816163,Explosives,0,155816163
-AB,61,154732483,Knitted apparel,0,154732483
-MB,49,152969732,Printed books & media,0,152969732
-MB,02,152863512,Meat & offal,0,152863512
-SK,94,152696980,Furniture,0,152696980
-AB,63,152261202,Other made-up textiles,0,152261202
-PE,29,151450611,Organic chemicals,0,151450611
-AB,70,149809668,Glass,0,149809668
-NB,40,149791148,Rubber,0,149791148
-NB,48,148202099,Paper & paperboard,0,148202099
-MB,82,148057781,Tools & cutlery,0,148057781
-SK,95,145300144,Toys & sports equipment,0,145300144
-NS,89,144677184,Ships & boats,0,144677184
-AB,25,143527045,"Salt, sulphur, stone, cement",0,143527045
-BC,57,139257958,Carpets,0,139257958
-MB,30,137287269,Pharmaceuticals,0,137287269
-SK,72,135615699,Iron & steel,0,135615699
-BC,86,134794989,Railway equipment,0,134794989
-MB,21,134271475,Misc food preparations,0,134271475
-QC,55,132135105,Man-made staple fibres,0,132135105
-MB,57,131500108,Carpets,0,131500108
-NL,89,128931880,Ships & boats,0,128931880
-BC,01,127592665,Live animals,0,127592665
-ON,67,126644827,Feathers & artificial flowers,0,126644827
-QC,06,125802075,Live trees & plants,0,125802075
-BC,93,125696087,Arms & ammunition,0,125696087
-ON,58,124717586,Special woven fabrics,0,124717586
-NB,73,123941383,Articles of iron & steel,0,123941383
-BC,65,123347047,Headgear,0,123347047
-MB,70,122884106,Glass,0,122884106
-MB,10,122131161,Cereals,0,122131161
-SK,16,120412062,Prepared meat & fish,0,120412062
-QC,65,118855291,Headgear,0,118855291
-NS,62,116367744,Woven apparel,0,116367744
-MB,08,114750308,Fruit & nuts,0,114750308
-QC,59,111767197,Coated textiles,0,111767197
-MB,16,111017271,Prepared meat & fish,0,111017271
-NB,44,111007997,Wood & wood articles,0,111007997
-SK,19,110449032,Prepared cereals,0,110449032
-MB,62,104452469,Woven apparel,0,104452469
-QC,89,103447757,Ships & boats,0,103447757
-NB,89,103363231,Ships & boats,0,103363231
-ON,37,102326985,Photographic goods,0,102326985
-QC,10,102032385,Cereals,0,102032385
-BC,11,100840852,Milling products,0,100840852
-ON,79,100586714,Zinc,0,100586714
-MB,20,99907194,Prepared vegetables,0,99907194
-QC,01,99103484,Live animals,0,99103484
-AB,12,98367913,Oil seeds,0,98367913
-QC,97,98180616,Works of art,0,98180616
-SK,88,98066847,Aircraft & spacecraft,0,98066847
-QC,57,97521764,Carpets,0,97521764
-AB,42,96589799,Leather goods,0,96589799
-MB,22,95066836,Beverages & spirits,0,95066836
-SK,89,94849886,Ships & boats,0,94849886
-SK,33,94118619,Cosmetics & perfumes,0,94118619
-NL,73,93394422,Articles of iron & steel,0,93394422
-MB,07,93296381,Vegetables,0,93296381
-AB,16,93097341,Prepared meat & fish,0,93097341
-BC,56,91079478,Wadding & felt,0,91079478
-SK,48,90639666,Paper & paperboard,0,90639666
-BC,92,90465283,Musical instruments,0,90465283
-NS,72,90361979,Iron & steel,0,90361979
-MB,15,89941207,Animal/veg fats & oils,0,89941207
-SK,86,88965898,Railway equipment,0,88965898
-SK,21,88819023,Misc food preparations,0,88819023
-NB,28,88559762,Inorganic chemicals,0,88559762
-AB,69,88372511,Ceramic products,0,88372511
-NS,39,87990486,Plastics,0,87990486
-NB,47,87136343,Wood pulp,0,87136343
-ON,36,86512253,Explosives,0,86512253
-AB,03,86194300,Fish & seafood,0,86194300
-BC,97,84117841,Works of art,0,84117841
-MB,96,83833329,Miscellaneous manufactures,0,83833329
-MB,61,81314148,Knitted apparel,0,81314148
-MB,35,81084403,Protein substances,0,81084403
-NB,08,80401326,Fruit & nuts,0,80401326
-NB,15,80025608,Animal/veg fats & oils,0,80025608
-BC,91,79626209,Clocks & watches,0,79626209
-SK,76,79400241,Aluminium,0,79400241
-BC,59,78835130,Coated textiles,0,78835130
-NB,90,76241858,Optical & medical instruments,0,76241858
-AB,09,74904088,"Coffee, tea & spices",0,74904088
-AB,96,74631431,Miscellaneous manufactures,0,74631431
-ON,80,74465200,Tin,0,74465200
-BC,13,72530950,Resins & gums,0,72530950
-NB,22,72277513,Beverages & spirits,0,72277513
-QC,51,70385754,Wool,0,70385754
-ON,60,70306011,Knitted fabrics,0,70306011
-AB,32,69274420,Tanning & dye extracts,0,69274420
-QC,80,68794689,Tin,0,68794689
-SK,02,66904935,Meat & offal,0,66904935
-SK,68,66381199,Stone & cement articles,0,66381199
-NU,88,66295793,Aircraft & spacecraft,0,66295793
-MB,74,66060185,Copper,0,66060185
-SK,28,65798512,Inorganic chemicals,0,65798512
-MB,89,65430973,Ships & boats,0,65430973
-MB,56,64870693,Wadding & felt,0,64870693
-MB,04,63778776,Dairy products,0,63778776
-MB,63,63710086,Other made-up textiles,0,63710086
-BC,31,63445910,Fertilizers,0,63445910
-NS,94,63208787,Furniture,0,63208787
-NS,05,63180185,Other animal products,0,63180185
-QC,60,62258046,Knitted fabrics,0,62258046
-AB,02,61598175,Meat & offal,0,61598175
-ON,52,60663734,Cotton,0,60663734
-NB,38,59074248,Misc chemical products,0,59074248
-QC,91,58967189,Clocks & watches,0,58967189
-BC,05,58365067,Other animal products,0,58365067
-BC,81,58107559,Other base metals,0,58107559
-NS,76,58028045,Aluminium,0,58028045
-AB,15,57993526,Animal/veg fats & oils,0,57993526
-QC,13,56590360,Resins & gums,0,56590360
-QC,24,56322065,Tobacco,0,56322065
-SK,07,56117600,Vegetables,0,56117600
-PE,31,56106259,Fertilizers,0,56106259
-NB,94,55933063,Furniture,0,55933063
-QC,98,54891207,Special transactions (CA),0,54891207
-AB,74,54853898,Copper,0,54853898
-SK,83,54729011,Miscellaneous metal articles,0,54729011
-SK,30,53340624,Pharmaceuticals,0,53340624
-AB,17,53217720,Sugars,0,53217720
-BC,54,53197671,Man-made filaments,0,53197671
-AB,64,51753338,Footwear,0,51753338
-SK,49,50973558,Printed books & media,0,50973558
-NB,07,49587121,Vegetables,0,49587121
-SK,25,49123743,"Salt, sulphur, stone, cement",0,49123743
-SK,32,49099758,Tanning & dye extracts,0,49099758
-AB,49,48973234,Printed books & media,0,48973234
-QC,11,48407871,Milling products,0,48407871
-ON,66,47755413,Umbrellas,0,47755413
-NT,27,47636388,Mineral fuels & oils,0,47636388
-NS,90,47414170,Optical & medical instruments,0,47414170
-SK,08,46113580,Fruit & nuts,0,46113580
-SK,20,46014979,Prepared vegetables,0,46014979
-SK,15,44861261,Animal/veg fats & oils,0,44861261
-AB,56,44749163,Wadding & felt,0,44749163
-AB,93,44709468,Arms & ammunition,0,44709468
-NS,48,43813020,Paper & paperboard,0,43813020
-AB,18,43722756,Cocoa & cocoa products,0,43722756
-NB,19,43537918,Prepared cereals,0,43537918
-NL,28,43460368,Inorganic chemicals,0,43460368
-MB,64,43106343,Footwear,0,43106343
-QC,41,42972643,Raw hides & skins,0,42972643
-SK,44,42882234,Wood & wood articles,0,42882234
-SK,12,42788817,Oil seeds,0,42788817
-YT,03,42080886,Fish & seafood,0,42080886
-MB,42,40840774,Leather goods,0,40840774
-NB,68,40420630,Stone & cement articles,0,40420630
-SK,82,40152516,Tools & cutlery,0,40152516
-NS,21,40146205,Misc food preparations,0,40146205
-BC,98,39985429,Special transactions (CA),0,39985429
-SK,70,39931346,Glass,0,39931346
-BC,67,39776887,Feathers & artificial flowers,0,39776887
-AB,75,39041160,Nickel,0,39041160
-NS,56,38944245,Wadding & felt,0,38944245
-AB,04,38798063,Dairy products,0,38798063
-AB,36,38608409,Explosives,0,38608409
-BC,24,38542866,Tobacco,0,38542866
-AB,57,37513609,Carpets,0,37513609
-SK,22,37480846,Beverages & spirits,0,37480846
-QC,79,37243656,Zinc,0,37243656
-AB,65,36740465,Headgear,0,36740465
-NS,86,36419225,Railway equipment,0,36419225
-QC,52,36239283,Cotton,0,36239283
-NB,23,36102407,Food industry residues,0,36102407
-AB,35,35274284,Protein substances,0,35274284
-AB,89,35129589,Ships & boats,0,35129589
-MB,36,34233514,Explosives,0,34233514
-NS,15,34009157,Animal/veg fats & oils,0,34009157
-NB,56,33765919,Wadding & felt,0,33765919
-AB,81,33698718,Other base metals,0,33698718
-YT,84,33679864,Machinery & mechanical appliances,0,33679864
-NS,19,33674324,Prepared cereals,0,33674324
-ON,53,33654571,Vegetable textile fibres,0,33654571
-AB,59,33440442,Coated textiles,0,33440442
-MB,26,33183134,"Ores, slag & ash",0,33183134
-NB,70,33069953,Glass,0,33069953
-MB,71,32620773,Precious metals & stones,0,32620773
-ON,46,32553609,Basketware,0,32553609
-QC,05,32308534,Other animal products,0,32308534
-NB,76,31855728,Aluminium,0,31855728
-MB,06,31710981,Live trees & plants,0,31710981
-NL,99,31001005,Confidential / low-value (CA),0,31001005
-NS,08,30711491,Fruit & nuts,0,30711491
-SK,35,30194110,Protein substances,0,30194110
-BC,75,30192445,Nickel,0,30192445
-ON,41,30008421,Raw hides & skins,0,30008421
-NS,44,29972725,Wood & wood articles,0,29972725
-MB,75,29280155,Nickel,0,29280155
-MB,18,28952441,Cocoa & cocoa products,0,28952441
-QC,92,28752880,Musical instruments,0,28752880
-MB,69,28607554,Ceramic products,0,28607554
-NS,18,28497425,Cocoa & cocoa products,0,28497425
-SK,62,28325488,Woven apparel,0,28325488
-BC,66,27851827,Umbrellas,0,27851827
-ON,51,27078142,Wool,0,27078142
-NB,74,26618837,Copper,0,26618837
-MB,11,26613009,Milling products,0,26613009
-NB,32,26515786,Tanning & dye extracts,0,26515786
-NB,88,26510807,Aircraft & spacecraft,0,26510807
-SK,36,26334271,Explosives,0,26334271
-MB,17,26236479,Sugars,0,26236479
-MB,59,26014603,Coated textiles,0,26014603
-QC,58,25714919,Special woven fabrics,0,25714919
-NB,20,25461400,Prepared vegetables,0,25461400
-SK,56,25368151,Wadding & felt,0,25368151
-MB,65,24564764,Headgear,0,24564764
-AB,91,24390871,Clocks & watches,0,24390871
-BC,52,23904253,Cotton,0,23904253
-NS,29,23643199,Organic chemicals,0,23643199
-SK,63,21539590,Other made-up textiles,0,21539590
-ON,78,21507933,Lead,0,21507933
-NB,83,21437075,Miscellaneous metal articles,0,21437075
-SK,99,21344733,Confidential / low-value (CA),0,21344733
-AB,13,21160481,Resins & gums,0,21160481
-NS,30,20977873,Pharmaceuticals,0,20977873
-SK,18,20884742,Cocoa & cocoa products,0,20884742
-SK,59,20862187,Coated textiles,0,20862187
-NS,54,20575104,Man-made filaments,0,20575104
-NS,25,20479336,"Salt, sulphur, stone, cement",0,20479336
-BC,60,20446615,Knitted fabrics,0,20446615
-NS,28,20295526,Inorganic chemicals,0,20295526
-MB,09,20238472,"Coffee, tea & spices",0,20238472
-PE,85,19781065,Electrical equipment,0,19781065
-BC,55,19646143,Man-made staple fibres,0,19646143
-MB,01,19525439,Live animals,0,19525439
-AB,54,19448884,Man-made filaments,0,19448884
-AB,11,19424343,Milling products,0,19424343
-MB,55,19057344,Man-made staple fibres,0,19057344
-AB,60,18919196,Knitted fabrics,0,18919196
-NL,90,18645657,Optical & medical instruments,0,18645657
-SK,69,18287954,Ceramic products,0,18287954
-SK,74,17828030,Copper,0,17828030
-NS,64,17561348,Footwear,0,17561348
-MB,81,17382166,Other base metals,0,17382166
-SK,06,17378802,Live trees & plants,0,17378802
-NB,25,17363791,"Salt, sulphur, stone, cement",0,17363791
-QC,67,17118107,Feathers & artificial flowers,0,17118107
-AB,06,17068742,Live trees & plants,0,17068742
-SK,96,16829870,Miscellaneous manufactures,0,16829870
-QC,66,16749592,Umbrellas,0,16749592
-NS,69,16738419,Ceramic products,0,16738419
-SK,54,16654957,Man-made filaments,0,16654957
-NL,85,16304245,Electrical equipment,0,16304245
-NS,70,16265486,Glass,0,16265486
-NS,20,16002754,Prepared vegetables,0,16002754
-NB,05,15830022,Other animal products,0,15830022
-BC,58,15821604,Special woven fabrics,0,15821604
-SK,61,15707909,Knitted apparel,0,15707909
-NS,38,15610776,Misc chemical products,0,15610776
-SK,04,15580373,Dairy products,0,15580373
-MB,93,15533026,Arms & ammunition,0,15533026
-ON,14,15399169,Vegetable materials,0,15399169
-ON,43,15231167,Furskins,0,15231167
-NB,63,15230741,Other made-up textiles,0,15230741
-NB,12,15141057,Oil seeds,0,15141057
-MB,54,14570163,Man-made filaments,0,14570163
-AB,97,14476956,Works of art,0,14476956
-SK,17,14439120,Sugars,0,14439120
-MB,05,14106942,Other animal products,0,14106942
-ON,45,14076434,Cork,0,14076434
-BC,46,13819123,Basketware,0,13819123
-NB,33,13733173,Cosmetics & perfumes,0,13733173
-NS,74,13252546,Copper,0,13252546
-NB,31,13231380,Fertilizers,0,13231380
-NS,68,12987881,Stone & cement articles,0,12987881
-MB,60,12683594,Knitted fabrics,0,12683594
-NB,34,12445506,Soap & cleaning products,0,12445506
-AB,05,12394964,Other animal products,0,12394964
-BC,36,12302049,Explosives,0,12302049
-SK,11,12213407,Milling products,0,12213407
-YT,90,12189382,Optical & medical instruments,0,12189382
-QC,53,12181558,Vegetable textile fibres,0,12181558
-BC,53,12093916,Vegetable textile fibres,0,12093916
-NB,95,11907377,Toys & sports equipment,0,11907377
-NB,21,11835896,Misc food preparations,0,11835896
-NB,30,11691666,Pharmaceuticals,0,11691666
-NB,29,11652963,Organic chemicals,0,11652963
-SK,75,11306180,Nickel,0,11306180
-QC,78,11223838,Lead,0,11223838
-SK,09,11137592,"Coffee, tea & spices",0,11137592
-NS,63,10867129,Other made-up textiles,0,10867129
-SK,13,10707978,Resins & gums,0,10707978
-NB,62,10576967,Woven apparel,0,10576967
-NB,11,10253720,Milling products,0,10253720
-BC,14,9842307,Vegetable materials,0,9842307
-NB,06,9648950,Live trees & plants,0,9648950
-NB,72,9621558,Iron & steel,0,9621558
-MB,91,9467685,Clocks & watches,0,9467685
-NB,10,9138750,Cereals,0,9138750
-AB,67,8903292,Feathers & artificial flowers,0,8903292
-SK,81,8767496,Other base metals,0,8767496
-AB,47,8662929,Wood pulp,0,8662929
-NB,57,8645625,Carpets,0,8645625
-NL,25,8564843,"Salt, sulphur, stone, cement",0,8564843
-NB,35,8363344,Protein substances,0,8363344
-NS,36,8199408,Explosives,0,8199408
-SK,03,8106921,Fish & seafood,0,8106921
-QC,46,8086756,Basketware,0,8086756
-NS,59,8050092,Coated textiles,0,8050092
-MB,58,8035835,Special woven fabrics,0,8035835
-AB,24,7935578,Tobacco,0,7935578
-BC,79,7903348,Zinc,0,7903348
-BC,51,7812792,Wool,0,7812792
-NS,81,7806597,Other base metals,0,7806597
-QC,43,7801328,Furskins,0,7801328
-NS,35,7784816,Protein substances,0,7784816
-NB,82,7777051,Tools & cutlery,0,7777051
-AB,98,7758597,Special transactions (CA),0,7758597
-NS,32,7540726,Tanning & dye extracts,0,7540726
-NS,23,7539545,Food industry residues,0,7539545
-SK,57,7496391,Carpets,0,7496391
-NB,96,7468032,Miscellaneous manufactures,0,7468032
-SK,93,7308182,Arms & ammunition,0,7308182
-NL,48,7144600,Paper & paperboard,0,7144600
-BC,45,7121750,Cork,0,7121750
-SK,64,7116454,Footwear,0,7116454
-NB,93,6986485,Arms & ammunition,0,6986485
-MB,47,6972813,Wood pulp,0,6972813
-AB,58,6904336,Special woven fabrics,0,6904336
-NS,93,6843377,Arms & ammunition,0,6843377
-QC,37,6828579,Photographic goods,0,6828579
-NB,59,6793355,Coated textiles,0,6793355
-NB,16,6453898,Prepared meat & fish,0,6453898
-AB,92,6450994,Musical instruments,0,6450994
-YT,87,6381538,Vehicles,0,6381538
-NL,38,6370730,Misc chemical products,0,6370730
-SK,42,6006028,Leather goods,0,6006028
-NS,95,5852922,Toys & sports equipment,0,5852922
-NB,61,5791597,Knitted apparel,0,5791597
-MB,13,5790460,Resins & gums,0,5790460
-MB,92,5783011,Musical instruments,0,5783011
-NS,47,5758425,Wood pulp,0,5758425
-NS,49,5657737,Printed books & media,0,5657737
-NS,31,5657711,Fertilizers,0,5657711
-MB,03,5625299,Fish & seafood,0,5625299
-NB,86,5619680,Railway equipment,0,5619680
-QC,45,5509650,Cork,0,5509650
-AB,66,5479399,Umbrellas,0,5479399
-NB,69,5452771,Ceramic products,0,5452771
-NB,49,5444963,Printed books & media,0,5444963
-PE,39,5385540,Plastics,0,5385540
-NB,18,5355071,Cocoa & cocoa products,0,5355071
-NS,42,5228266,Leather goods,0,5228266
-NB,99,5174715,Confidential / low-value (CA),0,5174715
-SK,65,5042827,Headgear,0,5042827
-NS,82,4984076,Tools & cutlery,0,4984076
-SK,60,4934770,Knitted fabrics,0,4934770
-MB,98,4904704,Special transactions (CA),0,4904704
-NB,71,4846419,Precious metals & stones,0,4846419
-SK,92,4749992,Musical instruments,0,4749992
-NS,83,4705038,Miscellaneous metal articles,0,4705038
-NB,54,4660624,Man-made filaments,0,4660624
-NL,03,4609470,Fish & seafood,0,4609470
-NL,39,4609426,Plastics,0,4609426
-NS,17,4413429,Sugars,0,4413429
-BC,41,4381564,Raw hides & skins,0,4381564
-NS,09,4364804,"Coffee, tea & spices",0,4364804
-NL,94,4320118,Furniture,0,4320118
-MB,52,4096757,Cotton,0,4096757
-SK,71,4084301,Precious metals & stones,0,4084301
-MB,41,4078077,Raw hides & skins,0,4078077
-SK,26,4052486,"Ores, slag & ash",0,4052486
-BC,47,4045132,Wood pulp,0,4045132
-NB,17,4015717,Sugars,0,4015717
-SK,05,3964665,Other animal products,0,3964665
-YT,88,3908449,Aircraft & spacecraft,0,3908449
-NL,40,3882817,Rubber,0,3882817
-NL,56,3760677,Wadding & felt,0,3760677
-AB,55,3717476,Man-made staple fibres,0,3717476
-NS,10,3558121,Cereals,0,3558121
-MB,53,3512827,Vegetable textile fibres,0,3512827
-SK,98,3498989,Special transactions (CA),0,3498989
-BC,43,3494186,Furskins,0,3494186
-BC,37,3401986,Photographic goods,0,3401986
-MB,24,3399396,Tobacco,0,3399396
-NU,25,3356061,"Salt, sulphur, stone, cement",0,3356061
-NS,07,3295705,Vegetables,0,3295705
-AB,53,3240579,Vegetable textile fibres,0,3240579
-NS,34,3197993,Soap & cleaning products,0,3197993
-NB,04,3182836,Dairy products,0,3182836
-NB,01,3129940,Live animals,0,3129940
-NS,97,3114865,Works of art,0,3114865
-BC,78,3099090,Lead,0,3099090
-PE,84,3079779,Machinery & mechanical appliances,0,3079779
-MB,97,3041686,Works of art,0,3041686
-NL,72,3022525,Iron & steel,0,3022525
-AB,52,3000345,Cotton,0,3000345
-NB,75,2994073,Nickel,0,2994073
-NS,06,2761848,Live trees & plants,0,2761848
-NS,16,2749810,Prepared meat & fish,0,2749810
-AB,46,2617777,Basketware,0,2617777
-AB,37,2549408,Photographic goods,0,2549408
-AB,14,2549020,Vegetable materials,0,2549020
-ON,50,2534575,Silk,0,2534575
-MB,79,2526305,Zinc,0,2526305
-NS,57,2457679,Carpets,0,2457679
-NB,92,2336789,Musical instruments,0,2336789
-PE,90,2318172,Optical & medical instruments,0,2318172
-NB,09,2168627,"Coffee, tea & spices",0,2168627
-AB,78,2151693,Lead,0,2151693
-MB,46,2106314,Basketware,0,2106314
-PE,28,2039074,Inorganic chemicals,0,2039074
-QC,14,2032832,Vegetable materials,0,2032832
-NL,70,1979217,Glass,0,1979217
-NL,05,1967540,Other animal products,0,1967540
-NS,65,1954422,Headgear,0,1954422
-NU,28,1892405,Inorganic chemicals,0,1892405
-NS,12,1859130,Oil seeds,0,1859130
-MB,67,1818691,Feathers & artificial flowers,0,1818691
-AB,43,1787511,Furskins,0,1787511
-YT,85,1777293,Electrical equipment,0,1777293
-NB,42,1765071,Leather goods,0,1765071
-MB,37,1753616,Photographic goods,0,1753616
-MB,43,1747540,Furskins,0,1747540
-NU,90,1737495,Optical & medical instruments,0,1737495
-NB,80,1732934,Tin,0,1732934
-PE,98,1721795,Special transactions (CA),0,1721795
-AB,41,1716419,Raw hides & skins,0,1716419
-QC,50,1640753,Silk,0,1640753
-BC,80,1531926,Tin,0,1531926
-NL,23,1488704,Food industry residues,0,1488704
-NB,65,1456485,Headgear,0,1456485
-NB,26,1440122,"Ores, slag & ash",0,1440122
-NS,96,1427817,Miscellaneous manufactures,0,1427817
-NS,98,1392879,Special transactions (CA),0,1392879
-PE,30,1377057,Pharmaceuticals,0,1377057
-NS,60,1325855,Knitted fabrics,0,1325855
-NL,83,1299106,Miscellaneous metal articles,0,1299106
-SK,55,1295300,Man-made staple fibres,0,1295300
-BC,50,1252982,Silk,0,1252982
-NS,58,1197279,Special woven fabrics,0,1197279
-SK,47,1138508,Wood pulp,0,1138508
-AB,26,1085289,"Ores, slag & ash",0,1085289
-AB,51,1067462,Wool,0,1067462
-NB,13,1063210,Resins & gums,0,1063210
-NS,13,1062086,Resins & gums,0,1062086
-MB,45,1055966,Cork,0,1055966
-NL,18,1050076,Cocoa & cocoa products,0,1050076
-PE,38,1041109,Misc chemical products,0,1041109
-NL,82,1025332,Tools & cutlery,0,1025332
-NL,81,1020518,Other base metals,0,1020518
-NB,58,1013082,Special woven fabrics,0,1013082
-NL,75,1005434,Nickel,0,1005434
-AB,79,993838,Zinc,0,993838
-NL,62,964004,Woven apparel,0,964004
-SK,67,935783,Feathers & artificial flowers,0,935783
-AB,45,863971,Cork,0,863971
-NL,19,832684,Prepared cereals,0,832684
-MB,66,822362,Umbrellas,0,822362
-AB,80,792196,Tin,0,792196
-MB,80,737504,Tin,0,737504
-PE,73,737064,Articles of iron & steel,0,737064
-NS,53,733142,Vegetable textile fibres,0,733142
-NB,41,726042,Raw hides & skins,0,726042
-NS,46,712318,Basketware,0,712318
-MB,51,712074,Wool,0,712074
-NS,41,687673,Raw hides & skins,0,687673
-SK,58,687338,Special woven fabrics,0,687338
-NU,99,679170,Confidential / low-value (CA),0,679170
-NS,79,663152,Zinc,0,663152
-NL,34,658743,Soap & cleaning products,0,658743
-SK,14,632177,Vegetable materials,0,632177
-NS,75,614478,Nickel,0,614478
-NU,86,612881,Railway equipment,0,612881
-NB,55,590618,Man-made staple fibres,0,590618
-NB,98,586219,Special transactions (CA),0,586219
-NS,11,572650,Milling products,0,572650
-SK,91,548701,Clocks & watches,0,548701
-NS,55,547770,Man-made staple fibres,0,547770
-NL,87,542166,Vehicles,0,542166
-MB,78,538936,Lead,0,538936
-NB,64,536927,Footwear,0,536927
-NB,36,515572,Explosives,0,515572
-NL,86,500096,Railway equipment,0,500096
-NB,81,479388,Other base metals,0,479388
-NB,52,460719,Cotton,0,460719
-NL,76,451944,Aluminium,0,451944
-NB,02,451457,Meat & offal,0,451457
-NL,26,408953,"Ores, slag & ash",0,408953
-NL,63,391248,Other made-up textiles,0,391248
-NS,66,381912,Umbrellas,0,381912
-NB,79,369604,Zinc,0,369604
-MB,14,352455,Vegetable materials,0,352455
-SK,78,334911,Lead,0,334911
-YT,73,309897,Articles of iron & steel,0,309897
-NL,96,298841,Miscellaneous manufactures,0,298841
-NB,67,293873,Feathers & artificial flowers,0,293873
-NB,60,293053,Knitted fabrics,0,293053
-YT,34,285836,Soap & cleaning products,0,285836
-NS,71,275638,Precious metals & stones,0,275638
-NS,67,275070,Feathers & artificial flowers,0,275070
-SK,97,275018,Works of art,0,275018
-NL,01,273894,Live animals,0,273894
-NS,26,265020,"Ores, slag & ash",0,265020
-YT,05,263975,Other animal products,0,263975
-NS,51,261335,Wool,0,261335
-SK,52,258559,Cotton,0,258559
-NS,78,236906,Lead,0,236906
-SK,79,211358,Zinc,0,211358
-NL,74,199048,Copper,0,199048
-SK,46,196207,Basketware,0,196207
-NS,92,191101,Musical instruments,0,191101
-NB,91,191032,Clocks & watches,0,191032
-NL,21,189107,Misc food preparations,0,189107
-PE,17,182890,Sugars,0,182890
-AB,50,179853,Silk,0,179853
-YT,38,168173,Misc chemical products,0,168173
-SK,41,164535,Raw hides & skins,0,164535
-NS,52,163207,Cotton,0,163207
-NL,32,155231,Tanning & dye extracts,0,155231
-PE,40,147994,Rubber,0,147994
-PE,70,145660,Glass,0,145660
-NB,51,144309,Wool,0,144309
-SK,51,140699,Wool,0,140699
-NB,46,137551,Basketware,0,137551
-YT,29,137344,Organic chemicals,0,137344
-NL,79,129411,Zinc,0,129411
-SK,37,120959,Photographic goods,0,120959
-SK,53,116199,Vegetable textile fibres,0,116199
-PE,48,112147,Paper & paperboard,0,112147
-PE,05,110969,Other animal products,0,110969
-YT,82,110107,Tools & cutlery,0,110107
-NL,61,110024,Knitted apparel,0,110024
-NS,14,104354,Vegetable materials,0,104354
-NS,91,97952,Clocks & watches,0,97952
-NL,95,96019,Toys & sports equipment,0,96019
-PE,51,94744,Wool,0,94744
-YT,28,92469,Inorganic chemicals,0,92469
-NB,97,91220,Works of art,0,91220
-NL,06,89676,Live trees & plants,0,89676
-NL,44,87441,Wood & wood articles,0,87441
-YT,01,85000,Live animals,0,85000
-NB,66,84668,Umbrellas,0,84668
-NL,13,82028,Resins & gums,0,82028
-MB,50,80596,Silk,0,80596
-PE,75,79876,Nickel,0,79876
-NB,78,78588,Lead,0,78588
-YT,35,78141,Protein substances,0,78141
-YT,40,76523,Rubber,0,76523
-SK,45,75717,Cork,0,75717
-NB,43,74374,Furskins,0,74374
-SK,80,67914,Tin,0,67914
-YT,39,67162,Plastics,0,67162
-YT,94,65003,Furniture,0,65003
-PE,34,63152,Soap & cleaning products,0,63152
-NL,35,62745,Protein substances,0,62745
-YT,31,57186,Fertilizers,0,57186
-PE,76,55879,Aluminium,0,55879
-YT,86,54814,Railway equipment,0,54814
-NB,45,51961,Cork,0,51961
-YT,63,51718,Other made-up textiles,0,51718
-SK,66,46580,Umbrellas,0,46580
-YT,83,46033,Miscellaneous metal articles,0,46033
-PE,87,45323,Vehicles,0,45323
-NS,80,43971,Tin,0,43971
-NS,04,43125,Dairy products,0,43125
-PE,21,42930,Misc food preparations,0,42930
-YT,76,40177,Aluminium,0,40177
-YT,12,39854,Oil seeds,0,39854
-YT,27,38578,Mineral fuels & oils,0,38578
-NB,37,38274,Photographic goods,0,38274
-NL,59,37400,Coated textiles,0,37400
-NL,30,37259,Pharmaceuticals,0,37259
-NL,42,35601,Leather goods,0,35601
-NB,53,32937,Vegetable textile fibres,0,32937
-NL,65,32850,Headgear,0,32850
-NL,36,28487,Explosives,0,28487
-NL,20,28178,Prepared vegetables,0,28178
-SK,43,27790,Furskins,0,27790
-YT,89,25605,Ships & boats,0,25605
-NS,45,25373,Cork,0,25373
-NL,68,24799,Stone & cement articles,0,24799
-NL,49,24216,Printed books & media,0,24216
-PE,59,22273,Coated textiles,0,22273
-NB,14,21555,Vegetable materials,0,21555
-PE,49,21140,Printed books & media,0,21140
-PE,42,20882,Leather goods,0,20882
-NS,50,20149,Silk,0,20149
-YT,36,19989,Explosives,0,19989
-NL,08,19179,Fruit & nuts,0,19179
-NT,84,18920,Machinery & mechanical appliances,0,18920
-NS,24,15875,Tobacco,0,15875
-NL,17,14662,Sugars,0,14662
-PE,82,13749,Tools & cutlery,0,13749
-NT,88,13639,Aircraft & spacecraft,0,13639
-NL,24,13171,Tobacco,0,13171
-YT,25,12728,"Salt, sulphur, stone, cement",0,12728
-SK,50,12667,Silk,0,12667
-NL,64,12367,Footwear,0,12367
-PE,27,11493,Mineral fuels & oils,0,11493
-YT,98,10553,Special transactions (CA),0,10553
-YT,26,9770,"Ores, slag & ash",0,9770
-YT,48,8317,Paper & paperboard,0,8317
-NL,54,8261,Man-made filaments,0,8261
-PE,22,7447,Beverages & spirits,0,7447
-PE,35,6499,Protein substances,0,6499
-NU,84,4204,Machinery & mechanical appliances,0,4204
-NL,09,4063,"Coffee, tea & spices",0,4063
-NL,22,4002,Beverages & spirits,0,4002
-NT,73,3833,Articles of iron & steel,0,3833
-YT,64,3809,Footwear,0,3809
-NL,67,3728,Feathers & artificial flowers,0,3728
-YT,95,2942,Toys & sports equipment,0,2942
-NL,71,2810,Precious metals & stones,0,2810
-NL,45,2715,Cork,0,2715
-PE,96,2636,Miscellaneous manufactures,0,2636
-NU,48,2622,Paper & paperboard,0,2622
-NL,33,2559,Cosmetics & perfumes,0,2559
-NL,51,2528,Wool,0,2528
-NL,29,2517,Organic chemicals,0,2517
-NL,58,2501,Special woven fabrics,0,2501
-NL,91,2096,Clocks & watches,0,2096
-NL,16,2088,Prepared meat & fish,0,2088
-PE,88,1905,Aircraft & spacecraft,0,1905
-NL,98,1854,Special transactions (CA),0,1854
-NL,69,1717,Ceramic products,0,1717
-YT,42,1633,Leather goods,0,1633
-NS,01,1540,Live animals,0,1540
-YT,69,1532,Ceramic products,0,1532
-NT,82,1369,Tools & cutlery,0,1369
-NL,97,1134,Works of art,0,1134
-PE,83,1036,Miscellaneous metal articles,0,1036
-PE,61,986,Knitted apparel,0,986
-PE,19,880,Prepared cereals,0,880
-NU,89,800,Ships & boats,0,800
-NL,43,786,Furskins,0,786
-NL,66,747,Umbrellas,0,747
-NU,49,546,Printed books & media,0,546
-NL,60,527,Knitted fabrics,0,527
-YT,44,510,Wood & wood articles,0,510
-YT,96,486,Miscellaneous manufactures,0,486
-NU,40,437,Rubber,0,437
-YT,70,435,Glass,0,435
-NL,55,425,Man-made staple fibres,0,425
-NL,78,424,Lead,0,424
-PE,94,407,Furniture,0,407
-NL,57,346,Carpets,0,346
-PE,69,303,Ceramic products,0,303
-NU,96,268,Miscellaneous manufactures,0,268
-YT,61,214,Knitted apparel,0,214
-NB,24,213,Tobacco,0,213
-NB,50,200,Silk,0,200
-PE,63,173,Other made-up textiles,0,173
-YT,68,166,Stone & cement articles,0,166
-YT,55,163,Man-made staple fibres,0,163
-NS,43,153,Furskins,0,153
-PE,68,130,Stone & cement articles,0,130
-PE,20,114,Prepared vegetables,0,114
-PE,62,100,Woven apparel,0,100
-YT,22,84,Beverages & spirits,0,84
-NL,37,75,Photographic goods,0,75
-YT,56,58,Wadding & felt,0,58
-PE,25,54,"Salt, sulphur, stone, cement",0,54
-NL,07,24,Vegetables,0,24
-NL,31,3,Fertilizers,0,3
-YT,57,1,Carpets,0,1
+code,hs2,imports,exports,commodity,total
+ON,87,96011442172.0,55841406065.0,Vehicles,151852848237.0
+AB,27,4596093051.0,136725072709.0,Mineral fuels & oils,141321165760.0
+ON,71,41544198968.0,68669333860.0,Precious metals & stones,110213532828.0
+ON,84,66389605953.0,25528167169.0,Machinery & mechanical appliances,91917773122.0
+ON,85,47885730253.0,12052422269.0,Electrical equipment,59938152522.0
+QC,84,19034121488.0,13070522043.0,Machinery & mechanical appliances,32104643531.0
+ON,39,16737910760.0,10256253533.0,Plastics,26994164293.0
+ON,30,19606310282.0,6232189903.0,Pharmaceuticals,25838500185.0
+NB,27,12535674919.0,10794876361.0,Mineral fuels & oils,23330551280.0
+ZZ,99,0.0,21314177149.0,Confidential / low-value (CA),21314177149.0
+ON,90,14778074750.0,5499151039.0,Optical & medical instruments,20277225789.0
+QC,88,5335940538.0,14874194493.0,Aircraft & spacecraft,20210135031.0
+BC,27,3215565176.0,15989723110.0,Mineral fuels & oils,19205288286.0
+QC,27,10763582775.0,6264946379.0,Mineral fuels & oils,17028529154.0
+ON,99,12785009053.0,3445553413.0,Confidential / low-value (CA),16230562466.0
+BC,84,13138174318.0,2432143596.0,Machinery & mechanical appliances,15570317914.0
+ON,27,10576358592.0,4455733944.0,Mineral fuels & oils,15032092536.0
+SK,27,2492842404.0,12184276972.0,Mineral fuels & oils,14677119376.0
+QC,85,9872757563.0,3958527414.0,Electrical equipment,13831284977.0
+QC,76,1568011580.0,11512133962.0,Aluminium,13080145542.0
+ON,19,4233027769.0,7879169889.0,Prepared cereals,12112197658.0
+AB,84,6615920001.0,4717604243.0,Machinery & mechanical appliances,11333524244.0
+ON,94,6834972862.0,4387206659.0,Furniture,11222179521.0
+NL,27,1104101942.0,10087592414.0,Mineral fuels & oils,11191694356.0
+ON,72,6236517752.0,4458982581.0,Iron & steel,10695500333.0
+SK,31,645939613.0,9785544631.0,Fertilizers,10431484244.0
+ON,73,7533614004.0,2635489052.0,Articles of iron & steel,10169103056.0
+QC,87,4525295347.0,5525443361.0,Vehicles,10050738708.0
+MB,84,8047473369.0,1669972464.0,Machinery & mechanical appliances,9717445833.0
+ZZ,84,0.0,9234317967.0,Machinery & mechanical appliances,9234317967.0
+BC,85,6904186524.0,2152688352.0,Electrical equipment,9056874876.0
+BC,26,1482821827.0,7190091747.0,"Ores, slag & ash",8672913574.0
+BC,87,7949480109.0,653782118.0,Vehicles,8603262227.0
+ON,48,5653140155.0,2941142476.0,Paper & paperboard,8594282631.0
+QC,74,3609098028.0,4754512460.0,Copper,8363610488.0
+ON,29,6763914514.0,1464120440.0,Organic chemicals,8228034954.0
+QC,26,1799388284.0,6167669493.0,"Ores, slag & ash",7967057777.0
+ON,76,4310738930.0,3397084473.0,Aluminium,7707823403.0
+QC,30,6172063663.0,1253595154.0,Pharmaceuticals,7425658817.0
+ON,33,5360812908.0,2030557232.0,Cosmetics & perfumes,7391370140.0
+ON,38,4826348736.0,2444133317.0,Misc chemical products,7270482053.0
+BC,44,1126625547.0,6117302848.0,Wood & wood articles,7243928395.0
+ON,88,4421156442.0,2814697161.0,Aircraft & spacecraft,7235853603.0
+SK,10,183252783.0,6403332975.0,Cereals,6586585758.0
+QC,39,2973869530.0,3453450793.0,Plastics,6427320323.0
+ON,40,4621402536.0,1765576459.0,Rubber,6386978995.0
+QC,48,1375054061.0,4996315862.0,Paper & paperboard,6371369923.0
+ON,21,4251540076.0,1836678105.0,Misc food preparations,6088218181.0
+AB,39,1667425869.0,4400352869.0,Plastics,6067778738.0
+ON,07,2953389716.0,3062318310.0,Vegetables,6015708026.0
+NS,87,5822642993.0,150071783.0,Vehicles,5972714776.0
+SK,84,5388344594.0,515534474.0,Machinery & mechanical appliances,5903879068.0
+QC,90,3238150650.0,2412736313.0,Optical & medical instruments,5650886963.0
+ON,02,3499895641.0,2133665061.0,Meat & offal,5633560702.0
+ON,18,3044404244.0,2436608827.0,Cocoa & cocoa products,5481013071.0
+ON,74,3117950542.0,2324773938.0,Copper,5442724480.0
+ON,22,3745194042.0,1558466070.0,Beverages & spirits,5303660112.0
+MB,27,4079128758.0,1157046511.0,Mineral fuels & oils,5236175269.0
+AB,02,61598175.0,4941268961.0,Meat & offal,5002867136.0
+ON,34,3520655035.0,1426398850.0,Soap & cleaning products,4947053885.0
+ON,95,4509868993.0,435589414.0,Toys & sports equipment,4945458407.0
+MB,87,3457182284.0,1404063243.0,Vehicles,4861245527.0
+ON,08,4685865104.0,65303594.0,Fruit & nuts,4751168698.0
+QC,71,2825632079.0,1752554848.0,Precious metals & stones,4578186927.0
+ON,61,4408206706.0,154442959.0,Knitted apparel,4562649665.0
+QC,28,3406734743.0,1119667020.0,Inorganic chemicals,4526401763.0
+QC,44,821258775.0,3626155685.0,Wood & wood articles,4447414460.0
+SK,12,42788817.0,4357834138.0,Oil seeds,4400622955.0
+ZZ,85,0.0,4383524860.0,Electrical equipment,4383524860.0
+ON,83,2702259518.0,1636135671.0,Miscellaneous metal articles,4338395189.0
+ON,28,2206435247.0,2129740672.0,Inorganic chemicals,4336175919.0
+AB,85,3168709342.0,1149129426.0,Electrical equipment,4317838768.0
+QC,18,2074173445.0,2105814512.0,Cocoa & cocoa products,4179987957.0
+ON,62,3507425412.0,553870900.0,Woven apparel,4061296312.0
+QC,94,2174624759.0,1789950172.0,Furniture,3964574931.0
+ON,44,1720291890.0,2140962864.0,Wood & wood articles,3861254754.0
+ZZ,30,0.0,3829892474.0,Pharmaceuticals,3829892474.0
+AB,10,175339725.0,3618202438.0,Cereals,3793542163.0
+BC,90,2134757149.0,1424585499.0,Optical & medical instruments,3559342648.0
+ON,32,2718141120.0,802026886.0,Tanning & dye extracts,3520168006.0
+QC,40,2281766461.0,1154378302.0,Rubber,3436144763.0
+QC,72,1507463884.0,1844231025.0,Iron & steel,3351694909.0
+SK,15,44861261.0,3295538420.0,Animal/veg fats & oils,3340399681.0
+ON,20,2350927599.0,887643202.0,Prepared vegetables,3238570801.0
+BC,39,2552973272.0,685491301.0,Plastics,3238464573.0
+AB,29,745324425.0,2244752591.0,Organic chemicals,2990077016.0
+ON,26,2317379998.0,666960966.0,"Ores, slag & ash",2984340964.0
+QC,73,1966831061.0,982880346.0,Articles of iron & steel,2949711407.0
+ON,75,373305004.0,2569904328.0,Nickel,2943209332.0
+BC,76,1140347110.0,1688672938.0,Aluminium,2829020048.0
+ON,23,2074904940.0,745494803.0,Food industry residues,2820399743.0
+SK,28,65798512.0,2751904516.0,Inorganic chemicals,2817703028.0
+BC,08,2133000676.0,681088521.0,Fruit & nuts,2814089197.0
+ZZ,87,0.0,2786123108.0,Vehicles,2786123108.0
+QC,02,702855255.0,2081633665.0,Meat & offal,2784488920.0
+ON,96,1785956207.0,977621274.0,Miscellaneous manufactures,2763577481.0
+SK,87,2595265297.0,161825699.0,Vehicles,2757090996.0
+ON,98,308898534.0,2438489607.0,Special transactions (CA),2747388141.0
+MB,85,2383753337.0,357572370.0,Electrical equipment,2741325707.0
+ON,70,2317816810.0,407738838.0,Glass,2725555648.0
+BC,47,4045132.0,2700691416.0,Wood pulp,2704736548.0
+ON,12,1009681222.0,1680343925.0,Oil seeds,2690025147.0
+BC,94,2244355500.0,411648884.0,Furniture,2656004384.0
+SK,07,56117600.0,2590077013.0,Vegetables,2646194613.0
+QC,22,2016780253.0,605005538.0,Beverages & spirits,2621785791.0
+BC,73,2347056810.0,270008787.0,Articles of iron & steel,2617065597.0
+ON,09,2095050393.0,484719404.0,"Coffee, tea & spices",2579769797.0
+AB,87,1702329247.0,781152151.0,Vehicles,2483481398.0
+AB,01,946995725.0,1521747339.0,Live animals,2468743064.0
+ON,82,2103592722.0,353867882.0,Tools & cutlery,2457460604.0
+QC,99,1663489072.0,749185161.0,Confidential / low-value (CA),2412674233.0
+ON,49,1904074289.0,488837536.0,Printed books & media,2392911825.0
+NL,26,408953.0,2374271924.0,"Ores, slag & ash",2374680877.0
+BC,03,1004295380.0,1358879234.0,Fish & seafood,2363174614.0
+BC,61,2273413647.0,28967456.0,Knitted apparel,2302381103.0
+NL,84,2273402822.0,6063195.0,Machinery & mechanical appliances,2279466017.0
+NS,03,308388109.0,1939807033.0,Fish & seafood,2248195142.0
+AB,12,98367913.0,2147430137.0,Oil seeds,2245798050.0
+ON,64,2195905580.0,28508033.0,Footwear,2224413613.0
+ON,68,1359754542.0,851908936.0,Stone & cement articles,2211663478.0
+AB,25,143527045.0,1990853124.0,"Salt, sulphur, stone, cement",2134380169.0
+QC,33,898769566.0,1220606999.0,Cosmetics & perfumes,2119376565.0
+AB,73,1558743423.0,556280844.0,Articles of iron & steel,2115024267.0
+MB,12,195884734.0,1900719184.0,Oil seeds,2096603918.0
+MB,10,122131161.0,1964095210.0,Cereals,2086226371.0
+ON,17,1311736203.0,762993623.0,Sugars,2074729826.0
+AB,90,1421227372.0,632106336.0,Optical & medical instruments,2053333708.0
+MB,39,1421700905.0,616393481.0,Plastics,2038094386.0
+ON,15,1125541623.0,805409479.0,Animal/veg fats & oils,1930951102.0
+AB,44,201533576.0,1716054023.0,Wood & wood articles,1917587599.0
+NB,03,464823990.0,1419174379.0,Fish & seafood,1883998369.0
+MB,02,152863512.0,1722996528.0,Meat & offal,1875860040.0
+BC,48,1260192007.0,570822937.0,Paper & paperboard,1831014944.0
+QC,17,685268080.0,1102686585.0,Sugars,1787954665.0
+QC,61,1645242262.0,124126470.0,Knitted apparel,1769368732.0
+ON,16,1377284152.0,381590378.0,Prepared meat & fish,1758874530.0
+QC,38,851348187.0,907295521.0,Misc chemical products,1758643708.0
+BC,72,1356206223.0,393529988.0,Iron & steel,1749736211.0
+ON,10,721142724.0,1012070136.0,Cereals,1733212860.0
+ON,42,1562684844.0,156181899.0,Leather goods,1718866743.0
+BC,28,1061241005.0,645694225.0,Inorganic chemicals,1706935230.0
+NL,03,4609470.0,1701838665.0,Fish & seafood,1706448135.0
+NS,40,259297895.0,1435207696.0,Rubber,1694505591.0
+BC,95,1626920694.0,67398564.0,Toys & sports equipment,1694319258.0
+BC,88,1402288950.0,265332192.0,Aircraft & spacecraft,1667621142.0
+BC,62,1637535275.0,26992308.0,Woven apparel,1664527583.0
+BC,07,1081502436.0,532824861.0,Vegetables,1614327297.0
+AB,15,57993526.0,1553828309.0,Animal/veg fats & oils,1611821835.0
+NS,84,1400412007.0,186870862.0,Machinery & mechanical appliances,1587282869.0
+QC,62,1282204827.0,294534436.0,Woven apparel,1576739263.0
+QC,09,1455023814.0,109584861.0,"Coffee, tea & spices",1564608675.0
+ON,01,372889858.0,1185657273.0,Live animals,1558547131.0
+QC,08,1151130795.0,383098434.0,Fruit & nuts,1534229229.0
+ON,35,1360874444.0,154506670.0,Protein substances,1515381114.0
+AB,22,1418700038.0,71842165.0,Beverages & spirits,1490542203.0
+AB,47,8662929.0,1477570081.0,Wood pulp,1486233010.0
+ON,25,549320930.0,935613172.0,"Salt, sulphur, stone, cement",1484934102.0
+ZZ,90,0.0,1483088433.0,Optical & medical instruments,1483088433.0
+AB,28,247788976.0,1187026493.0,Inorganic chemicals,1434815469.0
+ZZ,98,0.0,1420737343.0,Special transactions (CA),1420737343.0
+NL,15,1413063433.0,4423644.0,Animal/veg fats & oils,1417487077.0
+BC,19,816980617.0,589484070.0,Prepared cereals,1406464687.0
+MB,31,1235634234.0,164686019.0,Fertilizers,1400320253.0
+AB,07,577183136.0,818232475.0,Vegetables,1395415611.0
+ON,03,1238876942.0,151965020.0,Fish & seafood,1390841962.0
+MB,38,1361336741.0,29358253.0,Misc chemical products,1390694994.0
+QC,20,744146382.0,632548208.0,Prepared vegetables,1376694590.0
+QC,19,559200937.0,776324882.0,Prepared cereals,1335525819.0
+ON,04,962233387.0,368317774.0,Dairy products,1330551161.0
+QC,29,1066833250.0,253270232.0,Organic chemicals,1320103482.0
+QC,21,370228097.0,947160097.0,Misc food preparations,1317388194.0
+QC,98,54891207.0,1258935212.0,Special transactions (CA),1313826419.0
+AB,23,326099688.0,966739627.0,Food industry residues,1292839315.0
+ON,63,1090255108.0,198563032.0,Other made-up textiles,1288818140.0
+MB,15,89941207.0,1177446639.0,Animal/veg fats & oils,1267387846.0
+BC,21,674324448.0,593037814.0,Misc food preparations,1267362262.0
+SK,23,199999192.0,1042110617.0,Food industry residues,1242109809.0
+QC,12,208513414.0,979852399.0,Oil seeds,1188365813.0
+AB,94,844427381.0,338921721.0,Furniture,1183349102.0
+SK,85,1014496028.0,147471633.0,Electrical equipment,1161967661.0
+ON,31,952427408.0,205641201.0,Fertilizers,1158068609.0
+ON,81,620927986.0,479791211.0,Other base metals,1100719197.0
+BC,25,208184532.0,887450635.0,"Salt, sulphur, stone, cement",1095635167.0
+ON,06,434073600.0,659844984.0,Live trees & plants,1093918584.0
+QC,47,265463726.0,819549935.0,Wood pulp,1085013661.0
+MB,73,931498502.0,127178795.0,Articles of iron & steel,1058677297.0
+ON,86,929178375.0,121198485.0,Railway equipment,1050376860.0
+AB,20,201029701.0,841554626.0,Prepared vegetables,1042584327.0
+BC,38,645749898.0,393815209.0,Misc chemical products,1039565107.0
+BC,79,7903348.0,1016490486.0,Zinc,1024393834.0
+AB,88,828912262.0,193211408.0,Aircraft & spacecraft,1022123670.0
+QC,83,656587441.0,360452323.0,Miscellaneous metal articles,1017039764.0
+BC,22,924307346.0,82976169.0,Beverages & spirits,1007283515.0
+NS,27,979982096.0,22527430.0,Mineral fuels & oils,1002509526.0
+BC,20,756315375.0,244739664.0,Prepared vegetables,1001055039.0
+ON,69,913703059.0,68604919.0,Ceramic products,982307978.0
+AB,38,684132735.0,298062460.0,Misc chemical products,982195195.0
+NB,84,774407691.0,203310609.0,Machinery & mechanical appliances,977718300.0
+QC,03,606380333.0,362659930.0,Fish & seafood,969040263.0
+NL,75,1005434.0,966365564.0,Nickel,967370998.0
+ON,24,679883294.0,276352369.0,Tobacco,956235663.0
+QC,95,668508268.0,275275768.0,Toys & sports equipment,943784036.0
+NB,44,111007997.0,830559329.0,Wood & wood articles,941567326.0
+SK,38,877702654.0,62485315.0,Misc chemical products,940187969.0
+ON,91,888087245.0,50846917.0,Clocks & watches,938934162.0
+MB,90,781407307.0,149142701.0,Optical & medical instruments,930550008.0
+ON,47,303740554.0,620603317.0,Wood pulp,924343871.0
+BC,40,865201418.0,56911270.0,Rubber,922112688.0
+AB,31,476574918.0,426549156.0,Fertilizers,903124074.0
+QC,32,330068895.0,563820049.0,Tanning & dye extracts,893888944.0
+MB,48,585210655.0,300318241.0,Paper & paperboard,885528896.0
+NB,47,87136343.0,793852743.0,Wood pulp,880989086.0
+BC,09,759580089.0,107371696.0,"Coffee, tea & spices",866951785.0
+QC,07,308937337.0,554687852.0,Vegetables,863625189.0
+QC,25,255769603.0,600480942.0,"Salt, sulphur, stone, cement",856250545.0
+ON,56,662075215.0,193748921.0,Wadding & felt,855824136.0
+ZZ,88,0.0,846825342.0,Aircraft & spacecraft,846825342.0
+BC,64,836205762.0,6596751.0,Footwear,842802513.0
+MB,20,99907194.0,740558553.0,Prepared vegetables,840465747.0
+QC,79,37243656.0,802868676.0,Zinc,840112332.0
+QC,16,234450544.0,593941606.0,Prepared meat & fish,828392150.0
+AB,40,778913078.0,48890555.0,Rubber,827803633.0
+ZZ,28,0.0,810233820.0,Inorganic chemicals,810233820.0
+AB,08,796642325.0,156543.0,Fruit & nuts,796798868.0
+NT,71,0.0,776929348.0,Precious metals & stones,776929348.0
+BC,99,474203155.0,295069538.0,Confidential / low-value (CA),769272693.0
+ON,59,466364248.0,295223864.0,Coated textiles,761588112.0
+MB,98,4904704.0,751150654.0,Special transactions (CA),756055358.0
+BC,71,465064835.0,280946255.0,Precious metals & stones,746011090.0
+NS,85,508600830.0,234175321.0,Electrical equipment,742776151.0
+QC,68,341283379.0,392617894.0,Stone & cement articles,733901273.0
+MB,94,476296452.0,255187134.0,Furniture,731483586.0
+PE,20,114.0,714989119.0,Prepared vegetables,714989233.0
+QC,15,460097515.0,250227353.0,Animal/veg fats & oils,710324868.0
+QC,31,659693790.0,47967175.0,Fertilizers,707660965.0
+AB,99,310280393.0,390909763.0,Confidential / low-value (CA),701190156.0
+ZZ,73,0.0,687797022.0,Articles of iron & steel,687797022.0
+MB,88,247515440.0,435202659.0,Aircraft & spacecraft,682718099.0
+QC,64,598102462.0,56140013.0,Footwear,654242475.0
+BC,02,475638834.0,174050670.0,Meat & offal,649689504.0
+ON,93,364224410.0,281726242.0,Arms & ammunition,645950652.0
+QC,75,489886384.0,154031035.0,Nickel,643917419.0
+QC,49,263268800.0,379111612.0,Printed books & media,642380412.0
+ZZ,71,0.0,636032280.0,Precious metals & stones,636032280.0
+SK,39,593816888.0,40860541.0,Plastics,634677429.0
+QC,70,468095492.0,166472956.0,Glass,634568448.0
+QC,23,230804409.0,398198237.0,Food industry residues,629002646.0
+NB,48,148202099.0,465896495.0,Paper & paperboard,614098594.0
+QC,04,486999942.0,113851821.0,Dairy products,600851763.0
+QC,81,318484469.0,280333049.0,Other base metals,598817518.0
+ON,89,519396387.0,76732966.0,Ships & boats,596129353.0
+MB,86,538894660.0,47883081.0,Railway equipment,586777741.0
+ON,11,396524965.0,186718802.0,Milling products,583243767.0
+QC,36,155816163.0,425081853.0,Explosives,580898016.0
+NU,71,0.0,577937885.0,Precious metals & stones,577937885.0
+AB,75,39041160.0,534594997.0,Nickel,573636157.0
+BC,63,477339615.0,93087157.0,Other made-up textiles,570426772.0
+ZZ,39,0.0,568569813.0,Plastics,568569813.0
+MB,44,233085487.0,334998388.0,Wood & wood articles,568083875.0
+BC,68,478368472.0,87054710.0,Stone & cement articles,565423182.0
+AB,48,285569404.0,274580216.0,Paper & paperboard,560149620.0
+SK,73,521786398.0,33113461.0,Articles of iron & steel,554899859.0
+MB,30,137287269.0,413990307.0,Pharmaceuticals,551277576.0
+MB,29,534586728.0,13335844.0,Organic chemicals,547922572.0
+BC,70,450014598.0,85656388.0,Glass,535670986.0
+QC,34,262989345.0,264951471.0,Soap & cleaning products,527940816.0
+ON,57,508283070.0,17523231.0,Carpets,525806301.0
+BC,23,269537648.0,254695590.0,Food industry residues,524233238.0
+BC,16,470822197.0,52057077.0,Prepared meat & fish,522879274.0
+MB,23,309653239.0,211129857.0,Food industry residues,520783096.0
+QC,42,468810439.0,51568626.0,Leather goods,520379065.0
+AB,76,265465255.0,251969510.0,Aluminium,517434765.0
+BC,42,497252350.0,14602868.0,Leather goods,511855218.0
+NB,16,6453898.0,499465547.0,Prepared meat & fish,505919445.0
+MB,01,19525439.0,485942292.0,Live animals,505467731.0
+NS,99,406560943.0,97033095.0,Confidential / low-value (CA),503594038.0
+BC,89,417022396.0,82764334.0,Ships & boats,499786730.0
+NU,26,0.0,498930026.0,"Ores, slag & ash",498930026.0
+NB,87,440519726.0,49983345.0,Vehicles,490503071.0
+BC,98,39985429.0,440746386.0,Special transactions (CA),480731815.0
+QC,86,361457510.0,117945755.0,Railway equipment,479403265.0
+SK,11,12213407.0,466756172.0,Milling products,478969579.0
+BC,82,369760577.0,108897785.0,Tools & cutlery,478658362.0
+AB,71,384727247.0,90500425.0,Precious metals & stones,475227672.0
+QC,82,341189283.0,132546007.0,Tools & cutlery,473735290.0
+NB,20,25461400.0,444556604.0,Prepared vegetables,470018004.0
+BC,18,196162552.0,271042969.0,Cocoa & cocoa products,467205521.0
+BC,33,324340935.0,138844934.0,Cosmetics & perfumes,463185869.0
+QC,63,380551738.0,71102986.0,Other made-up textiles,451654724.0
+ZZ,09,0.0,451268005.0,"Coffee, tea & spices",451268005.0
+BC,96,442248425.0,2431045.0,Miscellaneous manufactures,444679470.0
+BC,83,397204930.0,46761612.0,Miscellaneous metal articles,443966542.0
+ZZ,95,0.0,442535072.0,Toys & sports equipment,442535072.0
+AB,30,159216123.0,278546993.0,Pharmaceuticals,437763116.0
+BC,29,394282204.0,40502071.0,Organic chemicals,434784275.0
+SK,01,204650528.0,228276019.0,Live animals,432926547.0
+AB,72,200657691.0,230775192.0,Iron & steel,431432883.0
+BC,74,249418196.0,179827090.0,Copper,429245286.0
+BC,12,262537157.0,166163176.0,Oil seeds,428700333.0
+AB,95,408676509.0,19877651.0,Toys & sports equipment,428554160.0
+AB,19,248935277.0,178168446.0,Prepared cereals,427103723.0
+BC,06,167406390.0,249707019.0,Live trees & plants,417113409.0
+BC,15,295553345.0,117215032.0,Animal/veg fats & oils,412768377.0
+MB,40,390268385.0,20065311.0,Rubber,410333696.0
+QC,96,169971358.0,224283133.0,Miscellaneous manufactures,394254491.0
+AB,98,7758597.0,386199059.0,Special transactions (CA),393957656.0
+ZZ,27,0.0,390360225.0,Mineral fuels & oils,390360225.0
+NS,73,292636674.0,94102385.0,Articles of iron & steel,386739059.0
+ON,65,357537227.0,27935947.0,Headgear,385473174.0
+ON,54,225869787.0,159332821.0,Man-made filaments,385202608.0
+ON,05,161351291.0,205089989.0,Other animal products,366441280.0
+BC,10,311975908.0,53874282.0,Cereals,365850190.0
+AB,68,274629546.0,90290415.0,Stone & cement articles,364919961.0
+PE,03,0.0,364048077.0,Fish & seafood,364048077.0
+ZZ,40,0.0,362226688.0,Rubber,362226688.0
+NS,88,312293522.0,49928859.0,Aircraft & spacecraft,362222381.0
+PE,98,1721795.0,359952323.0,Special transactions (CA),361674118.0
+MB,72,182080005.0,178186824.0,Iron & steel,360266829.0
+ZZ,94,0.0,359858633.0,Furniture,359858633.0
+MB,28,184132779.0,173642549.0,Inorganic chemicals,357775328.0
+QC,93,174201984.0,176976819.0,Arms & ammunition,351178803.0
+PE,84,3079779.0,333771383.0,Machinery & mechanical appliances,336851162.0
+AB,34,315525153.0,18192669.0,Soap & cleaning products,333717822.0
+ZZ,61,0.0,330675349.0,Knitted apparel,330675349.0
+AB,11,19424343.0,309293073.0,Milling products,328717416.0
+SK,40,318149714.0,9946542.0,Rubber,328096256.0
+MB,49,152969732.0,175101199.0,Printed books & media,328070931.0
+NS,48,43813020.0,284099207.0,Paper & paperboard,327912227.0
+BC,35,214439473.0,113120376.0,Protein substances,327559849.0
+QC,69,322292925.0,5070521.0,Ceramic products,327363446.0
+AB,70,149809668.0,174613629.0,Glass,324423297.0
+QC,10,102032385.0,218764976.0,Cereals,320797361.0
+BC,49,254692492.0,65709610.0,Printed books & media,320402102.0
+BC,34,257003270.0,63110231.0,Soap & cleaning products,320113501.0
+MB,34,317416793.0,346416.0,Soap & cleaning products,317763209.0
+MB,07,93296381.0,222509085.0,Vegetables,315805466.0
+ZZ,62,0.0,310836791.0,Woven apparel,310836791.0
+NB,39,223536248.0,82783756.0,Plastics,306320004.0
+MB,11,26613009.0,275805042.0,Milling products,302418051.0
+QC,35,204012036.0,96589060.0,Protein substances,300601096.0
+BC,30,223998671.0,74521302.0,Pharmaceuticals,298519973.0
+SK,72,135615699.0,162171244.0,Iron & steel,297786943.0
+MB,99,211757590.0,81858310.0,Confidential / low-value (CA),293615900.0
+ZZ,07,0.0,288718320.0,Vegetables,288718320.0
+ZZ,76,0.0,288517280.0,Aluminium,288517280.0
+AB,86,280830349.0,6997935.0,Railway equipment,287828284.0
+BC,32,280539752.0,6408660.0,Tanning & dye extracts,286948412.0
+AB,21,245908863.0,37601022.0,Misc food preparations,283509885.0
+BC,17,241173014.0,34744641.0,Sugars,275917655.0
+QC,01,99103484.0,176616328.0,Live animals,275719812.0
+ZZ,83,0.0,274758392.0,Miscellaneous metal articles,274758392.0
+ON,97,181809608.0,89092051.0,Works of art,270901659.0
+MB,76,178969315.0,85551092.0,Aluminium,264520407.0
+BC,69,263466378.0,1002638.0,Ceramic products,264469016.0
+NS,39,87990486.0,174425642.0,Plastics,262416128.0
+BC,78,3099090.0,257871889.0,Lead,260970979.0
+AB,81,33698718.0,224949231.0,Other base metals,258647949.0
+PE,29,151450611.0,105825937.0,Organic chemicals,257276548.0
+SK,44,42882234.0,212969186.0,Wood & wood articles,255851420.0
+MB,95,223908255.0,30627229.0,Toys & sports equipment,254535484.0
+QC,59,111767197.0,140064009.0,Coated textiles,251831206.0
+ON,13,212148688.0,36750013.0,Resins & gums,248898701.0
+BC,04,202674205.0,43597263.0,Dairy products,246271468.0
+NB,85,198817439.0,47209282.0,Electrical equipment,246026721.0
+QC,78,11223838.0,233032390.0,Lead,244256228.0
+NS,90,47414170.0,195677469.0,Optical & medical instruments,243091639.0
+NS,44,29972725.0,213099281.0,Wood & wood articles,243072006.0
+QC,56,162037925.0,78366621.0,Wadding & felt,240404546.0
+MB,19,162495699.0,77241590.0,Prepared cereals,239737289.0
+AB,33,217139330.0,19157012.0,Cosmetics & perfumes,236296342.0
+AB,82,188987265.0,45064019.0,Tools & cutlery,234051284.0
+MB,25,226299520.0,5672230.0,"Salt, sulphur, stone, cement",231971750.0
+NS,08,30711491.0,199316827.0,Fruit & nuts,230028318.0
+NL,88,224079096.0,4885065.0,Aircraft & spacecraft,228964161.0
+QC,54,178071489.0,46018545.0,Man-made filaments,224090034.0
+SK,29,213348586.0,6702635.0,Organic chemicals,220051221.0
+SK,47,1138508.0,217254392.0,Wood pulp,218392900.0
+QC,06,125802075.0,87650478.0,Live trees & plants,213452553.0
+ZZ,18,0.0,212857608.0,Cocoa & cocoa products,212857608.0
+QC,89,103447757.0,104955522.0,Ships & boats,208403279.0
+MB,32,203038952.0,2617573.0,Tanning & dye extracts,205656525.0
+ZZ,29,0.0,205367369.0,Organic chemicals,205367369.0
+ON,92,168224888.0,35286666.0,Musical instruments,203511554.0
+BC,93,125696087.0,77433978.0,Arms & ammunition,203130065.0
+MB,83,183477129.0,19571861.0,Miscellaneous metal articles,203048990.0
+SK,34,189715435.0,12730738.0,Soap & cleaning products,202446173.0
+NU,27,202360447.0,0.0,Mineral fuels & oils,202360447.0
+SK,90,181065860.0,21258382.0,Optical & medical instruments,202324242.0
+ON,55,187524814.0,9830512.0,Man-made staple fibres,197355326.0
+NS,22,190626607.0,985458.0,Beverages & spirits,191612065.0
+MB,35,81084403.0,110416440.0,Protein substances,191500843.0
+YT,26,9770.0,190122381.0,"Ores, slag & ash",190132151.0
+BC,11,100840852.0,86888504.0,Milling products,187729356.0
+AB,83,167067628.0,19740907.0,Miscellaneous metal articles,186808535.0
+BC,31,63445910.0,123109924.0,Fertilizers,186555834.0
+AB,61,154732483.0,31416900.0,Knitted apparel,186149383.0
+ZZ,72,0.0,184114621.0,Iron & steel,184114621.0
+NS,61,181045391.0,2298798.0,Knitted apparel,183344189.0
+QC,55,132135105.0,50250451.0,Man-made staple fibres,182385556.0
+AB,62,175679872.0,6291802.0,Woven apparel,181971674.0
+ON,58,124717586.0,54324700.0,Special woven fabrics,179042286.0
+SK,94,152696980.0,26312992.0,Furniture,179009972.0
+NS,72,90361979.0,87523514.0,Iron & steel,177885493.0
+ZZ,64,0.0,177497428.0,Footwear,177497428.0
+PE,07,0.0,176721064.0,Vegetables,176721064.0
+ON,78,21507933.0,154928275.0,Lead,176436208.0
+ZZ,97,0.0,172616933.0,Works of art,172616933.0
+NS,16,2749810.0,168200874.0,Prepared meat & fish,170950684.0
+ZZ,42,0.0,169343505.0,Leather goods,169343505.0
+MB,16,111017271.0,57220398.0,Prepared meat & fish,168237669.0
+AB,63,152261202.0,15615620.0,Other made-up textiles,167876822.0
+ZZ,75,0.0,166961422.0,Nickel,166961422.0
+NS,33,165958104.0,379224.0,Cosmetics & perfumes,166337328.0
+MB,68,156567725.0,8034603.0,Stone & cement articles,164602328.0
+AB,05,12394964.0,151985288.0,Other animal products,164380252.0
+QC,11,48407871.0,115890638.0,Milling products,164298509.0
+BC,01,127592665.0,35565687.0,Live animals,163158352.0
+MB,33,159784351.0,587061.0,Cosmetics & perfumes,160371412.0
+NB,73,123941383.0,33561863.0,Articles of iron & steel,157503246.0
+MB,82,148057781.0,9370140.0,Tools & cutlery,157427921.0
+QC,65,118855291.0,32684396.0,Headgear,151539687.0
+ZZ,38,0.0,151342033.0,Misc chemical products,151342033.0
+NB,40,149791148.0,786597.0,Rubber,150577745.0
+ZZ,82,0.0,148520838.0,Tools & cutlery,148520838.0
+NS,89,144677184.0,3467945.0,Ships & boats,148145129.0
+NB,96,7468032.0,140473292.0,Miscellaneous manufactures,147941324.0
+SK,95,145300144.0,1076926.0,Toys & sports equipment,146377070.0
+BC,97,84117841.0,61940774.0,Works of art,146058615.0
+AB,16,93097341.0,51480730.0,Prepared meat & fish,144578071.0
+MB,21,134271475.0,9970286.0,Misc food preparations,144241761.0
+NB,28,88559762.0,55153587.0,Inorganic chemicals,143713349.0
+BC,86,134794989.0,7996110.0,Railway equipment,142791099.0
+NB,90,76241858.0,66458931.0,Optical & medical instruments,142700789.0
+ZZ,33,0.0,142676077.0,Cosmetics & perfumes,142676077.0
+ZZ,15,0.0,140756175.0,Animal/veg fats & oils,140756175.0
+NS,25,20479336.0,120232322.0,"Salt, sulphur, stone, cement",140711658.0
+MB,62,104452469.0,35564869.0,Woven apparel,140017338.0
+BC,57,139257958.0,283593.0,Carpets,139541551.0
+NL,81,1020518.0,135021711.0,Other base metals,136042229.0
+QC,97,98180616.0,37768128.0,Works of art,135948744.0
+MB,57,131500108.0,23698.0,Carpets,131523806.0
+MB,70,122884106.0,7719164.0,Glass,130603270.0
+NL,89,128931880.0,1399732.0,Ships & boats,130331612.0
+ON,67,126644827.0,1060657.0,Feathers & artificial flowers,127705484.0
+SK,76,79400241.0,46719517.0,Aluminium,126119758.0
+BC,65,123347047.0,1575951.0,Headgear,124922998.0
+SK,16,120412062.0,3497025.0,Prepared meat & fish,123909087.0
+ZZ,17,0.0,122681860.0,Sugars,122681860.0
+NS,19,33674324.0,85546959.0,Prepared cereals,119221283.0
+ZZ,70,0.0,118881851.0,Glass,118881851.0
+ZZ,48,0.0,117648408.0,Paper & paperboard,117648408.0
+MB,22,95066836.0,22110439.0,Beverages & spirits,117177275.0
+NS,62,116367744.0,535527.0,Woven apparel,116903271.0
+SK,19,110449032.0,5906142.0,Prepared cereals,116355174.0
+ON,79,100586714.0,14994032.0,Zinc,115580746.0
+MB,08,114750308.0,39006.0,Fruit & nuts,114789314.0
+NS,15,34009157.0,79975644.0,Animal/veg fats & oils,113984801.0
+BC,92,90465283.0,21553616.0,Musical instruments,112018899.0
+ZZ,21,0.0,111696010.0,Misc food preparations,111696010.0
+QC,57,97521764.0,14038403.0,Carpets,111560167.0
+ZZ,44,0.0,110621379.0,Wood & wood articles,110621379.0
+ON,37,102326985.0,7972695.0,Photographic goods,110299680.0
+NS,76,58028045.0,52118467.0,Aluminium,110146512.0
+PE,38,1041109.0,109042086.0,Misc chemical products,110083195.0
+NB,89,103363231.0,5563601.0,Ships & boats,108926832.0
+SK,25,49123743.0,58286535.0,"Salt, sulphur, stone, cement",107410278.0
+ZZ,32,0.0,106836532.0,Tanning & dye extracts,106836532.0
+AB,42,96589799.0,7987945.0,Leather goods,104577744.0
+ZZ,74,0.0,103713737.0,Copper,103713737.0
+SK,99,21344733.0,82209623.0,Confidential / low-value (CA),103554356.0
+ZZ,19,0.0,103334854.0,Prepared cereals,103334854.0
+SK,21,88819023.0,14424296.0,Misc food preparations,103243319.0
+QC,80,68794689.0,34394565.0,Tin,103189254.0
+MB,74,66060185.0,35471038.0,Copper,101531223.0
+NB,23,36102407.0,64963490.0,Food industry residues,101065897.0
+ZZ,03,0.0,100674247.0,Fish & seafood,100674247.0
+SK,88,98066847.0,2558361.0,Aircraft & spacecraft,100625208.0
+NB,07,49587121.0,49091474.0,Vegetables,98678595.0
+NS,31,5657711.0,91895403.0,Fertilizers,97553114.0
+ON,36,86512253.0,10844480.0,Explosives,97356733.0
+MB,04,63778776.0,33353018.0,Dairy products,97131794.0
+SK,89,94849886.0,48676.0,Ships & boats,94898562.0
+BC,56,91079478.0,3764308.0,Wadding & felt,94843786.0
+NL,73,93394422.0,1252311.0,Articles of iron & steel,94646733.0
+SK,33,94118619.0,207836.0,Cosmetics & perfumes,94326455.0
+ZZ,63,0.0,92590091.0,Other made-up textiles,92590091.0
+ON,60,70306011.0,21178324.0,Knitted fabrics,91484335.0
+SK,48,90639666.0,755458.0,Paper & paperboard,91395124.0
+QC,60,62258046.0,28774090.0,Knitted fabrics,91032136.0
+AB,69,88372511.0,1690461.0,Ceramic products,90062972.0
+SK,86,88965898.0,1042407.0,Railway equipment,90008305.0
+AB,74,54853898.0,33553602.0,Copper,88407500.0
+MB,96,83833329.0,4472229.0,Miscellaneous manufactures,88305558.0
+MB,26,33183134.0,55093960.0,"Ores, slag & ash",88277094.0
+BC,81,58107559.0,28998434.0,Other base metals,87105993.0
+BC,91,79626209.0,7268868.0,Clocks & watches,86895077.0
+AB,03,86194300.0,332770.0,Fish & seafood,86527070.0
+MB,61,81314148.0,4844778.0,Knitted apparel,86158926.0
+NB,08,80401326.0,5199934.0,Fruit & nuts,85601260.0
+PE,21,42930.0,84558885.0,Misc food preparations,84601815.0
+NB,15,80025608.0,4510938.0,Animal/veg fats & oils,84536546.0
+NL,99,31001005.0,53326821.0,Confidential / low-value (CA),84327826.0
+BC,05,58365067.0,25728570.0,Other animal products,84093637.0
+BC,59,78835130.0,3881943.0,Coated textiles,82717073.0
+NB,99,5174715.0,77210965.0,Confidential / low-value (CA),82385680.0
+AB,96,74631431.0,7255630.0,Miscellaneous manufactures,81887061.0
+NB,94,55933063.0,25114902.0,Furniture,81047965.0
+QC,05,32308534.0,48261073.0,Other animal products,80569607.0
+ON,80,74465200.0,4338238.0,Tin,78803438.0
+AB,32,69274420.0,9171592.0,Tanning & dye extracts,78446012.0
+NB,22,72277513.0,5361488.0,Beverages & spirits,77639001.0
+ZZ,89,0.0,77039291.0,Ships & boats,77039291.0
+BC,13,72530950.0,2919130.0,Resins & gums,75450080.0
+PE,16,0.0,75311226.0,Prepared meat & fish,75311226.0
+AB,09,74904088.0,301533.0,"Coffee, tea & spices",75205621.0
+NS,21,40146205.0,34847718.0,Misc food preparations,74993923.0
+AB,17,53217720.0,21501579.0,Sugars,74719299.0
+SK,30,53340624.0,20253490.0,Pharmaceuticals,73594114.0
+MB,63,63710086.0,9838494.0,Other made-up textiles,73548580.0
+ZZ,20,0.0,72806951.0,Prepared vegetables,72806951.0
+SK,02,66904935.0,5797008.0,Meat & offal,72701943.0
+QC,51,70385754.0,930267.0,Wool,71316021.0
+AB,41,1716419.0,69271840.0,Raw hides & skins,70988259.0
+ON,41,30008421.0,40547608.0,Raw hides & skins,70556029.0
+ZZ,91,0.0,70242768.0,Clocks & watches,70242768.0
+NL,16,2088.0,70060922.0,Prepared meat & fish,70063010.0
+NS,94,63208787.0,6336334.0,Furniture,69545121.0
+SK,04,15580373.0,53704739.0,Dairy products,69285112.0
+ON,52,60663734.0,7867446.0,Cotton,68531180.0
+QC,13,56590360.0,11860053.0,Resins & gums,68450413.0
+NS,05,63180185.0,5067294.0,Other animal products,68247479.0
+NL,48,7144600.0,60601111.0,Paper & paperboard,67745711.0
+ZZ,31,0.0,67619830.0,Fertilizers,67619830.0
+SK,68,66381199.0,708987.0,Stone & cement articles,67090186.0
+NB,38,59074248.0,7672071.0,Misc chemical products,66746319.0
+MB,56,64870693.0,1541499.0,Wadding & felt,66412192.0
+NU,88,66295793.0,14664.0,Aircraft & spacecraft,66310457.0
+NB,25,17363791.0,48727227.0,"Salt, sulphur, stone, cement",66091018.0
+NB,19,43537918.0,22237143.0,Prepared cereals,65775061.0
+MB,89,65430973.0,213088.0,Ships & boats,65644061.0
+QC,41,42972643.0,22637606.0,Raw hides & skins,65610249.0
+NL,25,8564843.0,55512615.0,"Salt, sulphur, stone, cement",64077458.0
+ZZ,96,0.0,64068018.0,Miscellaneous manufactures,64068018.0
+QC,91,58967189.0,5082015.0,Clocks & watches,64049204.0
+SK,26,4052486.0,59744130.0,"Ores, slag & ash",63796616.0
+AB,49,48973234.0,13761589.0,Printed books & media,62734823.0
+NB,06,9648950.0,52850282.0,Live trees & plants,62499232.0
+ZZ,08,0.0,62389345.0,Fruit & nuts,62389345.0
+ZZ,81,0.0,61803598.0,Other base metals,61803598.0
+NS,38,15610776.0,45763202.0,Misc chemical products,61373978.0
+MB,03,5625299.0,55042453.0,Fish & seafood,60667752.0
+QC,24,56322065.0,2120730.0,Tobacco,58442795.0
+AB,04,38798063.0,18849568.0,Dairy products,57647631.0
+MB,71,32620773.0,23674111.0,Precious metals & stones,56294884.0
+PE,31,56106259.0,0.0,Fertilizers,56106259.0
+ZZ,49,0.0,55949637.0,Printed books & media,55949637.0
+PE,85,19781065.0,36132024.0,Electrical equipment,55913089.0
+ZZ,34,0.0,55663065.0,Soap & cleaning products,55663065.0
+NS,26,265020.0,55102357.0,"Ores, slag & ash",55367377.0
+SK,83,54729011.0,592191.0,Miscellaneous metal articles,55321202.0
+ZZ,69,0.0,55270754.0,Ceramic products,55270754.0
+NB,17,4015717.0,50223077.0,Sugars,54238794.0
+ZZ,68,0.0,54039505.0,Stone & cement articles,54039505.0
+AB,64,51753338.0,2164774.0,Footwear,53918112.0
+BC,54,53197671.0,81612.0,Man-made filaments,53279283.0
+NB,31,13231380.0,39913018.0,Fertilizers,53144398.0
+SK,20,46014979.0,5328600.0,Prepared vegetables,51343579.0
+SK,49,50973558.0,288034.0,Printed books & media,51261592.0
+NL,90,18645657.0,32169077.0,Optical & medical instruments,50814734.0
+QC,92,28752880.0,22032099.0,Musical instruments,50784979.0
+AB,59,33440442.0,17274831.0,Coated textiles,50715273.0
+AB,36,38608409.0,11807844.0,Explosives,50416253.0
+NB,68,40420630.0,9352723.0,Stone & cement articles,49773353.0
+ON,43,15231167.0,34460427.0,Furskins,49691594.0
+AB,89,35129589.0,14463996.0,Ships & boats,49593585.0
+NB,12,15141057.0,34095645.0,Oil seeds,49236702.0
+SK,32,49099758.0,57723.0,Tanning & dye extracts,49157481.0
+NS,56,38944245.0,9492951.0,Wadding & felt,48437196.0
+ON,66,47755413.0,525556.0,Umbrellas,48280969.0
+QC,58,25714919.0,22185931.0,Special woven fabrics,47900850.0
+NT,27,47636388.0,0.0,Mineral fuels & oils,47636388.0
+AB,18,43722756.0,3734183.0,Cocoa & cocoa products,47456939.0
+MB,05,14106942.0,32533241.0,Other animal products,46640183.0
+PE,08,0.0,46559576.0,Fruit & nuts,46559576.0
+NB,76,31855728.0,14648777.0,Aluminium,46504505.0
+ZZ,93,0.0,46475188.0,Arms & ammunition,46475188.0
+SK,08,46113580.0,133768.0,Fruit & nuts,46247348.0
+PE,48,112147.0,45869303.0,Paper & paperboard,45981450.0
+AB,56,44749163.0,746330.0,Wadding & felt,45495493.0
+MB,42,40840774.0,4456104.0,Leather goods,45296878.0
+ZZ,12,0.0,45192674.0,Oil seeds,45192674.0
+AB,93,44709468.0,399578.0,Arms & ammunition,45109046.0
+SK,70,39931346.0,4869546.0,Glass,44800892.0
+NS,74,13252546.0,31105156.0,Copper,44357702.0
+NL,28,43460368.0,29923.0,Inorganic chemicals,43490291.0
+MB,64,43106343.0,280927.0,Footwear,43387270.0
+SK,82,40152516.0,2759724.0,Tools & cutlery,42912240.0
+PE,30,1377057.0,41099530.0,Pharmaceuticals,42476587.0
+YT,03,42080886.0,0.0,Fish & seafood,42080886.0
+ON,51,27078142.0,14819696.0,Wool,41897838.0
+ZZ,59,0.0,41592134.0,Coated textiles,41592134.0
+ZZ,86,0.0,40984743.0,Railway equipment,40984743.0
+NB,70,33069953.0,7681487.0,Glass,40751440.0
+BC,67,39776887.0,431957.0,Feathers & artificial flowers,40208844.0
+AB,65,36740465.0,2651604.0,Headgear,39392069.0
+AB,35,35274284.0,3994527.0,Protein substances,39268811.0
+NS,59,8050092.0,30697104.0,Coated textiles,38747196.0
+SK,22,37480846.0,1148964.0,Beverages & spirits,38629810.0
+BC,24,38542866.0,44174.0,Tobacco,38587040.0
+NS,07,3295705.0,35068077.0,Vegetables,38363782.0
+NS,12,1859130.0,36154628.0,Oil seeds,38013758.0
+ZZ,65,0.0,37955092.0,Headgear,37955092.0
+QC,52,36239283.0,1682519.0,Cotton,37921802.0
+AB,57,37513609.0,37984.0,Carpets,37551593.0
+ZZ,54,0.0,36947606.0,Man-made filaments,36947606.0
+YT,84,33679864.0,2984534.0,Machinery & mechanical appliances,36664398.0
+NS,86,36419225.0,157067.0,Railway equipment,36576292.0
+NS,20,16002754.0,19594558.0,Prepared vegetables,35597312.0
+NS,30,20977873.0,14549588.0,Pharmaceuticals,35527461.0
+NB,56,33765919.0,1477920.0,Wadding & felt,35243839.0
+MB,36,34233514.0,330832.0,Explosives,34564346.0
+ON,53,33654571.0,653841.0,Vegetable textile fibres,34308412.0
+NB,83,21437075.0,12660449.0,Miscellaneous metal articles,34097524.0
+NB,88,26510807.0,6764568.0,Aircraft & spacecraft,33275375.0
+ZZ,35,0.0,33231294.0,Protein substances,33231294.0
+ON,46,32553609.0,89295.0,Basketware,32642904.0
+MB,75,29280155.0,3355394.0,Nickel,32635549.0
+MB,06,31710981.0,750562.0,Live trees & plants,32461543.0
+MB,17,26236479.0,5912712.0,Sugars,32149191.0
+NB,11,10253720.0,21849259.0,Milling products,32102979.0
+MB,18,28952441.0,2613993.0,Cocoa & cocoa products,31566434.0
+AB,26,1085289.0,30215161.0,"Ores, slag & ash",31300450.0
+SK,62,28325488.0,2770274.0,Woven apparel,31095762.0
+NS,29,23643199.0,7187005.0,Organic chemicals,30830204.0
+BC,75,30192445.0,628542.0,Nickel,30820987.0
+SK,35,30194110.0,199019.0,Protein substances,30393129.0
+ZZ,10,0.0,29945899.0,Cereals,29945899.0
+AB,97,14476956.0,15404316.0,Works of art,29881272.0
+NS,23,7539545.0,21435008.0,Food industry residues,28974553.0
+NS,18,28497425.0,150451.0,Cocoa & cocoa products,28647876.0
+MB,69,28607554.0,33384.0,Ceramic products,28640938.0
+NS,35,7784816.0,20649667.0,Protein substances,28434483.0
+BC,66,27851827.0,450744.0,Umbrellas,28302571.0
+NL,72,3022525.0,25219933.0,Iron & steel,28242458.0
+ZZ,56,0.0,28057319.0,Wadding & felt,28057319.0
+ZZ,36,0.0,28009865.0,Explosives,28009865.0
+NL,44,87441.0,27357088.0,Wood & wood articles,27444529.0
+AB,91,24390871.0,2749006.0,Clocks & watches,27139877.0
+SK,74,17828030.0,9287088.0,Copper,27115118.0
+NB,74,26618837.0,54276.0,Copper,26673113.0
+NB,32,26515786.0,67019.0,Tanning & dye extracts,26582805.0
+SK,36,26334271.0,0.0,Explosives,26334271.0
+NS,06,2761848.0,23562519.0,Live trees & plants,26324367.0
+MB,59,26014603.0,265328.0,Coated textiles,26279931.0
+MB,65,24564764.0,893375.0,Headgear,25458139.0
+SK,56,25368151.0,7585.0,Wadding & felt,25375736.0
+AB,13,21160481.0,3837249.0,Resins & gums,24997730.0
+ZZ,13,0.0,24754432.0,Resins & gums,24754432.0
+NL,85,16304245.0,8397244.0,Electrical equipment,24701489.0
+ZZ,25,0.0,24659534.0,"Salt, sulphur, stone, cement",24659534.0
+BC,52,23904253.0,196957.0,Cotton,24101210.0
+QC,67,17118107.0,6646792.0,Feathers & artificial flowers,23764899.0
+NB,05,15830022.0,7650764.0,Other animal products,23480786.0
+MB,58,8035835.0,15303065.0,Special woven fabrics,23338900.0
+NS,83,4705038.0,17737406.0,Miscellaneous metal articles,22442444.0
+SK,59,20862187.0,1040517.0,Coated textiles,21902704.0
+SK,63,21539590.0,166194.0,Other made-up textiles,21705784.0
+NS,63,10867129.0,10431997.0,Other made-up textiles,21299126.0
+ZZ,60,0.0,21220620.0,Knitted fabrics,21220620.0
+NS,68,12987881.0,8135288.0,Stone & cement articles,21123169.0
+NS,28,20295526.0,633954.0,Inorganic chemicals,20929480.0
+SK,18,20884742.0,39923.0,Cocoa & cocoa products,20924665.0
+NB,34,12445506.0,8372496.0,Soap & cleaning products,20818002.0
+NB,21,11835896.0,8872383.0,Misc food preparations,20708279.0
+AB,06,17068742.0,3636490.0,Live trees & plants,20705232.0
+NS,54,20575104.0,74010.0,Man-made filaments,20649114.0
+MB,09,20238472.0,380504.0,"Coffee, tea & spices",20618976.0
+BC,60,20446615.0,48820.0,Knitted fabrics,20495435.0
+ON,14,15399169.0,5043541.0,Vegetable materials,20442710.0
+BC,55,19646143.0,631582.0,Man-made staple fibres,20277725.0
+ZZ,22,0.0,20015465.0,Beverages & spirits,20015465.0
+AB,54,19448884.0,369897.0,Man-made filaments,19818781.0
+NB,92,2336789.0,17230479.0,Musical instruments,19567268.0
+MB,55,19057344.0,91886.0,Man-made staple fibres,19149230.0
+ZZ,16,0.0,19046541.0,Prepared meat & fish,19046541.0
+AB,60,18919196.0,79839.0,Knitted fabrics,18999035.0
+ZZ,41,0.0,18922572.0,Raw hides & skins,18922572.0
+NS,71,275638.0,18615315.0,Precious metals & stones,18890953.0
+ZZ,23,0.0,18782506.0,Food industry residues,18782506.0
+ZZ,57,0.0,18770643.0,Carpets,18770643.0
+SK,69,18287954.0,12450.0,Ceramic products,18300404.0
+BC,36,12302049.0,5595035.0,Explosives,17897084.0
+MB,81,17382166.0,339305.0,Other base metals,17721471.0
+MB,13,5790460.0,11858333.0,Resins & gums,17648793.0
+NS,64,17561348.0,21710.0,Footwear,17583058.0
+SK,54,16654957.0,922346.0,Man-made filaments,17577303.0
+SK,06,17378802.0,177208.0,Live trees & plants,17556010.0
+NS,70,16265486.0,1152537.0,Glass,17418023.0
+NB,63,15230741.0,2036119.0,Other made-up textiles,17266860.0
+QC,66,16749592.0,473913.0,Umbrellas,17223505.0
+MB,93,15533026.0,1634656.0,Arms & ammunition,17167682.0
+SK,09,11137592.0,5942539.0,"Coffee, tea & spices",17080131.0
+NS,47,5758425.0,11115566.0,Wood pulp,16873991.0
+SK,96,16829870.0,5878.0,Miscellaneous manufactures,16835748.0
+NS,69,16738419.0,27856.0,Ceramic products,16766275.0
+SK,61,15707909.0,728955.0,Knitted apparel,16436864.0
+PE,34,63152.0,16122414.0,Soap & cleaning products,16185566.0
+MB,47,6972813.0,9153979.0,Wood pulp,16126792.0
+BC,58,15821604.0,227151.0,Special woven fabrics,16048755.0
+NL,61,110024.0,15888239.0,Knitted apparel,15998263.0
+PE,99,0.0,15318531.0,Confidential / low-value (CA),15318531.0
+ZZ,58,0.0,15102720.0,Special woven fabrics,15102720.0
+QC,43,7801328.0,7238069.0,Furskins,15039397.0
+NB,72,9621558.0,5413724.0,Iron & steel,15035282.0
+PE,87,45323.0,14951103.0,Vehicles,14996426.0
+SK,17,14439120.0,454535.0,Sugars,14893655.0
+YT,90,12189382.0,2664320.0,Optical & medical instruments,14853702.0
+MB,54,14570163.0,101274.0,Man-made filaments,14671437.0
+ON,45,14076434.0,577448.0,Cork,14653882.0
+BC,46,13819123.0,252209.0,Basketware,14071332.0
+NB,33,13733173.0,309541.0,Cosmetics & perfumes,14042714.0
+NB,95,11907377.0,1971450.0,Toys & sports equipment,13878827.0
+NB,98,586219.0,13014474.0,Special transactions (CA),13600693.0
+PE,15,0.0,13577745.0,Animal/veg fats & oils,13577745.0
+NS,95,5852922.0,7242840.0,Toys & sports equipment,13095762.0
+NB,29,11652963.0,1348903.0,Organic chemicals,13001866.0
+SK,81,8767496.0,3936302.0,Other base metals,12703798.0
+MB,60,12683594.0,11743.0,Knitted fabrics,12695337.0
+QC,53,12181558.0,334198.0,Vegetable textile fibres,12515756.0
+BC,53,12093916.0,250887.0,Vegetable textile fibres,12344803.0
+SK,93,7308182.0,4800287.0,Arms & ammunition,12108469.0
+NS,32,7540726.0,4351558.0,Tanning & dye extracts,11892284.0
+NB,30,11691666.0,52835.0,Pharmaceuticals,11744501.0
+SK,75,11306180.0,19476.0,Nickel,11325656.0
+ZZ,92,0.0,11009538.0,Musical instruments,11009538.0
+SK,13,10707978.0,235038.0,Resins & gums,10943016.0
+ZZ,55,0.0,10940266.0,Man-made staple fibres,10940266.0
+NS,02,0.0,10799199.0,Meat & offal,10799199.0
+NL,71,2810.0,10786861.0,Precious metals & stones,10789671.0
+NB,62,10576967.0,96785.0,Woven apparel,10673752.0
+ZZ,04,0.0,10625575.0,Dairy products,10625575.0
+PE,35,6499.0,10525536.0,Protein substances,10532035.0
+ZZ,02,0.0,10406519.0,Meat & offal,10406519.0
+MB,91,9467685.0,426436.0,Clocks & watches,9894121.0
+BC,14,9842307.0,8653.0,Vegetable materials,9850960.0
+PE,39,5385540.0,4349024.0,Plastics,9734564.0
+ZZ,52,0.0,9721749.0,Cotton,9721749.0
+ZZ,06,0.0,9651202.0,Live trees & plants,9651202.0
+SK,03,8106921.0,1410403.0,Fish & seafood,9517324.0
+NB,10,9138750.0,90602.0,Cereals,9229352.0
+NB,82,7777051.0,1413077.0,Tools & cutlery,9190128.0
+AB,67,8903292.0,226027.0,Feathers & artificial flowers,9129319.0
+NB,57,8645625.0,107021.0,Carpets,8752646.0
+NL,87,542166.0,8095119.0,Vehicles,8637285.0
+NS,34,3197993.0,5369182.0,Soap & cleaning products,8567175.0
+SK,92,4749992.0,3726363.0,Musical instruments,8476355.0
+NB,35,8363344.0,55765.0,Protein substances,8419109.0
+BC,51,7812792.0,545558.0,Wool,8358350.0
+ZZ,05,0.0,8346853.0,Other animal products,8346853.0
+NS,36,8199408.0,142062.0,Explosives,8341470.0
+NS,81,7806597.0,484171.0,Other base metals,8290768.0
+NS,98,1392879.0,6712739.0,Special transactions (CA),8105618.0
+QC,46,8086756.0,2695.0,Basketware,8089451.0
+AB,24,7935578.0,31716.0,Tobacco,7967294.0
+ZZ,24,0.0,7667762.0,Tobacco,7667762.0
+SK,57,7496391.0,1198.0,Carpets,7497589.0
+PE,90,2318172.0,5069466.0,Optical & medical instruments,7387638.0
+AB,58,6904336.0,377762.0,Special woven fabrics,7282098.0
+BC,45,7121750.0,20591.0,Cork,7142341.0
+SK,64,7116454.0,19581.0,Footwear,7136035.0
+NB,59,6793355.0,294125.0,Coated textiles,7087480.0
+QC,37,6828579.0,239223.0,Photographic goods,7067802.0
+NS,43,153.0,7032211.0,Furskins,7032364.0
+NB,71,4846419.0,2144071.0,Precious metals & stones,6990490.0
+NB,93,6986485.0,0.0,Arms & ammunition,6986485.0
+SK,71,4084301.0,2873914.0,Precious metals & stones,6958215.0
+NL,94,4320118.0,2636171.0,Furniture,6956289.0
+NS,93,6843377.0,71262.0,Arms & ammunition,6914639.0
+MB,66,822362.0,6022889.0,Umbrellas,6845251.0
+NL,76,451944.0,6387065.0,Aluminium,6839009.0
+NB,49,5444963.0,1341671.0,Printed books & media,6786634.0
+ZZ,11,0.0,6682568.0,Milling products,6682568.0
+AB,92,6450994.0,179887.0,Musical instruments,6630881.0
+SK,98,3498989.0,3104809.0,Special transactions (CA),6603798.0
+MB,41,4078077.0,2506646.0,Raw hides & skins,6584723.0
+MB,92,5783011.0,714963.0,Musical instruments,6497974.0
+YT,87,6381538.0,33969.0,Vehicles,6415507.0
+NL,38,6370730.0,9799.0,Misc chemical products,6380529.0
+NB,18,5355071.0,893878.0,Cocoa & cocoa products,6248949.0
+BC,43,3494186.0,2687733.0,Furskins,6181919.0
+SK,42,6006028.0,66765.0,Leather goods,6072793.0
+NS,49,5657737.0,413290.0,Printed books & media,6071027.0
+NB,61,5791597.0,67225.0,Knitted apparel,5858822.0
+ZZ,43,0.0,5821100.0,Furskins,5821100.0
+PE,11,0.0,5808854.0,Milling products,5808854.0
+NB,86,5619680.0,180235.0,Railway equipment,5799915.0
+NL,39,4609426.0,1174706.0,Plastics,5784132.0
+QC,45,5509650.0,247426.0,Cork,5757076.0
+ZZ,80,0.0,5706744.0,Tin,5706744.0
+NS,82,4984076.0,702763.0,Tools & cutlery,5686839.0
+YT,71,0.0,5681908.0,Precious metals & stones,5681908.0
+NS,42,5228266.0,361495.0,Leather goods,5589761.0
+AB,66,5479399.0,45456.0,Umbrellas,5524855.0
+NB,69,5452771.0,13373.0,Ceramic products,5466144.0
+SK,05,3964665.0,1337269.0,Other animal products,5301934.0
+ZZ,45,0.0,5290800.0,Cork,5290800.0
+PE,23,0.0,5196044.0,Food industry residues,5196044.0
+PE,73,737064.0,4417897.0,Articles of iron & steel,5154961.0
+NS,92,191101.0,4892164.0,Musical instruments,5083265.0
+SK,65,5042827.0,28882.0,Headgear,5071709.0
+NS,17,4413429.0,633809.0,Sugars,5047238.0
+PE,06,0.0,5020554.0,Live trees & plants,5020554.0
+BC,41,4381564.0,597775.0,Raw hides & skins,4979339.0
+SK,60,4934770.0,0.0,Knitted fabrics,4934770.0
+NB,54,4660624.0,48948.0,Man-made filaments,4709572.0
+MB,46,2106314.0,2476196.0,Basketware,4582510.0
+MB,52,4096757.0,409174.0,Cotton,4505931.0
+NB,01,3129940.0,1338927.0,Live animals,4468867.0
+NL,56,3760677.0,703295.0,Wadding & felt,4463972.0
+NS,91,97952.0,4324813.0,Clocks & watches,4422765.0
+NS,09,4364804.0,16606.0,"Coffee, tea & spices",4381410.0
+MB,43,1747540.0,2383291.0,Furskins,4130831.0
+ZZ,26,0.0,4122691.0,"Ores, slag & ash",4122691.0
+NS,11,572650.0,3505301.0,Milling products,4077951.0
+NS,65,1954422.0,2055381.0,Headgear,4009803.0
+YT,88,3908449.0,100178.0,Aircraft & spacecraft,4008627.0
+MB,79,2526305.0,1469266.0,Zinc,3995571.0
+NL,40,3882817.0,79294.0,Rubber,3962111.0
+NB,04,3182836.0,767580.0,Dairy products,3950416.0
+ZZ,51,0.0,3896957.0,Wool,3896957.0
+MB,53,3512827.0,367956.0,Vegetable textile fibres,3880783.0
+MB,97,3041686.0,829807.0,Works of art,3871493.0
+NL,43,786.0,3819226.0,Furskins,3820012.0
+AB,55,3717476.0,33876.0,Man-made staple fibres,3751352.0
+NS,97,3114865.0,591595.0,Works of art,3706460.0
+ZZ,79,0.0,3656436.0,Zinc,3656436.0
+NS,10,3558121.0,7200.0,Cereals,3565321.0
+BC,37,3401986.0,55958.0,Photographic goods,3457944.0
+MB,24,3399396.0,31656.0,Tobacco,3431052.0
+ZZ,53,0.0,3388722.0,Vegetable textile fibres,3388722.0
+NU,25,3356061.0,0.0,"Salt, sulphur, stone, cement",3356061.0
+AB,53,3240579.0,99616.0,Vegetable textile fibres,3340195.0
+NL,05,1967540.0,1356767.0,Other animal products,3324307.0
+ZZ,67,0.0,3295887.0,Feathers & artificial flowers,3295887.0
+PE,89,0.0,3255412.0,Ships & boats,3255412.0
+ZZ,47,0.0,3228903.0,Wood pulp,3228903.0
+AB,37,2549408.0,678652.0,Photographic goods,3228060.0
+AB,78,2151693.0,969725.0,Lead,3121418.0
+AB,52,3000345.0,9106.0,Cotton,3009451.0
+NB,75,2994073.0,0.0,Nickel,2994073.0
+NL,23,1488704.0,1478839.0,Food industry residues,2967543.0
+AB,46,2617777.0,337765.0,Basketware,2955542.0
+PE,02,0.0,2762386.0,Meat & offal,2762386.0
+ON,50,2534575.0,117988.0,Silk,2652563.0
+NB,09,2168627.0,412060.0,"Coffee, tea & spices",2580687.0
+AB,14,2549020.0,19702.0,Vegetable materials,2568722.0
+NS,57,2457679.0,21110.0,Carpets,2478789.0
+NS,60,1325855.0,1115261.0,Knitted fabrics,2441116.0
+PE,76,55879.0,2378751.0,Aluminium,2434630.0
+QC,14,2032832.0,310814.0,Vegetable materials,2343646.0
+PE,05,110969.0,2215358.0,Other animal products,2326327.0
+NS,01,1540.0,2276783.0,Live animals,2278323.0
+YT,82,110107.0,2137154.0,Tools & cutlery,2247261.0
+ZZ,66,0.0,2208049.0,Umbrellas,2208049.0
+PE,28,2039074.0,96887.0,Inorganic chemicals,2135961.0
+NL,30,37259.0,2049726.0,Pharmaceuticals,2086985.0
+NL,70,1979217.0,101394.0,Glass,2080611.0
+NB,42,1765071.0,307315.0,Leather goods,2072386.0
+AB,43,1787511.0,251613.0,Furskins,2039124.0
+NL,63,391248.0,1620369.0,Other made-up textiles,2011617.0
+NU,03,0.0,1982158.0,Fish & seafood,1982158.0
+ZZ,37,0.0,1951148.0,Photographic goods,1951148.0
+NU,28,1892405.0,2075.0,Inorganic chemicals,1894480.0
+YT,85,1777293.0,99433.0,Electrical equipment,1876726.0
+MB,67,1818691.0,11395.0,Feathers & artificial flowers,1830086.0
+NS,13,1062086.0,746959.0,Resins & gums,1809045.0
+NU,90,1737495.0,63854.0,Optical & medical instruments,1801349.0
+MB,37,1753616.0,19726.0,Photographic goods,1773342.0
+BC,80,1531926.0,238656.0,Tin,1770582.0
+QC,50,1640753.0,114436.0,Silk,1755189.0
+NB,80,1732934.0,15710.0,Tin,1748644.0
+PE,27,11493.0,1577739.0,Mineral fuels & oils,1589232.0
+NS,96,1427817.0,121799.0,Miscellaneous manufactures,1549616.0
+NB,65,1456485.0,8792.0,Headgear,1465277.0
+NB,26,1440122.0,2859.0,"Ores, slag & ash",1442981.0
+YT,39,67162.0,1358551.0,Plastics,1425713.0
+PE,04,0.0,1403934.0,Dairy products,1403934.0
+NS,78,236906.0,1120277.0,Lead,1357183.0
+NL,22,4002.0,1343483.0,Beverages & spirits,1347485.0
+SK,97,275018.0,1052669.0,Works of art,1327687.0
+NL,83,1299106.0,17973.0,Miscellaneous metal articles,1317079.0
+SK,55,1295300.0,1263.0,Man-made staple fibres,1296563.0
+AB,79,993838.0,300697.0,Zinc,1294535.0
+BC,50,1252982.0,39638.0,Silk,1292620.0
+NB,13,1063210.0,210430.0,Resins & gums,1273640.0
+AB,51,1067462.0,188802.0,Wool,1256264.0
+NL,82,1025332.0,192524.0,Tools & cutlery,1217856.0
+NL,19,832684.0,384874.0,Prepared cereals,1217558.0
+PE,01,0.0,1203831.0,Live animals,1203831.0
+NS,58,1197279.0,5824.0,Special woven fabrics,1203103.0
+NB,02,451457.0,662505.0,Meat & offal,1113962.0
+SK,78,334911.0,771957.0,Lead,1106868.0
+NL,18,1050076.0,39614.0,Cocoa & cocoa products,1089690.0
+MB,45,1055966.0,9923.0,Cork,1065889.0
+YT,05,263975.0,793325.0,Other animal products,1057300.0
+ZZ,46,0.0,1052305.0,Basketware,1052305.0
+AB,80,792196.0,245074.0,Tin,1037270.0
+NB,58,1013082.0,22155.0,Special woven fabrics,1035237.0
+NL,62,964004.0,64896.0,Woven apparel,1028900.0
+PE,88,1905.0,1023338.0,Aircraft & spacecraft,1025243.0
+NU,99,679170.0,303825.0,Confidential / low-value (CA),982995.0
+ZZ,01,0.0,962300.0,Live animals,962300.0
+NL,12,0.0,947853.0,Oil seeds,947853.0
+SK,67,935783.0,0.0,Feathers & artificial flowers,935783.0
+PE,12,0.0,932912.0,Oil seeds,932912.0
+AB,45,863971.0,60296.0,Cork,924267.0
+NS,41,687673.0,189141.0,Raw hides & skins,876814.0
+MB,14,352455.0,514718.0,Vegetable materials,867173.0
+NU,97,0.0,854200.0,Works of art,854200.0
+NS,75,614478.0,155034.0,Nickel,769512.0
+NS,80,43971.0,712225.0,Tin,756196.0
+NL,34,658743.0,84603.0,Soap & cleaning products,743346.0
+MB,80,737504.0,0.0,Tin,737504.0
+NS,53,733142.0,2529.0,Vegetable textile fibres,735671.0
+NB,41,726042.0,8888.0,Raw hides & skins,734930.0
+NS,46,712318.0,874.0,Basketware,713192.0
+MB,51,712074.0,569.0,Wool,712643.0
+SK,58,687338.0,20307.0,Special woven fabrics,707645.0
+YT,73,309897.0,380161.0,Articles of iron & steel,690058.0
+ZZ,14,0.0,683471.0,Vegetable materials,683471.0
+NL,97,1134.0,676390.0,Works of art,677524.0
+NS,79,663152.0,13520.0,Zinc,676672.0
+NS,04,43125.0,624385.0,Dairy products,667510.0
+SK,14,632177.0,0.0,Vegetable materials,632177.0
+NT,76,0.0,627579.0,Aluminium,627579.0
+NU,86,612881.0,0.0,Railway equipment,612881.0
+NB,55,590618.0,4068.0,Man-made staple fibres,594686.0
+MB,78,538936.0,50642.0,Lead,589578.0
+NL,86,500096.0,83789.0,Railway equipment,583885.0
+PE,40,147994.0,431057.0,Rubber,579051.0
+NB,64,536927.0,41712.0,Footwear,578639.0
+SK,43,27790.0,541744.0,Furskins,569534.0
+SK,91,548701.0,1.0,Clocks & watches,548702.0
+NS,55,547770.0,0.0,Man-made staple fibres,547770.0
+PE,70,145660.0,390078.0,Glass,535738.0
+NB,36,515572.0,18917.0,Explosives,534489.0
+PE,41,0.0,489897.0,Raw hides & skins,489897.0
+NB,81,479388.0,296.0,Other base metals,479684.0
+NB,60,293053.0,184655.0,Knitted fabrics,477708.0
+NB,52,460719.0,63.0,Cotton,460782.0
+NU,84,4204.0,421429.0,Machinery & mechanical appliances,425633.0
+NB,79,369604.0,15991.0,Zinc,385595.0
+NB,51,144309.0,238497.0,Wool,382806.0
+NU,87,0.0,382436.0,Vehicles,382436.0
+NS,66,381912.0,0.0,Umbrellas,381912.0
+NB,97,91220.0,267493.0,Works of art,358713.0
+SK,41,164535.0,193736.0,Raw hides & skins,358271.0
+NL,96,298841.0,9815.0,Miscellaneous manufactures,308656.0
+NT,99,0.0,304032.0,Confidential / low-value (CA),304032.0
+NL,95,96019.0,204148.0,Toys & sports equipment,300167.0
+NB,67,293873.0,0.0,Feathers & artificial flowers,293873.0
+NS,67,275070.0,15454.0,Feathers & artificial flowers,290524.0
+YT,34,285836.0,0.0,Soap & cleaning products,285836.0
+NL,02,0.0,284573.0,Meat & offal,284573.0
+PE,17,182890.0,101014.0,Sugars,283904.0
+ZZ,78,0.0,278375.0,Lead,278375.0
+PE,19,880.0,273459.0,Prepared cereals,274339.0
+NL,01,273894.0,0.0,Live animals,273894.0
+NS,51,261335.0,5612.0,Wool,266947.0
+SK,79,211358.0,55318.0,Zinc,266676.0
+SK,52,258559.0,2366.0,Cotton,260925.0
+NL,74,199048.0,61461.0,Copper,260509.0
+SK,53,116199.0,136981.0,Vegetable textile fibres,253180.0
+ZZ,50,0.0,248694.0,Silk,248694.0
+PE,72,0.0,243274.0,Iron & steel,243274.0
+NL,21,189107.0,50911.0,Misc food preparations,240018.0
+PE,49,21140.0,217819.0,Printed books & media,238959.0
+NL,98,1854.0,233317.0,Special transactions (CA),235171.0
+YT,12,39854.0,188789.0,Oil seeds,228643.0
+PE,63,173.0,205733.0,Other made-up textiles,205906.0
+SK,46,196207.0,0.0,Basketware,196207.0
+NB,91,191032.0,0.0,Clocks & watches,191032.0
+NT,85,0.0,189490.0,Electrical equipment,189490.0
+AB,50,179853.0,356.0,Silk,180209.0
+NL,32,155231.0,24045.0,Tanning & dye extracts,179276.0
+YT,99,0.0,178987.0,Confidential / low-value (CA),178987.0
+NT,97,0.0,178156.0,Works of art,178156.0
+PE,68,130.0,175523.0,Stone & cement articles,175653.0
+NU,85,0.0,175433.0,Electrical equipment,175433.0
+YT,38,168173.0,0.0,Misc chemical products,168173.0
+PE,44,0.0,168059.0,Wood & wood articles,168059.0
+PE,58,0.0,166795.0,Special woven fabrics,166795.0
+NS,52,163207.0,1796.0,Cotton,165003.0
+PE,83,1036.0,155919.0,Miscellaneous metal articles,156955.0
+SK,51,140699.0,2037.0,Wool,142736.0
+NB,46,137551.0,0.0,Basketware,137551.0
+YT,29,137344.0,0.0,Organic chemicals,137344.0
+NL,79,129411.0,0.0,Zinc,129411.0
+SK,37,120959.0,0.0,Photographic goods,120959.0
+NL,20,28178.0,92175.0,Prepared vegetables,120353.0
+PE,94,407.0,119229.0,Furniture,119636.0
+NT,87,0.0,114091.0,Vehicles,114091.0
+NB,78,78588.0,29232.0,Lead,107820.0
+NS,14,104354.0,0.0,Vegetable materials,104354.0
+PE,51,94744.0,9097.0,Wool,103841.0
+NL,06,89676.0,8851.0,Live trees & plants,98527.0
+YT,96,486.0,96860.0,Miscellaneous manufactures,97346.0
+YT,40,76523.0,20552.0,Rubber,97075.0
+NB,66,84668.0,12175.0,Umbrellas,96843.0
+YT,28,92469.0,0.0,Inorganic chemicals,92469.0
+PE,75,79876.0,10368.0,Nickel,90244.0
+PE,56,0.0,86354.0,Wadding & felt,86354.0
+YT,01,85000.0,0.0,Live animals,85000.0
+NU,05,0.0,84375.0,Other animal products,84375.0
+PE,97,0.0,84227.0,Works of art,84227.0
+NL,13,82028.0,0.0,Resins & gums,82028.0
+MB,50,80596.0,446.0,Silk,81042.0
+PE,82,13749.0,65091.0,Tools & cutlery,78840.0
+YT,35,78141.0,0.0,Protein substances,78141.0
+NT,03,0.0,75911.0,Fish & seafood,75911.0
+NB,43,74374.0,1441.0,Furskins,75815.0
+SK,45,75717.0,0.0,Cork,75717.0
+PE,71,0.0,71967.0,Precious metals & stones,71967.0
+PE,42,20882.0,50967.0,Leather goods,71849.0
+PE,65,0.0,70847.0,Headgear,70847.0
+SK,80,67914.0,0.0,Tin,67914.0
+YT,94,65003.0,2227.0,Furniture,67230.0
+PE,74,0.0,66932.0,Copper,66932.0
+PE,26,0.0,65325.0,"Ores, slag & ash",65325.0
+YT,44,510.0,63271.0,Wood & wood articles,63781.0
+NL,35,62745.0,479.0,Protein substances,63224.0
+YT,86,54814.0,6489.0,Railway equipment,61303.0
+PE,59,22273.0,35419.0,Coated textiles,57692.0
+YT,76,40177.0,17404.0,Aluminium,57581.0
+YT,31,57186.0,0.0,Fertilizers,57186.0
+NT,84,18920.0,36652.0,Machinery & mechanical appliances,55572.0
+NT,88,13639.0,39554.0,Aircraft & spacecraft,53193.0
+YT,63,51718.0,718.0,Other made-up textiles,52436.0
+NL,49,24216.0,27910.0,Printed books & media,52126.0
+NB,45,51961.0,0.0,Cork,51961.0
+NL,42,35601.0,15972.0,Leather goods,51573.0
+NT,90,0.0,50265.0,Optical & medical instruments,50265.0
+PE,22,7447.0,40003.0,Beverages & spirits,47450.0
+YT,83,46033.0,574.0,Miscellaneous metal articles,46607.0
+SK,66,46580.0,0.0,Umbrellas,46580.0
+NL,17,14662.0,29550.0,Sugars,44212.0
+NL,68,24799.0,18441.0,Stone & cement articles,43240.0
+NL,59,37400.0,5361.0,Coated textiles,42761.0
+NU,62,0.0,42504.0,Woven apparel,42504.0
+YT,27,38578.0,0.0,Mineral fuels & oils,38578.0
+NB,37,38274.0,0.0,Photographic goods,38274.0
+YT,95,2942.0,30624.0,Toys & sports equipment,33566.0
+NB,53,32937.0,546.0,Vegetable textile fibres,33483.0
+NL,65,32850.0,300.0,Headgear,33150.0
+NL,04,0.0,32288.0,Dairy products,32288.0
+PE,47,0.0,30499.0,Wood pulp,30499.0
+YT,89,25605.0,3892.0,Ships & boats,29497.0
+NL,29,2517.0,26961.0,Organic chemicals,29478.0
+NL,36,28487.0,0.0,Explosives,28487.0
+NL,31,3.0,26696.0,Fertilizers,26699.0
+NS,45,25373.0,554.0,Cork,25927.0
+PE,33,0.0,24648.0,Cosmetics & perfumes,24648.0
+NL,08,19179.0,5080.0,Fruit & nuts,24259.0
+NU,74,0.0,23319.0,Copper,23319.0
+NU,95,0.0,23126.0,Toys & sports equipment,23126.0
+NU,72,0.0,22327.0,Iron & steel,22327.0
+NL,57,346.0,21595.0,Carpets,21941.0
+NB,14,21555.0,0.0,Vegetable materials,21555.0
+NU,38,0.0,20955.0,Misc chemical products,20955.0
+YT,10,0.0,20817.0,Cereals,20817.0
+NS,50,20149.0,0.0,Silk,20149.0
+YT,36,19989.0,0.0,Explosives,19989.0
+PE,61,986.0,18628.0,Knitted apparel,19614.0
+YT,97,0.0,18110.0,Works of art,18110.0
+YT,43,0.0,18088.0,Furskins,18088.0
+NL,09,4063.0,12729.0,"Coffee, tea & spices",16792.0
+NL,64,12367.0,4089.0,Footwear,16456.0
+YT,70,435.0,15904.0,Glass,16339.0
+NS,24,15875.0,0.0,Tobacco,15875.0
+PE,32,0.0,13898.0,Tanning & dye extracts,13898.0
+NL,58,2501.0,10763.0,Special woven fabrics,13264.0
+NL,24,13171.0,0.0,Tobacco,13171.0
+PE,95,0.0,12882.0,Toys & sports equipment,12882.0
+YT,51,0.0,12829.0,Wool,12829.0
+YT,25,12728.0,0.0,"Salt, sulphur, stone, cement",12728.0
+SK,50,12667.0,0.0,Silk,12667.0
+NL,11,0.0,11816.0,Milling products,11816.0
+YT,98,10553.0,0.0,Special transactions (CA),10553.0
+NT,38,0.0,9345.0,Misc chemical products,9345.0
+NL,54,8261.0,1009.0,Man-made filaments,9270.0
+YT,48,8317.0,0.0,Paper & paperboard,8317.0
+NU,73,0.0,8238.0,Articles of iron & steel,8238.0
+NL,10,0.0,7428.0,Cereals,7428.0
+NT,42,0.0,7132.0,Leather goods,7132.0
+PE,10,0.0,7048.0,Cereals,7048.0
+YT,75,0.0,6962.0,Nickel,6962.0
+NU,82,0.0,5938.0,Tools & cutlery,5938.0
+NT,43,0.0,5860.0,Furskins,5860.0
+PE,64,0.0,5621.0,Footwear,5621.0
+NL,07,24.0,5424.0,Vegetables,5448.0
+PE,62,100.0,5221.0,Woven apparel,5321.0
+YT,22,84.0,5152.0,Beverages & spirits,5236.0
+YT,72,0.0,4879.0,Iron & steel,4879.0
+NU,43,0.0,4831.0,Furskins,4831.0
+NT,98,0.0,4691.0,Special transactions (CA),4691.0
+NL,67,3728.0,592.0,Feathers & artificial flowers,4320.0
+NU,48,2622.0,1306.0,Paper & paperboard,3928.0
+PE,13,0.0,3850.0,Resins & gums,3850.0
+NT,73,3833.0,0.0,Articles of iron & steel,3833.0
+YT,64,3809.0,0.0,Footwear,3809.0
+NU,76,0.0,3805.0,Aluminium,3805.0
+NL,41,0.0,3673.0,Raw hides & skins,3673.0
+NL,33,2559.0,600.0,Cosmetics & perfumes,3159.0
+PE,96,2636.0,510.0,Miscellaneous manufactures,3146.0
+NL,45,2715.0,0.0,Cork,2715.0
+NL,51,2528.0,0.0,Wool,2528.0
+YT,74,0.0,2310.0,Copper,2310.0
+NU,30,0.0,2241.0,Pharmaceuticals,2241.0
+NL,91,2096.0,0.0,Clocks & watches,2096.0
+NL,69,1717.0,200.0,Ceramic products,1917.0
+PE,25,54.0,1620.0,"Salt, sulphur, stone, cement",1674.0
+YT,42,1633.0,0.0,Leather goods,1633.0
+YT,61,214.0,1342.0,Knitted apparel,1556.0
+YT,69,1532.0,0.0,Ceramic products,1532.0
+NU,49,546.0,964.0,Printed books & media,1510.0
+NT,61,0.0,1380.0,Knitted apparel,1380.0
+NT,82,1369.0,0.0,Tools & cutlery,1369.0
+YT,41,0.0,1275.0,Raw hides & skins,1275.0
+NT,41,0.0,1129.0,Raw hides & skins,1129.0
+NU,75,0.0,1125.0,Nickel,1125.0
+PE,43,0.0,1118.0,Furskins,1118.0
+NU,39,0.0,1114.0,Plastics,1114.0
+NU,98,0.0,1000.0,Special transactions (CA),1000.0
+NT,94,0.0,998.0,Furniture,998.0
+YT,62,0.0,944.0,Woven apparel,944.0
+NT,62,0.0,909.0,Woven apparel,909.0
+NU,89,800.0,0.0,Ships & boats,800.0
+NL,66,747.0,30.0,Umbrellas,777.0
+PE,57,0.0,708.0,Carpets,708.0
+NL,14,0.0,672.0,Vegetable materials,672.0
+NB,50,200.0,419.0,Silk,619.0
+NL,60,527.0,0.0,Knitted fabrics,527.0
+NU,94,0.0,521.0,Furniture,521.0
+NT,63,0.0,499.0,Other made-up textiles,499.0
+NT,40,0.0,497.0,Rubber,497.0
+NU,40,437.0,50.0,Rubber,487.0
+YT,65,0.0,462.0,Headgear,462.0
+NL,55,425.0,0.0,Man-made staple fibres,425.0
+NL,78,424.0,0.0,Lead,424.0
+NL,46,0.0,420.0,Basketware,420.0
+PE,55,0.0,391.0,Man-made staple fibres,391.0
+PE,69,303.0,0.0,Ceramic products,303.0
+NU,96,268.0,0.0,Miscellaneous manufactures,268.0
+NB,24,213.0,0.0,Tobacco,213.0
+YT,68,166.0,0.0,Stone & cement articles,166.0
+YT,55,163.0,0.0,Man-made staple fibres,163.0
+NT,34,0.0,82.0,Soap & cleaning products,82.0
+NL,37,75.0,0.0,Photographic goods,75.0
+YT,56,58.0,0.0,Wadding & felt,58.0
+PE,86,0.0,55.0,Railway equipment,55.0
+YT,57,1.0,0.0,Carpets,1.0
