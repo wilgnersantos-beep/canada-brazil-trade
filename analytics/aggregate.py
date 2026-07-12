@@ -15,9 +15,21 @@ Arquivos gerados:
   countries_monthly.{json,csv}     serie mensal dos top N paises
   commodities.{json,csv}           totais por capitulo HS2
   commodities_monthly.{json,csv}   serie mensal dos top N capitulos HS2
-  provinces.{json,csv}             totais por provincia (importacoes, ultimos 12 meses)
-  provinces_commodities.{json,csv} provincia x HS2 (importacoes, ultimos 12 meses)
+  provinces.{json,csv}             totais por provincia (import+export, ultimos 12 meses, snapshot)
+  provinces_commodities.{json,csv} provincia x HS2 (import+export, ultimos 12 meses, snapshot)
+  provinces_monthly.{json,csv}     serie mensal por provincia (import+export) — usada pelo filtro De/Ate
+  provinces_commodities_monthly.{json,csv}  serie mensal provincia x HS2 (import+export)
   metadata.{json,csv}              metadados do dataset
+
+Provincia nas exportacoes: cada provincia real reflete exportacoes DOMESTICAS
+(produzidas na provincia; validam contra a tabela oficial 12-10-0175). As
+re-exportacoes (mercadoria estrangeira em transito) nao tem provincia de origem
+atribuivel pela StatCan — nem na 12-10-0175, onde "Re-export" so aparece no
+nivel "Canada" — e por isso vao para o bucket "ZZ" (Unspecified). Assim:
+  soma das provincias reais (exports) = exportacao DOMESTICA nacional
+  soma de tudo, incluindo ZZ         = exportacao TOTAL nacional
+Nada e descartado (gap zero preservado). Ver metadata: export_domestic_by_province_cad
+e export_re_export_not_allocated_cad.
 """
 
 from __future__ import annotations
@@ -83,6 +95,14 @@ PROVINCE_DISPLAY: dict[str, str] = {
     "ON": "Ontario", "PE": "Prince Edward Island",
     "QC": "Quebec", "SK": "Saskatchewan", "YT": "Yukon",
 }
+
+# Bucket para exportacoes SEM provincia de origem (re-exportacoes: mercadoria
+# estrangeira em transito). A StatCan nao atribui provincia a re-exportacoes —
+# nem na tabela oficial 12-10-0175. Em vez de descartar, agregamos aqui, de modo
+# que: soma das provincias reais = exportacao DOMESTICA nacional (valida contra a
+# StatCan) e soma de tudo (provincias + ZZ) = exportacao TOTAL nacional.
+UNSPECIFIED_CODE = "ZZ"
+PROVINCE_DISPLAY[UNSPECIFIED_CODE] = "Unspecified (re-exports)"
 
 
 # ── Schema normalisation ──────────────────────────────────────────────────────
@@ -183,68 +203,134 @@ def build_commodities_monthly(df: pd.DataFrame) -> list[dict]:
                   key=lambda r: (r["date"], -r["total"]))
 
 
+def _province_coded(df: pd.DataFrame, trade_type: str) -> pd.DataFrame:
+    """Linhas de um trade_type com uma coluna 'pcode' de provincia normalizada:
+    o codigo real de 2 letras, ou 'ZZ' (Unspecified) para linhas sem provincia
+    de origem — i.e. re-exportacoes, que a StatCan nao atribui a provincia.
+    Nada e descartado, entao a soma sobre 'pcode' == total nacional do trade_type.
+
+    Importacoes: sempre tem provincia (despacho), entao nao geram bucket ZZ.
+    Exportacoes: provincias reais = domestica; ZZ = re-exportacao (residual).
+    """
+    empty = df.iloc[0:0].copy()
+    empty["pcode"] = pd.Series(dtype="object")
+    if "province" not in df.columns:
+        return empty
+    sub = df[df["trade_type"] == trade_type].copy()
+    if sub.empty:
+        return empty
+    p = sub["province"].astype("string").str.strip()
+    is_real = (p.notna() & (p != "") & (p.str.lower() != "none") & (p.str.lower() != "nan")).fillna(False)
+    sub["pcode"] = p.where(is_real, UNSPECIFIED_CODE).astype(str)
+    return sub
+
+
 def build_provinces(df: pd.DataFrame) -> list[dict]:
-    """Importacoes por provincia — janela dos ultimos 12 meses."""
+    """Import + export por provincia — janela dos ultimos 12 meses (snapshot).
+    exports = domestica por provincia (valida); bucket ZZ carrega re-exportacao.
+    """
     if "province" not in df.columns:
         return []
-    imp = df[
-        (df["trade_type"] == "Import") &
-        df["province"].notna() &
-        (df["province"].astype(str).str.strip() != "") &
-        (df["province"].astype(str) != "None")
-    ].copy()
-    if imp.empty:
+    imp_all = _province_coded(df, "Import")
+    exp_all = _province_coded(df, "Export")
+    if imp_all.empty and exp_all.empty:
         return []
 
-    max_date   = imp["date"].max()
+    max_date = max(d for d in [
+        imp_all["date"].max() if not imp_all.empty else None,
+        exp_all["date"].max() if not exp_all.empty else None,
+    ] if d is not None)
     max_period = pd.Period(max_date, "M")
     min_period = max_period - 11
-    imp = imp[(imp["date"] >= str(min_period)) & (imp["date"] <= max_date)]
+    imp = imp_all[(imp_all["date"] >= str(min_period)) & (imp_all["date"] <= max_date)]
+    exp = exp_all[(exp_all["date"] >= str(min_period)) & (exp_all["date"] <= max_date)]
 
-    agg = imp.groupby("province")["value_cad"].sum().reset_index()
-    agg.columns = ["code", "imports"]
+    imp_agg = imp.groupby("pcode")["value_cad"].sum().rename("imports")
+    exp_agg = exp.groupby("pcode")["value_cad"].sum().rename("exports")
+    agg = pd.concat([imp_agg, exp_agg], axis=1).fillna(0).reset_index()
+    agg.columns = ["code", "imports", "exports"]
     agg["name"] = agg["code"].map(PROVINCE_DISPLAY).fillna(agg["code"])
-    agg["exports"] = 0
-    agg["total"] = agg["imports"]
+    agg["total"] = agg["imports"] + agg["exports"]
     agg["period_start"] = str(min_period)
     agg["period_end"]   = str(max_period)
     return sorted(agg.to_dict("records"), key=lambda r: -r["total"])
 
 
 def build_provinces_commodities(df: pd.DataFrame) -> list[dict]:
-    """Importacoes por provincia x HS2 — janela dos ultimos 12 meses."""
+    """Import + export por provincia x HS2 — janela dos ultimos 12 meses (snapshot)."""
     if "province" not in df.columns or "hs2" not in df.columns:
         return []
-    imp = df[
-        (df["trade_type"] == "Import") &
-        df["province"].notna() &
-        (df["province"].astype(str).str.strip() != "") &
-        (df["province"].astype(str) != "None")
-    ].copy()
-    if imp.empty:
+    imp_all = _province_coded(df, "Import")
+    exp_all = _province_coded(df, "Export")
+    if imp_all.empty and exp_all.empty:
         return []
 
-    max_date   = imp["date"].max()
+    max_date = max(d for d in [
+        imp_all["date"].max() if not imp_all.empty else None,
+        exp_all["date"].max() if not exp_all.empty else None,
+    ] if d is not None)
     max_period = pd.Period(max_date, "M")
     min_period = max_period - 11
-    imp = imp[(imp["date"] >= str(min_period)) & (imp["date"] <= max_date)]
+    imp = imp_all[(imp_all["date"] >= str(min_period)) & (imp_all["date"] <= max_date)]
+    exp = exp_all[(exp_all["date"] >= str(min_period)) & (exp_all["date"] <= max_date)]
 
-    agg = imp.groupby(["province", "hs2"])["value_cad"].sum().reset_index()
-    agg.columns = ["code", "hs2", "imports"]
+    imp_agg = imp.groupby(["pcode", "hs2"])["value_cad"].sum().rename("imports")
+    exp_agg = exp.groupby(["pcode", "hs2"])["value_cad"].sum().rename("exports")
+    agg = pd.concat([imp_agg, exp_agg], axis=1).fillna(0).reset_index()
+    agg.columns = ["code", "hs2", "imports", "exports"]
     agg["commodity"] = agg["hs2"].map(HS2_NAMES).fillna(agg["hs2"].apply(lambda x: f"HS {x}"))
-    agg["exports"] = 0
-    agg["total"] = agg["imports"]
+    agg["total"] = agg["imports"] + agg["exports"]
     return sorted(agg.to_dict("records"), key=lambda r: (-r["total"], r["code"]))
 
 
+def build_provinces_monthly(df: pd.DataFrame) -> list[dict]:
+    """Import + export por provincia, serie mensal completa.
+    exports por provincia real = domestica (valida contra a StatCan); o bucket
+    'ZZ' (Unspecified) carrega a re-exportacao. Assim, por mes:
+      soma das provincias reais (exports) = exportacao DOMESTICA nacional
+      soma de tudo, incl. ZZ           = exportacao TOTAL nacional
+    Usada pelo site para somar sob o filtro global De/Ate (sem janela fixa)."""
+    if "province" not in df.columns:
+        return []
+    imp = _province_coded(df, "Import").groupby(["date", "pcode"])["value_cad"].sum().rename("imports")
+    exp = _province_coded(df, "Export").groupby(["date", "pcode"])["value_cad"].sum().rename("exports")
+    if imp.empty and exp.empty:
+        return []
+    agg = pd.concat([imp, exp], axis=1).fillna(0).reset_index()
+    agg.columns = ["date", "code", "imports", "exports"]
+    agg["name"] = agg["code"].map(PROVINCE_DISPLAY).fillna(agg["code"])
+    agg["total"] = agg["imports"] + agg["exports"]
+    return sorted(agg.to_dict("records"), key=lambda r: (r["date"], -r["total"]))
+
+
+def build_provinces_commodities_monthly(df: pd.DataFrame) -> list[dict]:
+    """Import + export por provincia x HS2, serie mensal completa (com bucket ZZ)."""
+    if "province" not in df.columns or "hs2" not in df.columns:
+        return []
+    imp = _province_coded(df, "Import").groupby(["date", "pcode", "hs2"])["value_cad"].sum().rename("imports")
+    exp = _province_coded(df, "Export").groupby(["date", "pcode", "hs2"])["value_cad"].sum().rename("exports")
+    if imp.empty and exp.empty:
+        return []
+    agg = pd.concat([imp, exp], axis=1).fillna(0).reset_index()
+    agg.columns = ["date", "code", "hs2", "imports", "exports"]
+    agg["commodity"] = agg["hs2"].map(HS2_NAMES).fillna(agg["hs2"].apply(lambda x: f"HS {x}"))
+    agg["total"] = agg["imports"] + agg["exports"]
+    return sorted(agg.to_dict("records"), key=lambda r: (r["date"], -r["total"], r["code"]))
+
+
 def build_metadata(df: pd.DataFrame) -> dict:
-    return {
+    meta = {
         "last_updated":  datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "data_source":   "Statistics Canada — CIMT (customs basis, total exports incl. re-exports)",
         "first_period":  str(df["date"].min()),
         "last_period":   str(df["date"].max()),
         "total_rows":    int(len(df)),
     }
+    if "province" in df.columns:
+        exp = df[df["trade_type"] == "Export"]
+        meta["export_domestic_by_province_cad"] = int(exp[exp["province"].notna()]["value_cad"].sum())
+        meta["export_re_export_not_allocated_cad"] = int(exp[exp["province"].isna()]["value_cad"].sum())
+    return meta
 
 
 # ── Save helpers ──────────────────────────────────────────────────────────────
@@ -295,6 +381,8 @@ def main() -> None:
     _save(build_commodities_monthly(df), "commodities_monthly")
     _save(build_provinces(df),           "provinces")
     _save(build_provinces_commodities(df), "provinces_commodities")
+    _save(build_provinces_monthly(df),   "provinces_monthly")
+    _save(build_provinces_commodities_monthly(df), "provinces_commodities_monthly")
 
     # metadata so em JSON
     meta = build_metadata(df)

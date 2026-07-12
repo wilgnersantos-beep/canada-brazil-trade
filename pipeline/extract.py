@@ -5,12 +5,23 @@ Baixa da Statistics Canada (CIMT) apenas os ANOS que ainda tenham meses
 faltando no parquet acumulado (extracao incremental).
 
 Fonte: CIMT-CICM dataset — pub. 71-607-x, produto 2021004
-  Importacoes : CIMT-CICM_Imp_{year}.zip   -> ODPFN014_*.csv  (HS10, detalhe)
-  Exportacoes : CIMT-CICM_Tot_Exp_{year}.zip -> ODPFN017_*.csv (HS8, detalhe)
+  Importacoes : CIMT-CICM_Imp_{year}.zip     -> ODPFN014_*.csv (HS10, detalhe, com provincia)
+  Exportacoes : CIMT-CICM_Tot_Exp_{year}.zip -> ODPFN017_*.csv (HS8, detalhe, SEM provincia)
+  Exp. domesticas (provincia): CIMT-CICM_Dom_Exp_{year}.zip -> ODPFN020_*.csv (HS2, COM provincia)
   Lookup paises: ODPF_6_CtyDesc.TXT (dentro de cada ZIP)
 
 Base de apuracao: alfandega (customs), nao balanco de pagamentos.
 Exportacoes: total (domesticas + re-exportacoes); arquivo "Tot_Exp".
+
+Provincia nas exportacoes: a StatCan NAO atribui provincia de origem para
+re-exportacoes (mercadoria estrangeira em transito, sem producao no Canada) —
+isso vale tambem na tabela oficial 12-10-0175, onde "Re-export" so aparece no
+nivel "Canada", nunca por provincia. Por isso combinamos duas fontes:
+  - ODPFN020 (Dom_Exp, HS2 x pais x provincia): exportacoes domesticas, com provincia.
+  - ODPFN017 (Tot_Exp, HS8): total (domestica + re-exportacao), sem provincia.
+O residual (Tot_Exp - Dom_Exp, por data/hs2/pais) e gravado com province=None,
+representando a parcela de re-exportacao nao atribuivel a uma provincia. Isso
+preserva o total nacional de exportacoes exatamente igual ao ja validado.
 
 MODO DEMO (env DEMO=1): dados sinteticos, sem acesso a internet.
 MODO REAL (env DEMO=0): baixa os ZIPs da StatCan e processa.
@@ -41,6 +52,10 @@ LOG = logging.getLogger(__name__)
 PARQUET_PATH = Path(os.environ.get("PARQUET_PATH", "data/canada_trade_full.parquet"))
 RAW_DIR = Path("data_raw")
 DEMO = os.environ.get("DEMO", "1") == "1"
+# Forca reprocessamento de TODOS os anos (backfill completo), ignorando o
+# incremental. Util para reconstruir a exportacao-por-provincia em bases
+# geradas por pipelines antigos que so tinham exportacao sem provincia.
+REPROCESS_ALL = os.environ.get("REPROCESS_ALL", "0") == "1"
 
 # Ano inicial da serie historica.
 # 2019: primeiro ano com lookup de pais completo (ODPF_6_CtyDesc.TXT ausente em 2014-2018).
@@ -73,23 +88,64 @@ def meses_ja_no_parquet() -> set[str]:
     return set()
 
 
-def anos_a_baixar(meses_existentes: set[str]) -> list[int]:
+def anos_export_sem_provincia() -> set[int]:
+    """
+    Anos cujas EXPORTACOES no parquet nao tem NENHUMA provincia preenchida — i.e.
+    o backfill de exportacao-por-provincia (Dom_Exp) nunca rodou para eles.
+
+    Necessario porque a exportacao-por-provincia foi adicionada depois da carga
+    inicial: um pipeline incremental pula anos ja completos (todos os meses de
+    IMPORTACAO presentes) e, sem esta deteccao, nunca preencheria a provincia das
+    exportacoes desses anos — deixando-as no bucket "sem provincia" para sempre.
+    """
+    if not PARQUET_PATH.exists():
+        return set()
+    import pyarrow.parquet as pq
+    cols = pq.read_schema(PARQUET_PATH).names
+    if not {"date", "trade_type", "province"}.issubset(cols):
+        return set()
+    df = pd.read_parquet(PARQUET_PATH, columns=["date", "trade_type", "province"])
+    exp = df[df["trade_type"] == "Export"].copy()
+    if exp.empty:
+        return set()
+    exp["year"] = exp["date"].str[:4].astype(int)
+    tem_prov = (
+        exp["province"].notna()
+        & (exp["province"].astype(str).str.strip() != "")
+        & (exp["province"].astype(str) != "None")
+    )
+    cobertura = exp.assign(_p=tem_prov).groupby("year")["_p"].any()
+    faltantes = {int(y) for y, tem in cobertura.items() if not tem}
+    if faltantes:
+        LOG.info("[extract] Anos com exportacao SEM provincia (backfill necessario): %s",
+                 sorted(faltantes))
+    return faltantes
+
+
+def anos_a_baixar(meses_existentes: set[str], anos_forcados: set[int] | None = None) -> list[int]:
     """
     Determina quais anos precisam ser (re)baixados.
-    - Anos passados: so se algum mes estiver faltando.
+    - REPROCESS_ALL=1: todos os anos (backfill completo).
+    - Anos passados: se algum mes estiver faltando, OU se estiverem em
+      `anos_forcados` (ex.: exportacao sem provincia — ver anos_export_sem_provincia).
     - Ano corrente: sempre (novos meses chegam ao longo do ano).
     """
     hoje = date.today()
     ano_atual = hoje.year
-    anos = []
-    for ano in range(START_YEAR, ano_atual + 1):
+    todos = list(range(START_YEAR, ano_atual + 1))
+    if REPROCESS_ALL:
+        LOG.info("[extract] REPROCESS_ALL=1 — reprocessando todos os anos: %s", todos)
+        return todos
+
+    anos: set[int] = set(anos_forcados or set())
+    for ano in todos:
         if ano < ano_atual:
             esperados = {f"{ano}-{m:02d}" for m in range(1, 13)}
             if not esperados.issubset(meses_existentes):
-                anos.append(ano)
+                anos.add(ano)
         else:
-            anos.append(ano_atual)  # sempre re-baixa o ano corrente
-    return anos
+            anos.add(ano_atual)  # sempre re-baixa o ano corrente
+    return sorted(anos)
 
 
 def _download(url: str, dest: Path) -> Path:
@@ -157,6 +213,55 @@ def _hs_int_to_str(val: object, digits: int) -> str | None:
     return s.zfill(digits)
 
 
+def _combinar_exportacoes_provincia(
+    df_tot: pd.DataFrame, df_dom: pd.DataFrame
+) -> pd.DataFrame:
+    """
+    Combina exportacoes totais (sem provincia) com exportacoes domesticas
+    (com provincia), preservando o total exato por (date, hs2, country).
+
+    Retorna: linhas com provincia (domesticas, por provincia) + linhas
+    residuais com province=None (re-exportacoes, nao atribuiveis).
+    """
+    chave = ["date", "hs2", "country_code", "country_name"]
+    # dropna=False: alguns registros tem country_code ausente (paises nao
+    # mapeados); sem isso o groupby descarta essas linhas e o total deixa
+    # de bater com o total nacional ja validado.
+    dom_by_key = (
+        df_dom.groupby(chave, dropna=False)["value_cad"].sum().reset_index()
+        .rename(columns={"value_cad": "dom_total"})
+    )
+    tot_by_key = (
+        df_tot.groupby(chave, dropna=False)["value_cad"].sum().reset_index()
+        .rename(columns={"value_cad": "tot_total"})
+    )
+    merged = tot_by_key.merge(dom_by_key, on=chave, how="left")
+    merged["dom_total"] = merged["dom_total"].fillna(0)
+    merged["residual"] = merged["tot_total"] - merged["dom_total"]
+
+    # IMPORTANTE: emite uma linha residual (province=None) para TODA chave de
+    # Tot_Exp, mesmo quando residual == 0. O merge incremental do transform.py
+    # deduplica por (date, trade_type, hs2, country_code, province) substituindo
+    # a linha antiga pela nova de mesma chave; se uma chave que antes tinha
+    # residual > 0 passar a ter residual == 0 (revisao de dados) e a linha for
+    # omitida aqui, a linha antiga (com valor desatualizado) fica orfa no
+    # parquet acumulado e o total passa a ficar errado (contagem duplicada).
+    residual = merged[chave + ["residual"]].copy()
+    residual = residual.rename(columns={"residual": "value_cad"})
+    residual["trade_type"] = "Export"
+    residual["province"] = None
+    residual["value_cad"] = residual["value_cad"].astype("int64")
+
+    cols = ["date", "trade_type", "hs2", "country_code", "country_name", "province", "value_cad"]
+    combinado = pd.concat([df_dom[cols], residual[cols]], ignore_index=True)
+    LOG.info(
+        "  Exportacoes: %d linha(s) com provincia (domestica) + %d residual(is) "
+        "(re-exportacao, sem provincia).",
+        len(df_dom), len(residual),
+    )
+    return combinado
+
+
 def _processar_zip(
     zip_path: Path,
     trade_type: str,
@@ -174,8 +279,9 @@ def _processar_zip(
     """
     with zipfile.ZipFile(zip_path) as zf:
         names = zf.namelist()
-        # CSV de detalhe (HS10 ou HS8)
-        detail_files = [n for n in names if n.endswith(".csv") and csv_filter in n]
+        # CSV de detalhe (HS10, HS8 ou HS2). Usa prefixo "ODPFN{filtro}_" completo —
+        # um filtro como "020" bateria por acidente no sufixo de data (ex. "..._202012N.csv").
+        detail_files = [n for n in names if n.endswith(".csv") and f"ODPFN{csv_filter}_" in n]
         # CSV de referencia HS2 (ODPFN022 para imports, ODPFN021 para exports)
         ref_id = "ODPFN022" if trade_type == "Import" else "ODPFN021"
         ref_files = [n for n in names if n.endswith(".csv") and ref_id in n]
@@ -306,7 +412,8 @@ def baixar_demo(meses_existentes: set[str]) -> None:
 
 def baixar_real(meses_existentes: set[str]) -> None:
     """Baixa os ZIPs da StatCan (CIMT) e processa os anos faltantes."""
-    anos = anos_a_baixar(meses_existentes)
+    # Backfill: reprocessa tambem anos cuja exportacao esta sem provincia.
+    anos = anos_a_baixar(meses_existentes, anos_export_sem_provincia())
     if not anos:
         LOG.info("[extract] Todos os meses estao presentes. Nada a baixar.")
         return
@@ -322,8 +429,10 @@ def baixar_real(meses_existentes: set[str]) -> None:
 
         imp_url = f"{_BASE_URL}/CIMT-CICM_Imp_{ano}.zip"
         exp_url = f"{_BASE_URL}/CIMT-CICM_Tot_Exp_{ano}.zip"
+        domexp_url = f"{_BASE_URL}/CIMT-CICM_Dom_Exp_{ano}.zip"
         imp_zip = RAW_DIR / f"Imp_{ano}.zip"
         exp_zip = RAW_DIR / f"Exp_{ano}.zip"
+        domexp_zip = RAW_DIR / f"DomExp_{ano}.zip"
 
         # Verifica disponibilidade
         try:
@@ -337,6 +446,12 @@ def baixar_real(meses_existentes: set[str]) -> None:
 
         _download(imp_url, imp_zip)
         _download(exp_url, exp_zip)
+        try:
+            _download(domexp_url, domexp_zip)
+        except Exception as e:
+            LOG.warning("  Dom_Exp %d indisponivel (%s) — exportacoes ficarao sem provincia.", ano, e)
+            if domexp_zip.exists():
+                domexp_zip.unlink()
 
         # Lookup de paises (pega do ZIP de importacoes)
         country_map = _parse_country_lookup(imp_zip)
@@ -349,13 +464,26 @@ def baixar_real(meses_existentes: set[str]) -> None:
         )
         df_imp.to_parquet(RAW_DIR / f"{ano}_imp.parquet", index=False)
 
-        # Processa exportacoes
+        # Processa exportacoes totais (domestica + re-exportacao, sem provincia)
         LOG.info("  Processando exportacoes %d…", ano)
         df_exp, ref_exp = _processar_zip(
             exp_zip, "Export", country_map,
             csv_filter="017", hs_col="HS8", hs_digits=8, tem_province=False
         )
-        df_exp.to_parquet(RAW_DIR / f"{ano}_exp.parquet", index=False)
+
+        # Processa exportacoes domesticas (com provincia) e combina com o total,
+        # preservando o total nacional ja validado (ver _combinar_exportacoes_provincia).
+        if domexp_zip.exists():
+            LOG.info("  Processando exportacoes domesticas (provincia) %d…", ano)
+            df_domexp, _ = _processar_zip(
+                domexp_zip, "Export", country_map,
+                csv_filter="020", hs_col="HS2", hs_digits=2, tem_province=True
+            )
+            df_exp_final = _combinar_exportacoes_provincia(df_exp, df_domexp)
+        else:
+            df_exp_final = df_exp
+
+        df_exp_final.to_parquet(RAW_DIR / f"{ano}_exp.parquet", index=False)
 
         # Reconciliacao: detalhe vs referencia HS2
         for df_det, df_ref, tt in [
