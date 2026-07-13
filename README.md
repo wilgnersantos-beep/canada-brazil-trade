@@ -2,8 +2,7 @@
 
 Interactive dashboard and automated data pipeline for **Canada–Brazil bilateral merchandise trade**, built for the **Federation of Canadian-Brazilian Businesses (FCBB)**. A single, self-contained repository that extracts official Statistics Canada data every month — with no servers to manage, no external services, and no manual steps.
 
-**Live dashboard:** https://wilgnersantos-beep.github.io/canada-brazil-trade/
-&nbsp;·&nbsp; Mirror: https://wilgnerch.github.io/canada-brazil-trade/
+**Live dashboard:** [Open the FCBB dashboard](https://wilgnersantos-beep.github.io/canada-brazil-trade/) · [Mirror](https://wilgnerch.github.io/canada-brazil-trade/)
 
 ![Data: Statistics Canada CIMT](https://img.shields.io/badge/Data-Statistics%20Canada%20CIMT-c1331f)
 ![Update: Monthly / Automated](https://img.shields.io/badge/Update-Monthly%20%C2%B7%20Automated-1f7a4d)
