@@ -2094,15 +2094,24 @@ const FLAGS={US:'🇺🇸',CN:'🇨🇳',GB:'🇬🇧',JP:'🇯🇵',DE:'🇩�
 const CNAMES={"US":"United States","CN":"China","MX":"Mexico","GB":"United Kingdom","JP":"Japan","DE":"Germany","KR":"South Korea","VN":"Vietnam","IT":"Italy","FR":"France","BR":"Brazil","IN":"India","CH":"Switzerland","NL":"Netherlands","TW":"Taiwan","PE":"Peru","BE":"Belgium","TH":"Thailand","ES":"Spain","AU":"Australia","ID":"Indonesia","MY":"Malaysia","SE":"Sweden","IE":"Ireland","CA":"Canada","PL":"Poland","SG":"Singapore","TR":"Turkey","HK":"Hong Kong","BD":"Bangladesh","SA":"Saudi Arabia","NO":"Norway","ZA":"South Africa","AT":"Austria","AE":"United Arab Emirates","CO":"Colombia","PH":"Philippines","NG":"Nigeria","CL":"Chile","DK":"Denmark","AR":"Argentina","KH":"Cambodia","PT":"Portugal","FI":"Finland","IL":"Israel","MA":"Morocco","EC":"Ecuador","DZ":"Algeria","NZ":"New Zealand","GT":"Guatemala","CZ":"Czech Republic","DO":"Dominican Republic","HU":"Hungary","NI":"Nicaragua","MR":"Mauritania","SK":"Slovakia","PK":"Pakistan","CI":"Cote d Ivoire","CR":"Costa Rica","RO":"Romania","EG":"Egypt","CU":"Cuba","UA":"Ukraine","BG":"Bulgaria","TT":"Trinidad and Tobago","HN":"Honduras","LK":"Sri Lanka","GR":"Greece","GH":"Ghana","PA":"Panama","KZ":"Kazakhstan","SI":"Slovenia","LT":"Lithuania","HR":"Croatia","TN":"Tunisia","BH":"Bahrain","LU":"Luxembourg","IR":"Iran","BO":"Bolivia","QA":"Qatar","BQ":"Caribbean Netherlands","LV":"Latvia","VE":"Venezuela","GY":"Guyana","SV":"El Salvador","JO":"Jordan","JM":"Jamaica","MT":"Malta","BS":"Bahamas","UY":"Uruguay","IS":"Iceland","EE":"Estonia","BW":"Botswana","OM":"Oman","KE":"Kenya","CD":"DR Congo","KW":"Kuwait","AO":"Angola","RS":"Serbia","LB":"Lebanon","GN":"Guinea","MM":"Myanmar","ET":"Ethiopia","GE":"Georgia","RU":"Russia","BM":"Bermuda","MG":"Madagascar","PY":"Paraguay","HT":"Haiti","TZ":"Tanzania","ZM":"Zambia","CM":"Cameroon","AL":"Albania","SN":"Senegal","IQ":"Iraq","LY":"Libya","SR":"Suriname","PG":"Papua New Guinea","TG":"Togo","UG":"Uganda","MK":"North Macedonia","MZ":"Mozambique","NP":"Nepal","TM":"Turkmenistan","BB":"Barbados","KY":"Cayman Islands","UZ":"Uzbekistan","CY":"Cyprus","NC":"New Caledonia","BJ":"Benin","PM":"Saint Pierre and Miquelon","UM":"US Minor Outlying Islands","CG":"Republic of Congo","MO":"Macao","BA":"Bosnia and Herzegovina","GA":"Gabon","AZ":"Azerbaijan","PF":"French Polynesia","BF":"Burkina Faso","LA":"Laos","LR":"Liberia","AM":"Armenia","MV":"Maldives","KG":"Kyrgyzstan","AF":"Afghanistan","MD":"Moldova","ML":"Mali","MU":"Mauritius","MN":"Mongolia","GL":"Greenland","LC":"Saint Lucia","BN":"Brunei","CW":"Curacao","SL":"Sierra Leone","FO":"Faroe Islands","FJ":"Fiji","VU":"Vanuatu","VC":"Saint Vincent","BZ":"Belize","AG":"Antigua and Barbuda","GM":"Gambia","GD":"Grenada","TC":"Turks and Caicos","RW":"Rwanda","SY":"Syria","SC":"Seychelles","KN":"Saint Kitts and Nevis","ZW":"Zimbabwe","GQ":"Equatorial Guinea","AW":"Aruba","DM":"Dominica","LS":"Lesotho","SX":"Sint Maarten","SZ":"Eswatini","ME":"Montenegro","GU":"Guam","DJ":"Djibouti","VG":"British Virgin Islands","MF":"Saint Martin","CF":"Central African Republic","NE":"Niger","BY":"Belarus","AI":"Anguilla","TJ":"Tajikistan","YE":"Yemen","TD":"Chad","AD":"Andorra","SO":"Somalia","AS":"American Samoa","BI":"Burundi","CV":"Cape Verde","BT":"Bhutan","MW":"Malawi","KM":"Comoros","ST":"Sao Tome and Principe","SD":"Sudan","NF":"Norfolk Island","SS":"South Sudan","NU":"Niue","GW":"Guinea-Bissau","TL":"Timor-Leste","GI":"Gibraltar","MS":"Montserrat","KP":"North Korea","CX":"Christmas Island","AQ":"Antarctica","BL":"Saint Barthelemy","SB":"Solomon Islands","WS":"Samoa","KI":"Kiribati","TO":"Tonga","ER":"Eritrea","PN":"Pitcairn","FK":"Falkland Islands","CK":"Cook Islands","IO":"British Indian Ocean Territory","NR":"Nauru","TF":"French Southern Territories","CC":"Cocos Islands","SH":"Saint Helena","WF":"Wallis and Futuna","BV":"Bouvet Island"};
 const GEO={US:'United States of America',CN:'China',GB:'United Kingdom',JP:'Japan',DE:'Germany',FR:'France',MX:'Mexico',KR:'South Korea',IN:'India',NL:'Netherlands',BE:'Belgium',IT:'Italy',AU:'Australia',BR:'Brazil',CH:'Switzerland',SE:'Sweden',NO:'Norway',ES:'Spain',ZA:'South Africa',VN:'Vietnam',PE:'Peru',ID:'Indonesia',MY:'Malaysia',PL:'Poland',AR:'Argentina',CL:'Chile',TR:'Turkey',IE:'Ireland',DK:'Denmark',AT:'Austria',FI:'Finland',NZ:'New Zealand',NG:'Nigeria',CO:'Colombia',SA:'Saudi Arabia'};
 
-/* ── NUMBER FORMATTING ── */
+/* ── NUMBER FORMATTING ──
+   fmt(n): formatador canonico de valores em CAD (usado por cards, tooltips,
+   eixos, rotulos). Unidade adaptativa K/M/B/T, no maximo 2 casas decimais e
+   SEM lixo de ponto flutuante (arredonda e remove zeros/decimais finais).
+   fmtB(v): mesmo formatador para valores ja em BILHOES (espaco dos graficos,
+   onde os dados passam por toB()). Nunca formate eixos com "/1e9 + 'B'" fixo. */
 function fmt(n){
   if(n==null||isNaN(n))return'—';
   const a=Math.abs(n),s=n<0?'-':'';
-  if(a>=1e12)return s+'$'+(a/1e12).toFixed(2)+'T';
-  if(a>=1e9) return s+'$'+(a/1e9).toFixed(2)+'B';
-  if(a>=1e6) return s+'$'+(a/1e6).toFixed(1)+'M';
-  return(n<0?'-$':'$')+Math.abs(Math.round(n)).toLocaleString();
+  const u=(val,suf,d)=>s+'$'+(+val.toFixed(d))+suf; // (+x.toFixed(d)) remove zeros finais
+  if(a>=1e12)return u(a/1e12,'T',2);
+  if(a>=1e9) return u(a/1e9,'B',2);
+  if(a>=1e6) return u(a/1e6,'M',1);
+  if(a>=1e3) return u(a/1e3,'K',1);
+  return s+'$'+Math.round(a).toLocaleString();
 }
+/* v em bilhoes -> CAD -> fmt. Usar em callbacks de tick/tooltip/label dos graficos. */
+function fmtB(v){return fmt((v||0)*1e9);}
 function toB(n){return n?+(n/1e9).toFixed(3):0;}
 function pct(n){return(n>=0?'+':'')+n.toFixed(1)+'%';}
 
@@ -2212,9 +2221,9 @@ function rb(){
     {label:'Exports CA→BR',data:dates.map(d=>toB(byDate[d]?.e||0)),borderColor:'#1a5c2e',backgroundColor:'rgba(26,92,46,.07)',tension:.3,pointRadius:dates.length>18?0:3,fill:true},
     {label:'Imports CA←BR',data:dates.map(d=>toB(byDate[d]?.i||0)),borderColor:'#f5a623',backgroundColor:'rgba(245,166,35,.07)',tension:.3,pointRadius:dates.length>18?0:3,fill:true},
   ]},options:{responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': $'+c.parsed.y.toFixed(3)+'B'}}},
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmtB(c.parsed.y)}}},
     scales:{x:{ticks:{autoSkip:true,maxTicksLimit:14,font:{size:11}},grid:{display:false}},
-            y:{ticks:{callback:v=>'$'+v+'B',font:{size:11}}}}}});
+            y:{ticks:{callback:fmtB,font:{size:11}}}}}});
 
   /* ── Balance bars ── */
   const balData=dates.map(d=>toB((byDate[d]?.e||0)-(byDate[d]?.i||0)));
@@ -2223,9 +2232,9 @@ function rb(){
     label:'Balance',data:balData,
     backgroundColor:balData.map(v=>v>=0?'rgba(26,92,46,.75)':'rgba(192,57,43,.75)')
   }]},options:{responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'Balance: $'+c.parsed.y.toFixed(3)+'B'}}},
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'Balance: '+fmtB(c.parsed.y)}}},
     scales:{x:{ticks:{autoSkip:true,maxTicksLimit:14,font:{size:11}},grid:{display:false}},
-            y:{ticks:{callback:v=>'$'+v+'B',font:{size:11}}}}}});
+            y:{ticks:{callback:fmtB,font:{size:11}}}}}});
 
   /* ── LatAm peers comparison ── */
   const peers=['MX','BR','CL','AR','CO','PE','UY','EC'];
@@ -2241,8 +2250,8 @@ function rb(){
       backgroundColor:peerData.map(r=>r.c==='BR'?'#1a5c2e':'rgba(26,92,46,.30)'),
       borderColor:peerData.map(r=>r.c==='BR'?'#1a5c2e':'rgba(26,92,46,.50)'),borderWidth:1}]
   },options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
-    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>CNAMES[peerData[c.dataIndex].c]||peerData[c.dataIndex].c+': $'+c.parsed.x.toFixed(2)+'B'}}},
-    scales:{x:{ticks:{callback:v=>'$'+v+'B',font:{size:11}}},y:{ticks:{font:{size:11}}}}}});
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>(CNAMES[peerData[c.dataIndex].c]||peerData[c.dataIndex].c)+': '+fmtB(c.parsed.x)}}},
+    scales:{x:{ticks:{callback:fmtB,font:{size:11}}},y:{ticks:{font:{size:11}}}}}});
 
   /* ── Opportunity matrix: Brazil export potential → Canada ── */
   const hsAgg={};
@@ -2271,10 +2280,10 @@ function rb(){
   }]},options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{display:false},tooltip:{callbacks:{label:(ctx)=>{
       const p=oppPoints[ctx.dataIndex];
-      return[`📦 ${p.label}`,`CA imports: $${p.x.toFixed(1)}B`,`BR strength: ${p.y}/100`,`📌 ${p.note}`];
+      return[`📦 ${p.label}`,`CA imports: ${fmtB(p.x)}`,`BR strength: ${p.y}/100`,`📌 ${p.note}`];
     }}}},
     scales:{
-      x:{title:{display:true,text:"Canada's Import Volume (CAD$B)",font:{size:12}},ticks:{callback:v=>'$'+v+'B'}},
+      x:{title:{display:true,text:"Canada's Import Volume (CAD$)",font:{size:12}},ticks:{callback:fmtB}},
       y:{title:{display:true,text:"Brazil Competitiveness (0–100)",font:{size:12}},min:0,max:100,ticks:{callback:v=>v}},
     }}});
 
@@ -2293,9 +2302,9 @@ function rb(){
   },options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
     plugins:{legend:{display:false},tooltip:{callbacks:{label:(ctx)=>{
       const it=caOpp[ctx.dataIndex];
-      return[`Exports: $${it.exports.toFixed(2)}B`,`CA strength: ${it.score}/100`,`📌 ${it.note}`];
+      return[`Exports: ${fmtB(it.exports)}`,`CA strength: ${it.score}/100`,`📌 ${it.note}`];
     }}}},
-    scales:{x:{ticks:{callback:v=>'$'+v+'B',font:{size:11}}},y:{ticks:{font:{size:11}}}}}});
+    scales:{x:{ticks:{callback:fmtB,font:{size:11}}},y:{ticks:{font:{size:11}}}}}});
 
   /* ── Strategic insights ── */
   document.getElementById('br-insights').innerHTML=INSIGHTS_STATIC.map(ins=>`
@@ -2493,12 +2502,12 @@ function ro(){
     interaction:{mode:'index',intersect:false},
     plugins:{
       legend:{display:false},
-      tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': $'+ctx.parsed.y.toFixed(2)+'B'}}
+      tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+fmtB(ctx.parsed.y)}}
     },
     scales:{
       x:{ticks:{autoSkip:true,maxTicksLimit:14,font:{size:10.5}},grid:{display:false},border:{display:false}},
       y:{min:yMin,max:yMax,
-        ticks:{callback:v=>'$'+v+'B',font:{size:10.5},maxTicksLimit:5},
+        ticks:{callback:fmtB,font:{size:10.5},maxTicksLimit:5},
         grid:{color:'rgba(0,0,0,.05)'},border:{display:false}}
     }}});
 
@@ -2521,11 +2530,11 @@ function ro(){
     interaction:{mode:'index',intersect:false},
     plugins:{
       legend:{display:false},
-      tooltip:{callbacks:{label:ctx=>'Balance: '+(ctx.parsed.y>=0?'+':'')+'$'+ctx.parsed.y.toFixed(2)+'B'}}
+      tooltip:{callbacks:{label:ctx=>'Balance: '+(ctx.parsed.y>=0?'+':'')+fmtB(ctx.parsed.y)}}
     },
     scales:{
       x:{ticks:{autoSkip:true,maxTicksLimit:14,font:{size:10}},grid:{display:false},border:{display:false}},
-      y:{ticks:{callback:v=>(v>=0?'+$':'-$')+Math.abs(v)+'B',font:{size:10},maxTicksLimit:5},
+      y:{ticks:{callback:v=>(v>0?'+':'')+fmtB(v),font:{size:10},maxTicksLimit:5},
         border:{display:false},
         grid:{color:ctx=>ctx.tick.value===0?'rgba(100,116,139,.5)':'rgba(0,0,0,.04)',
               lineWidth:ctx=>ctx.tick.value===0?2:1}}
@@ -2533,7 +2542,7 @@ function ro(){
 
   /* ── Donut: center total text + arc % labels ── */
   const pieTotal=toB(exp)+toB(imp);
-  const pieTotalStr=pieTotal>=1000?'$'+(pieTotal/1000).toFixed(2)+'T':'$'+pieTotal.toFixed(0)+'B';
+  const pieTotalStr=fmtB(pieTotal);
   const doughnutCenterPlugin={
     id:'doughnutCenter',
     afterDraw(chart){
@@ -2582,7 +2591,7 @@ function ro(){
     options:{responsive:true,maintainAspectRatio:false,cutout:'62%',
       plugins:{
         legend:{display:false},
-        tooltip:{callbacks:{label:ctx=>ctx.label+': $'+ctx.parsed.toFixed(1)+'B ('+
+        tooltip:{callbacks:{label:ctx=>ctx.label+': '+fmtB(ctx.parsed)+' ('+
           (pieTotal?ctx.parsed/pieTotal*100:0).toFixed(1)+'%)'}}
       }
     }
@@ -2606,7 +2615,7 @@ function ro(){
   const ldrTotal=toB(leader.t);
   const ldrExp=toB(leader.e);
   const ldrImp=toB(leader.i);
-  const ldrStr=ldrTotal>=1000?'$'+(ldrTotal/1000).toFixed(2)+'T':'$'+ldrTotal.toFixed(0)+'B';
+  const ldrStr=fmtB(ldrTotal);
   const ldrExpPct=ldrTotal>0?(ldrExp/ldrTotal*100).toFixed(0):'50';
   const ldrImpPct=ldrTotal>0?(ldrImp/ldrTotal*100).toFixed(0):'50';
   const ldrEl=document.getElementById('tc-leader');
@@ -2628,8 +2637,8 @@ function ro(){
         <div style="flex:${ldrImpPct};background:#f5a623;border-radius:0 4px 4px 0"></div>
       </div>
       <div style="display:flex;gap:16px;margin-top:7px;font-size:10px;color:#64748b">
-        <span><span style="display:inline-block;width:8px;height:8px;background:#1a5c2e;border-radius:2px;margin-right:4px"></span>Exports $${ldrExp.toFixed(0)}B (${ldrExpPct}%)</span>
-        <span><span style="display:inline-block;width:8px;height:8px;background:#f5a623;border-radius:2px;margin-right:4px"></span>Imports $${ldrImp.toFixed(0)}B (${ldrImpPct}%)</span>
+        <span><span style="display:inline-block;width:8px;height:8px;background:#1a5c2e;border-radius:2px;margin-right:4px"></span>Exports ${fmtB(ldrExp)} (${ldrExpPct}%)</span>
+        <span><span style="display:inline-block;width:8px;height:8px;background:#f5a623;border-radius:2px;margin-right:4px"></span>Imports ${fmtB(ldrImp)} (${ldrImpPct}%)</span>
       </div>
     </div>`;
   }
@@ -2639,11 +2648,7 @@ function ro(){
   /* Bar chart: top 2-10 only, X-axis scaled to #2 max */
   const restMaxB=rest.length?Math.max(...rest.map(r=>toB(r.t))):100;
   const xMax=Math.ceil(restMaxB*1.12/25)*25;
-  const fmtAxis=v=>{
-    if(v===0)return'$0';
-    if(v>=1000)return'$'+(v/1000).toFixed(1)+'T';
-    return'$'+v+'B';
-  };
+  const fmtAxis=fmtB;
   dc('c-tc');
   charts['c-tc']=new Chart(document.getElementById('c-tc'),{type:'bar',data:{
     labels:rest.map((r,i)=>`#${i+2} ${CNAMES[r.c]||r.c}`),
@@ -2656,8 +2661,8 @@ function ro(){
     plugins:{
       legend:{position:'bottom',labels:{font:{size:11},boxWidth:10,padding:14}},
       tooltip:{callbacks:{
-        label:ctx=>ctx.dataset.label+': $'+ctx.parsed.x.toFixed(1)+'B',
-        footer:items=>'Total: $'+items.reduce((s,i)=>s+i.parsed.x,0).toFixed(1)+'B'
+        label:ctx=>ctx.dataset.label+': '+fmtB(ctx.parsed.x),
+        footer:items=>'Total: '+fmtB(items.reduce((s,i)=>s+i.parsed.x,0))
       }}
     },
     scales:{
@@ -2704,7 +2709,7 @@ function rm(){
     {label:'Imports',data:rows.map(r=>toB(r.imports)),backgroundColor:'#f5a623',stack:'s'},
   ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
     scales:{x:{stacked:true,ticks:{autoSkip:true,maxTicksLimit:14,font:{size:11}},grid:{display:false}},
-            y:{stacked:true,ticks:{callback:v=>'$'+v+'B',font:{size:11}}}}}});
+            y:{stacked:true,ticks:{callback:fmtB,font:{size:11}}}}}});
 
   document.getElementById('m-tbody').innerHTML=[...rows].reverse().map((r,i,arr)=>{
     const prow=arr[i+1];
@@ -2743,7 +2748,7 @@ function rc(){
       {label:'Imports',data:top20.map(r=>toB(r.i)),backgroundColor:'#f5a623',stack:'s'},
     ]
   },options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},
-    scales:{x:{stacked:true,ticks:{callback:v=>'$'+v+'B',font:{size:11}}},y:{stacked:true,ticks:{font:{size:11}}}},
+    scales:{x:{stacked:true,ticks:{callback:fmtB,font:{size:11}}},y:{stacked:true,ticks:{font:{size:11}}}},
     onClick:(e,els)=>{if(els.length)openPanel(top20[els[0].index].c,sorted);}
   }});
 
@@ -2819,7 +2824,7 @@ function openPanel(code, sortedOverride){
     {label:'Imports',data:dates.map(d=>toB(byDate[d]?.i||0)),borderColor:'#f5a623',backgroundColor:'rgba(245,166,35,.08)',tension:.3,pointRadius:dates.length>18?0:3,fill:true},
   ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
     scales:{x:{ticks:{autoSkip:true,maxTicksLimit:12,font:{size:10}},grid:{display:false}},
-            y:{ticks:{callback:v=>'$'+v+'B',font:{size:10}}}}}});
+            y:{ticks:{callback:fmtB,font:{size:10}}}}}});
 
   dc('cp-chart-pie');
   charts['cp-chart-pie']=new Chart(document.getElementById('cp-chart-pie'),{type:'doughnut',data:{
@@ -2876,7 +2881,7 @@ function rhs(){
     ]
   },options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
     plugins:{legend:{display:false},tooltip:{callbacks:{title:its=>top20[its[0].dataIndex]?.name||''}}},
-    scales:{x:{stacked:true,ticks:{callback:v=>'$'+v+'B',font:{size:11}}},y:{stacked:true,ticks:{font:{size:11}}}}}});
+    scales:{x:{stacked:true,ticks:{callback:fmtB,font:{size:11}}},y:{stacked:true,ticks:{font:{size:11}}}}}});
 
   document.getElementById('h-tbody').innerHTML=sorted.map(r=>`<tr>
     <td style="color:var(--muted);font-size:12px"><strong>${r.h}</strong></td>
@@ -3122,11 +3127,11 @@ function openProvPanel(code){
       indexAxis:'y',responsive:true,maintainAspectRatio:false,
       plugins:{
         legend:{display:false},
-        tooltip:{callbacks:{label:ctx=>'$'+ctx.parsed.x.toFixed(2)+'B ('+
+        tooltip:{callbacks:{label:ctx=>fmtB(ctx.parsed.x)+' ('+
           (prov.imports>0?(ctx.parsed.x/(prov.imports/1e9)*100).toFixed(1):'0')+'% of province)'}}
       },
       scales:{
-        x:{ticks:{callback:v=>'$'+v+'B',font:{size:10}},grid:{color:'#f0f3f0'}},
+        x:{ticks:{callback:fmtB,font:{size:10}},grid:{color:'#f0f3f0'}},
         y:{ticks:{font:{size:11}}}
       }
     }
@@ -3192,15 +3197,15 @@ function renderProvOverview(){
         plugins:{
           legend:{position:'bottom',labels:{font:{size:11},boxWidth:10,padding:14}},
           tooltip:{callbacks:{
-            label:ctx=>ctx.dataset.label+': $'+ctx.parsed.x.toFixed(1)+'B',
+            label:ctx=>ctx.dataset.label+': '+fmtB(ctx.parsed.x),
             footer:items=>{
               const t=items.reduce((s,i)=>s+i.parsed.x,0);
-              return'Total: $'+t.toFixed(1)+'B ('+(totalAll>0?(t*1e9/totalAll*100).toFixed(1):0)+'% of Canada)';
+              return'Total: '+fmtB(t)+' ('+(totalAll>0?(t*1e9/totalAll*100).toFixed(1):0)+'% of Canada)';
             }
           }}
         },
         scales:{
-          x:{stacked:true,ticks:{callback:v=>'$'+v+'B',font:{size:10}},grid:{color:'#f0f3f0'}},
+          x:{stacked:true,ticks:{callback:fmtB,font:{size:10}},grid:{color:'#f0f3f0'}},
           y:{stacked:true,ticks:{font:{size:11}}}
         },
         onClick:(evt,items)=>{if(items.length){const idx=items[0].index;openProvPanel(sorted[idx].code);}}
