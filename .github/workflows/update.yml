@@ -95,6 +95,10 @@ jobs:
       - name: Agregar -> dados do dashboard (JSON + CSV)
         run: python analytics/aggregate.py
 
+      # ---- 5b. Projecao 1..6 meses do comercio bilateral CA-BR ----------------
+      - name: Projecao -> site/data/forecast.json
+        run: python analytics/forecast.py
+
       # ---- 6. Commita CSVs e JSONs atualizados --------------------------------
       - name: Commitar CSVs e JSONs
         run: |
