@@ -1693,6 +1693,12 @@ z"/>
         <div style="position:relative;flex:1;min-height:240px"><canvas id="c-tc" role="img" aria-label="Top 10"></canvas></div>
         <div class="src-note" style="margin-top:8px" id="tc-note"></div>
       </div>
+      <div class="chart-card" style="display:flex;flex-direction:column">
+        <h3>Provinces by Total Trade</h3>
+        <div class="csub">Imports (province of clearance) + exports (province of origin) · reacts to the date filter</div>
+        <div id="ov-prov" style="flex:1"></div>
+        <div class="src-note" style="margin-top:8px">Excludes re-exports (no province of origin) · Statistics Canada CIMTS</div>
+      </div>
     </div>
   </div>
 
@@ -2159,19 +2165,21 @@ const CA_STRENGTH = {
 };
 
 /* Strategic insight cards */
+/* Qualitative only — no hardcoded dollar figures or period-specific numbers, so
+   these never go stale or contradict the live charts beside them. */
 const INSIGHTS_STATIC = [
   {icon:'🌱',title:'Agri-Food Gap — High Priority',color:'#1a5c2e',
-   text:'Canada imports significant volumes of coffee, tropical fruit and sugar from Asia and Central America. Brazil is the world leader in all three and is under-represented in the Canadian market. Trade facilitation and direct import channels could capture $200M+ in annual incremental flows.'},
+   text:'Canada imports significant volumes of coffee, tropical fruit and sugar, largely from Asia and Central America. Brazil is a world leader in all three yet is under-represented in the Canadian market — trade facilitation and direct import channels could capture meaningful incremental flows.'},
   {icon:'✈️',title:'Aerospace Synergy',color:'#1a5c2e',
-   text:'Both countries operate world-class aerospace industries — Embraer (commercial & executive jets) and Bombardier (business jets & rail). Bilateral supply-chain partnerships, MRO (maintenance, repair & overhaul) facilities and component trade represent multi-year investment opportunities.'},
+   text:'Both countries operate world-class aerospace industries — Embraer (commercial & executive jets) and Bombardier (business jets & rail). Bilateral supply-chain partnerships, MRO (maintenance, repair & overhaul) facilities and component trade represent long-term investment opportunities.'},
   {icon:'⛏️',title:'Critical Minerals — Strategic Fit',color:'#c0392b',
-   text:'Brazil holds the world\'s largest niobium reserves (>90% of global supply), plus major iron ore, aluminium and manganese. Canada is investing heavily in battery supply chains and critical minerals — direct FDI and off-take agreements could secure long-term supply.'},
+   text:'Brazil holds the world\'s largest niobium reserves, plus major iron ore, aluminium and manganese. Canada is investing heavily in battery supply chains and critical minerals — direct investment and off-take agreements could secure long-term supply.'},
   {icon:'🌾',title:'Complementary Agriculture',color:'#1a5c2e',
-   text:'Canada exports wheat, canola and pulses that Brazil needs for its protein-crop industry. Brazil exports soy, corn and sugar that feed Canada\'s food processors. A bilateral agricultural MOU could double agri-food trade within 5 years.'},
+   text:'Canada exports wheat, canola and pulses that Brazil needs for its protein-crop industry. Brazil exports soy, corn and sugar that feed Canada\'s food processors. A bilateral agricultural MOU could meaningfully expand agri-food trade over time.'},
   {icon:'🔋',title:'Clean Energy & Biofuels',color:'#1a5c2e',
-   text:'Brazil generates 85% of electricity from renewables and leads globally in sugarcane ethanol. Canada is building a clean fuel standard and SAF (sustainable aviation fuel) industry — Brazilian ethanol technology and blending credits represent a timely partnership.'},
+   text:'Brazil generates the vast majority of its electricity from renewables and is a global leader in sugarcane ethanol. Canada is building a clean fuel standard and SAF (sustainable aviation fuel) industry — Brazilian ethanol technology and blending credits represent a timely partnership.'},
   {icon:'📈',title:'Market Underpenetration',color:'#c0392b',
-   text:'Brazil is the 9th largest economy globally but typically ranks outside Canada\'s top 15 trade partners. Bilateral trade volume remains well below potential given GDP size, complementary economic structures and CPTPP-adjacent positioning — the gap is an opportunity.'},
+   text:'Brazil is one of the world\'s largest economies yet typically ranks outside Canada\'s top trade partners. Bilateral trade remains well below potential given the size of both economies, complementary economic structures and CPTPP-adjacent positioning — the gap is an opportunity.'},
 ];
 
 /* ══════════════════ BRAZIL FOCUS ══════════════════ */
@@ -2670,6 +2678,64 @@ function ro(){
         grid:{color:'rgba(0,0,0,.05)'},border:{display:false}},
       y:{stacked:true,ticks:{font:{size:10.5}},border:{display:false}}
     }}});
+
+  /* ── Provinces by total trade (respects the global date + type filter) ── */
+  roProv(from,to,type);
+}
+
+/* Overview province highlight — reads provinces_monthly summed over the selected
+   period (same source/filter as the By Province tab), never a fixed 12-month
+   window. ZZ (re-exports, no province of origin) is excluded. */
+function roProv(from,to,type){
+  const el=document.getElementById('ov-prov');
+  if(!el)return;
+  const provs=aggProvinces(from,to,type)
+    .filter(p=>p.code!=='ZZ'&&p.total>0)
+    .sort((a,b)=>b.total-a.total);
+  if(!provs.length){
+    el.innerHTML='<div style="color:var(--muted);font-size:12px;padding:14px 0">No province data for this period.</div>';
+    return;
+  }
+  const grand=provs.reduce((s,p)=>s+p.total,0);
+  const leader=provs[0];
+  const lm=PROVINCE_META[leader.code]||{icon:'',name:leader.name};
+  const lExpPct=leader.total>0?(leader.exports/leader.total*100).toFixed(0):50;
+  const lImpPct=leader.total>0?(leader.imports/leader.total*100).toFixed(0):50;
+  let html=`
+    <div style="background:#f0f9f2;border:1px solid #c3dfc9;border-radius:10px;padding:12px 14px;margin-bottom:12px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px">
+        <div style="display:flex;align-items:center;gap:8px;min-width:0">
+          <span style="font-size:10px;font-weight:700;background:#1a5c2e;color:#fff;border-radius:5px;padding:2px 7px;flex-shrink:0">#1</span>
+          <span style="font-size:13px;font-weight:600;color:#1a1d23;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${lm.icon||''} ${lm.name||leader.name}</span>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#64748b;margin-bottom:2px">Total Trade</div>
+          <div style="font-size:16px;font-weight:700;color:#1a5c2e;letter-spacing:-.02em">${fmt(leader.total)}</div>
+        </div>
+      </div>
+      <div style="height:9px;border-radius:5px;overflow:hidden;display:flex;gap:1px">
+        <div style="flex:${lExpPct};background:#1a5c2e;border-radius:4px 0 0 4px"></div>
+        <div style="flex:${lImpPct};background:#f5a623;border-radius:0 4px 4px 0"></div>
+      </div>
+      <div style="display:flex;gap:16px;margin-top:7px;font-size:10px;color:#64748b">
+        <span><span style="display:inline-block;width:8px;height:8px;background:#1a5c2e;border-radius:2px;margin-right:4px"></span>Exports ${fmt(leader.exports)}</span>
+        <span><span style="display:inline-block;width:8px;height:8px;background:#f5a623;border-radius:2px;margin-right:4px"></span>Imports ${fmt(leader.imports)}</span>
+      </div>
+    </div>
+    <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#64748b;margin-bottom:6px">All provinces · by total trade</div>`;
+  const maxT=leader.total||1;
+  html+=provs.map((p,i)=>{
+    const meta=PROVINCE_META[p.code]||{icon:'',name:p.name};
+    const w=(p.total/maxT*100).toFixed(0);
+    const share=grand>0?(p.total/grand*100).toFixed(1):'0';
+    return`<div style="display:flex;align-items:center;gap:8px;padding:3px 0;font-size:11.5px" title="${meta.name||p.name}: ${fmt(p.total)} (${share}% of provincial trade)">
+      <span style="width:12px;color:var(--muted);text-align:right;font-size:10px;flex-shrink:0">${i+1}</span>
+      <span style="width:34px;flex-shrink:0;font-weight:600">${meta.icon||''} ${p.code}</span>
+      <span style="flex:1;height:6px;background:#eef1ee;border-radius:3px;overflow:hidden;min-width:20px"><span style="display:block;height:100%;width:${w}%;background:${i===0?'#1a5c2e':'#8fb99b'};border-radius:3px"></span></span>
+      <span style="width:60px;text-align:right;font-weight:600;flex-shrink:0">${fmt(p.total)}</span>
+    </div>`;
+  }).join('');
+  el.innerHTML=html;
 }
 
 /* ══════════════════ MONTHLY ══════════════════ */
