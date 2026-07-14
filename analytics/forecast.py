@@ -204,6 +204,9 @@ def build_series(name: str, y_full: pd.Series) -> dict:
         try:
             mean, ci = _fit_forecast(y_tr, H, best["order"], best["sorder"])
             last = y.index[-1]
+            # Trava em 0: valores monetarios nunca sao negativos. O modelo em log
+            # ja garante isso (exp>0), mas o clamp protege qualquer modelo futuro.
+            nn = lambda v: int(round(max(0.0, float(v))))
             for i in range(H):
                 p = last + (i + 1)
                 lo80, up80 = ci[80][0][i], ci[80][1][i]
@@ -212,10 +215,10 @@ def build_series(name: str, y_full: pd.Series) -> dict:
                 sn_val = float(y.iloc[len(y) + i - 12]) if (len(y) + i - 12) >= 0 else None
                 forecast.append({
                     "month": str(p),
-                    "forecast": int(round(float(mean[i]))),
-                    "lower80": int(round(float(lo80))), "upper80": int(round(float(up80))),
-                    "lower95": int(round(float(lo95))), "upper95": int(round(float(up95))),
-                    "naive": None if sn_val is None else int(round(sn_val)),
+                    "forecast": nn(mean[i]),
+                    "lower80": nn(lo80), "upper80": nn(up80),
+                    "lower95": nn(lo95), "upper95": nn(up95),
+                    "naive": None if sn_val is None else nn(sn_val),
                 })
         except Exception as e:
             LOG.warning("  forecast final falhou (%s): %s", name, e)
